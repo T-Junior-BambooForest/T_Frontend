@@ -1,0 +1,23 @@
+.section {
+    width: 100%;
+    height: 50px;
+}
+
+.home-section,
+.forum-section,
+.more-section,
+.option-section {
+    display: inline-flex;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px 70px 0px 70px;
+    cursor: pointer;
+}
+
+.home-section:hover,
+.forum-section:hover,
+.more-section:hover,
+.option-section:hover {
+    border-bottom: 2.5px solid black;
+
+}
