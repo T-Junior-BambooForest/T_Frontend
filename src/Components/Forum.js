@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ForumItem from './ForumItem.js';
-import defaultProps from 'prop-types';
 
 const Forum = () => {
     const [items, setItems] = useState(
@@ -38,7 +37,7 @@ const Forum = () => {
     );
     return (
         <div>
-            <img src='/images/ForumTitleWhite.png' className='forumTitle' />
+            <img src='/images/ForumTitleWhite.png' className='forumTitle' alt='Titlee' />
             {
                 items.map((item) => (
                     <ForumItem
