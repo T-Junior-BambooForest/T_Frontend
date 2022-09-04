@@ -21,3 +21,11 @@
     border-bottom: 2.5px solid black;
 
 }
+
+.home-section-dark:hover,
+.forum-section-dark:hover,
+.more-section-dark:hover,
+.option-section-dark:hover {
+    border-bottom: 2.5px solid white;
+
+}
