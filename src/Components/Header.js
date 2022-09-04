@@ -1,50 +1,61 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import styled, { css } from 'styled-components';
 import '../Styles/Header.css';
 import '../Styles/Header_Section.css'
 
-const Header = () => {
-    const [images, setImages] = useState('Sun');
-    const [logo, setLogo] = useState('T-Logo');
-    const [dark, setDark] = useState(false);
+const Header = ({ images }) => {
 
-    const onClick = () => {
-        if (images === 'Sun') {
-            setImages('Moon');
-            setLogo('T-Logo-White');
-        } else if (images === 'Moon') {
-            setImages('Sun');
-            setLogo('T-Logo');
-        }
-    }
+    const Box = styled.div`
+        ${props =>
+            props.darkMode &&
+            css`
+                border-top:0.2px solid white;
+                background-color:#101010;
+                color:white;
+
+                &:hover {
+                    .home-section:hover,
+                    .forum-section:hover,
+                    .more-section:hover,
+                    .option-section:hover {
+                        border-bottom:2px solid white;
+                    }
+                }
+            `}
+    `;
 
     return (
         <div>
-            <div className='headerBox'
-                style={
-                    images === 'Sun' ? {
-                        backgroundColor: 'white'
-                    } : {
-                        backgroundColor: 'black'
-                    }
-                }>
-                <img src={`/images/${logo}.png`} className='headerLogo' alt='logo' />
-                <img src={`/images/${images}.png`} className='changeModeBtn' alt='changeModeButton' onClick={onClick} />
-            </div>
-
-            <div className='section'>
-                <div className='home-section'>
-                    HOME
+            {images === 'Sun' ? <Box darkMode={false}>
+                <div className='section'>
+                    <div className='home-section'>
+                        HOME
+                    </div>
+                    <div className='forum-section'>
+                        FORUM
+                    </div>
+                    <div className='more-section'>
+                        MORE
+                    </div>
+                    <div className='option-section'>
+                        OPTION
+                    </div>
                 </div>
-                <div className='forum-section'>
-                    FORUM
-                </div>
-                <div className='more-section'>
-                    MORE
-                </div>
-                <div className='option-section'>
-                    OPTION
-                </div>
-            </div>
+            </Box> : <Box darkMode={true}>
+                <div className='section'>
+                    <div className='home-section'>
+                        HOME
+                    </div>
+                    <div className='forum-section'>
+                        FORUM
+                    </div>
+                    <div className='more-section'>
+                        MORE
+                    </div>
+                    <div className='option-section'>
+                        OPTION
+                    </div>
+                </div></Box>}
         </div>
     );
 };
