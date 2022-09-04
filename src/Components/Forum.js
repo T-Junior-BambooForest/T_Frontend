@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ForumItem from './ForumItem.js';
 
-const Forum = () => {
+const Forum = ({ images }) => {
     const [items, setItems] = useState(
         [
             {
@@ -47,6 +47,7 @@ const Forum = () => {
                         date={item.date}
                         profileImg={item.profileImg}
                         contentImg={item.contentImg}
+                        images={images}
                     />
                 ))
             }
