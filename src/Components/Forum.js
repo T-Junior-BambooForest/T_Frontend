@@ -37,7 +37,11 @@ const Forum = ({ images }) => {
     );
     return (
         <div>
-            <img src='/images/ForumTitleWhite.png' className='forumTitle' alt='Titlee' />
+            {images === 'Sun' ?
+                <img src='/images/ForumTitleWhite.png' className='forumTitle' alt='Title' /> :
+                <img src='/images/ForumTitleBlack.png' className='forumTitle' alt='Title' />
+            }
+
             {
                 items.map((item) => (
                     <ForumItem
