@@ -1,0 +1,38 @@
+.section {
+    width: 100%;
+    height: 50px;
+}
+
+.home-section1 {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 13px 0px 0px 30px;
+}
+
+.home-section,
+.forum-section,
+.more-section,
+.option-section {
+    display: inline-flex;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px 70px 0px 70px;
+    cursor: pointer;
+}
+
+.home-section:hover,
+.forum-section:hover,
+.more-section:hover,
+.option-section:hover {
+    border-bottom: 2.5px solid black;
+
+}
+
+.home-section-dark:hover,
+.forum-section-dark:hover,
+.more-section-dark:hover,
+.option-section-dark:hover {
+    border-bottom: 2.5px solid white;
+
+}
