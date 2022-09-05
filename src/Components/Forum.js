@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ForumItem from './ForumItem.js';
+import Write from './Write.js';
 
 const Forum = ({ images }) => {
     const [items, setItems] = useState(
@@ -41,7 +42,7 @@ const Forum = ({ images }) => {
                 <img src='/images/ForumTitleWhite.png' className='forumTitle' alt='Title' /> :
                 <img src='/images/ForumTitleBlack.png' className='forumTitle' alt='Title' />
             }
-
+            <Write />
             {
                 items.map((item) => (
                     <ForumItem
