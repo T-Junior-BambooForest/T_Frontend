@@ -42,7 +42,7 @@ const Forum = ({ images }) => {
                 <img src='/images/ForumTitleWhite.png' className='forumTitle' alt='Title' /> :
                 <img src='/images/ForumTitleBlack.png' className='forumTitle' alt='Title' />
             }
-            <Write />
+            <Write images={images} />
             {
                 items.map((item) => (
                     <ForumItem
