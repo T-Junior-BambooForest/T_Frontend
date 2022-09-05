@@ -3,6 +3,13 @@
     height: 50px;
 }
 
+.home-section1 {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 13px 0px 0px 30px;
+}
+
 .home-section,
 .forum-section,
 .more-section,
