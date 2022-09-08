@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Forum from './Components/Forum';
 import Header from './Components/Header';
+import Write from './Components/Write';
 import './Styles/Header.css';
 
 const App = () => {
@@ -50,7 +51,11 @@ const App = () => {
           </>}
       </div>
       <Header images={images} />
-      <Forum images={images} />
+      {images ?
+        <img src='/images/ForumTitleWhite.png' className='forumTitle' alt='Title' /> :
+        <img src='/images/ForumTitleBlack.png' className='forumTitle' alt='Title' />
+      }
+      <Write images={images} />
     </div>
   );
 };
