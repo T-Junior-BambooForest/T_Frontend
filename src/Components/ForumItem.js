@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import '../Styles/ForumItem.css';
 
 const ForumItem = ({ text, name, date, profileImg, contentImg, images }) => {
