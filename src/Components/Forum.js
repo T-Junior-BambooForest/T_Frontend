@@ -38,7 +38,7 @@ const Forum = ({ images }) => {
     );
     return (
         <div>
-            {images === 'Sun' ?
+            {images ?
                 <img src='/images/ForumTitleWhite.png' className='forumTitle' alt='Title' /> :
                 <img src='/images/ForumTitleBlack.png' className='forumTitle' alt='Title' />
             }

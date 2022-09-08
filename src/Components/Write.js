@@ -5,7 +5,7 @@ import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
 const Write = ({ images }) => {
     return (
         <div>
-            {images === 'Sun' ?
+            {images ?
                 <div className='forumItem'>
                     <div className='forumItemBox'>
                         <form>
