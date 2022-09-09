@@ -41,12 +41,12 @@ const App = () => {
         <img src={`/images/${logo}.png`} className='headerLogo' alt='logo' />
         {images ?
           <>
-            <a href={OAuth} target='_blank'><div className='loginBtn' >로그인</div></a>
+            <a href={OAuth} target='_blank' rel='noreferrer' ><div className='loginBtn' >로그인</div></a>
             <img src={`/images/Sun.png`} className='changeModeBtn' alt='changeModeButton' onClick={onClick} />
           </>
           :
           <>
-            <a href={OAuth} target='blank'><div className='loginBtnDark' >로그인</div></a>
+            <a href={OAuth} target='_blank' rel='noreferrer' ><div className='loginBtnDark' >로그인</div></a>
             <img src={`/images/Moon.png`} className='changeModeBtn' alt='changeModeButton' onClick={onClick} />
           </>}
       </div>
