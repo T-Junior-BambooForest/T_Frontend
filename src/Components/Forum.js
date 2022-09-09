@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ForumItem from './ForumItem.js';
-import Write from './Write.js';
 
 const Forum = ({ images, items }) => {
 

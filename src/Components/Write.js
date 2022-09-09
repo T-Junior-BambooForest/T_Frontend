@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import '../Styles/Write.css';
 import Forum from './Forum';
 
