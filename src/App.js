@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Forum from './Components/Forum';
+import React, { useState } from 'react';
 import Header from './Components/Header';
 import Write from './Components/Write';
 import './Styles/Header.css';
