@@ -47,11 +47,6 @@ const Write = ({ images }) => {
             },
             body: JSON.stringify({
                 postId: items.id,
-                postDate: items.date,
-                content: items.text,
-                username: items.name,
-                contentImage: items.contentImg,
-                profileImage: items.profileImg,
             }),
         }).then((res) => {
             if (res.ok) {
