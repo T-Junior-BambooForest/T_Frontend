@@ -6,7 +6,7 @@ const ForumItem = ({ text, name, date, profileImg, contentImg, images }) => {
 
     return (
         <div>
-            {images === 'Sun' ?
+            {images ?
                 <div className='forumItem'>
                     <div className='forumItemBox'>
                         <img src={profileImg} className='profile' alt='profile' />
@@ -38,4 +38,4 @@ const ForumItem = ({ text, name, date, profileImg, contentImg, images }) => {
     );
 };
 
-export default ForumItem;
+export default React.memo(ForumItem);

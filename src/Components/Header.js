@@ -26,7 +26,7 @@ const Header = ({ images }) => {
 
     return (
         <div>
-            {images === 'Sun' ? <Box darkMode={false}>
+            {images ? <Box darkMode={false}>
                 <div className='section'>
                     <div className='home-section1'>부산소프트웨어마이스터고등학교 대나무숲</div>
                     {/* <div className='home-section'>
