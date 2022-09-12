@@ -89,7 +89,7 @@ const Write = ({ images }) => {
                         <form onSubmit={preventDefault}>
                             <img src='/images/picture.png' className='profile' alt='profile' />
                             <input
-                                className='write'
+                                className='darkWrite'
                                 type='text'
                                 placeholder={'박우빈님, 무슨 생각을 하고 계신가요?'}
                                 value={writeContents}
