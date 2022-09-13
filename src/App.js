@@ -4,10 +4,10 @@ import Write from './Components/Write';
 import './Styles/Header.css';
 
 const App = () => {
+
   const OAuth = `https://bssm.kro.kr/oauth/login?clientId=59b9bb6b&redirectURI=http://bsmboo.kro.kr/oauth`;
   const [images, setImages] = useState(true);
   const [logo, setLogo] = useState('T-Logo');
-
 
   const onClick = () => {
     if (images) {
