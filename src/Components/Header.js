@@ -1,25 +1,16 @@
 import React from 'react';
-import '../Styles/Header.css';
-import '../Styles/Header_Section.css'
+import '../Style/Header.scss';
 
 const Header = () => {
-
     return (
-        <div>
-            <div className='section'>
-                <div className='home-section1'>부산소프트웨어마이스터고등학교 대나무숲</div>
-                {/* <div className='home-section'>
-                        HOME
-                    </div>
-                    <div className='forum-section'>
-                        FORUM
-                    </div>
-                    <div className='more-section'>
-                        MORE
-                    </div>
-                    <div className='option-section'>
-                        OPTION
-                    </div> */}
+        <div className='header_wrap'>
+            <img src='/images/logoBlack.png' alt='로고' className='logo_image'></img>
+            <h1 className='title'>BSMBOO</h1>
+            <h1 className='subtitle'>부산소프트웨어마이스터고 대나무숲</h1>
+            <div className='login_wrap'>
+                <span className='mypage_button'>마이페이지</span>
+                <div className='custom_line' />
+                <span className='login_button'>로그인</span>
             </div>
         </div>
     );
