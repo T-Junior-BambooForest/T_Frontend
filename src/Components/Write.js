@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../Styles/Write.css';
+import '../Styles/editor.css';
 import Forum from './Forum';
+import { Editor } from '@tinymce/tinymce-react';
 
 const Write = ({ images }) => {
+    const editorRef = useRef(null);
+    const log = () => {
+        if (editorRef.current) {
+            console.log(editorRef.current.getContent());
+        }
+    };
+
     const [items, setItems] = useState(
         [
             {
@@ -55,51 +64,35 @@ const Write = ({ images }) => {
         });
     }
 
-    const preventDefault = event => {
-        event.preventDefault();
-    }
-    const [writeContents, setWriteContents] = useState('');
-
-    const onChange = e => {
-        setWriteContents(e.target.value);
-    }
-
     return (
         <div>
-            {images ?
-                <div className='forumItem'>
-                    <div className='forumItemBox'>
-                        <form onSubmit={preventDefault}>
-                            <img src='/images/picture.png' className='profile' alt='profile' />
-                            <input
-                                className='write'
-                                type='text'
-                                placeholder={'박우빈님, 무슨 생각을 하고 계신가요?'}
-                                value={writeContents}
-                                onChange={onChange}
-                            />
-                            <div className='line' />
-                            <input type='submit' value='게시' className='btn' id='writeBtn' />
-                        </form>
-                    </div>
-                </div>
-                :
-                <div className='forumItemDark'>
-                    <div className='forumItemDarkBox'>
-                        <form onSubmit={preventDefault}>
-                            <img src='/images/picture.png' className='profile' alt='profile' />
-                            <input
-                                className='darkWrite'
-                                type='text'
-                                placeholder={'박우빈님, 무슨 생각을 하고 계신가요?'}
-                                value={writeContents}
-                                onChange={onChange}
-                            />
-                            <div className='line' />
-                            <input type='submit' value='게시' className='darkBtn' id='writeBtn' onClick={onSubmit} />
-                        </form>
-                    </div>
-                </div>}
+            <h1 className='post'>글 작성하기</h1>
+            <div className='editorBox'>
+                <Editor
+                    className='editor'
+                    apiKey='iple01nb1njvg519n1xm9kw2ok1gfv0u5jyx4ety2gc2ay16'
+                    onInit={(evt, editor) => editorRef.current = editor}
+                    init={{
+                        language: 'ko_KR',
+                        placeholder: '여기에 글을 작성해주세요!',
+                        height: 200,
+                        width: 865,
+                        skin: '',
+                        menubar: true,
+                        content_css: 'body { margin: 0 auto; }',
+                        plugins: [
+                            'code', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks', 'table', 'wordcount', 'codesample'
+                        ],
+                        toolbar: 'undo redo codesample | bold italic | alignleft alignright aligncenter alignjustify | emoticon image media | preview code',
+
+                        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px; }',
+                    }}
+
+                />
+            </div>
+            <div className='BtnBox'>
+                <button onClick={log} className='submitBtn' >게시하기</button>
+            </div>
             {
                 <Forum
                     images={images}
