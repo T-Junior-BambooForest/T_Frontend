@@ -66,10 +66,7 @@ const Write = () => {
 
     return (
         <div>
-            {localStorage.getItem('theme') === 'dark' ?
-                <h1 className='post'>글 작성하기</h1>
-                :
-                <h1 className='darkPost'>글 작성하기</h1>}
+            <h1 className='post'>글 작성하기</h1>
             <div className='editorBox'>
                 <Editor
                     className='editor'
