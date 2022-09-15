@@ -1,7 +1,7 @@
 import React from 'react';
 import ForumItem from './ForumItem.js';
 
-const Forum = ({ images, items }) => {
+const Forum = ({ items }) => {
 
     return (
         <div>
@@ -14,7 +14,6 @@ const Forum = ({ images, items }) => {
                         date={item.date}
                         profileImg={item.profileImg}
                         contentImg={item.contentImg}
-                        images={images}
                     />
                 ))
             }
