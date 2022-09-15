@@ -1,56 +1,52 @@
-import React, { useState } from 'react';
-import Header from './Components/Header';
-import Write from './Components/Write';
-import './Styles/App.css';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import axios, { AxiosError } from 'axios';
+import Home from './Components/Router/Home';
+import MyPage from './Components/Router/MyPage';
+import Management from './Components/Router/Management';
+import NotFound from './Components/Router/NotFound';
+
+const userInfo = {
+  isLogin: false,
+  usercode: 0,
+  nickname: "",
+  name: "",
+  grade: 0,
+  classNo: 0,
+  studentNo: 0,
+};
 
 const App = () => {
-  const [isLogin, setIsLogin] = useState(false);
-  const [onMode, setOnMode] = useState(true);
-  const [then, setThen] = useState(false);
+  const [user, setUser] = useState(userInfo);
 
-  const onClick = () => {
-    if (onMode) {
-      localStorage.setItem('theme', 'dark')
-      setOnMode(false)
-    } else {
-      localStorage.setItem('theme', 'light')
-      setOnMode(true)
+  useEffect(() => {
+    (async () => {
+      try {
+        setUser({
+          ...(await getUserInfo()).data,
+          isLogin: true,
+        });
+      } catch (error) {
+        if (error instanceof AxiosError && error.response?.status === 401) {
+          setUser((prev) => ({ ...prev, isLogin: false }));
+        }
+      }
+    })();
+  }, []);
 
-    }
-  }
-
-  const onClickGetData = () => {
-    axios
-      .get('https://bssm.kro.kr/oauth/login?clientId=59b9bb6b&redirectURI=http://bsmboo.kro.kr/oauth')
-      .then((response) => {
-        console.log(response.status);
-        console.log(response.data);
-      })
-      .catch((e) => console.log('something went wrong :(', e));
+  const getUserInfo = () => {
+    return axios.get("#", { withCredentials: true });
   };
 
   return (
-    <div className='background'>
-
-
-      <div className='headerBox'>
-        <img src={`/images/T-Logo.png`} className='headerLogo' alt='logo' />
-        {isLogin ?
-          <>
-            {/* 프로필사진 */}
-          </>
-          :
-          <>
-            <button className='loginBtn' onClick={onClickGetData}>로그인</button>
-            <img src={`/images/Sun.png`} className='changeModeBtn' alt='changeModeButton' onClick={onClick} />
-          </>
-        }
-      </div>
-      <Header />
-      <img src='/images/ForumTitleWhite.png' className='forumTitle' alt='Title' />
-      <Write />
-    </div>
+    <Router>
+      <Routes>
+        <Route path={'/'} element={<Home />} />
+        <Route path={'/mypage'} element={<MyPage />} />
+        <Route path={'/management'} element={<Management />} />
+        <Route path={'*'} element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 };
 
