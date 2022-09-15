@@ -1,12 +1,12 @@
 import React from 'react';
 import '../Styles/ForumItem.css';
 
-const ForumItem = ({ text, name, date, profileImg, contentImg, images }) => {
+const ForumItem = ({ text, name, date, profileImg, contentImg }) => {
 
 
     return (
         <div>
-            {images ?
+            {localStorage.getItem('theme') === 'light' ?
                 <div className='forumItem'>
                     <div className='forumItemBox'>
                         <img src={profileImg} className='profile' alt='profile' />
