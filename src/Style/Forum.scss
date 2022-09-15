@@ -1,0 +1,18 @@
+.forum_wrap {
+
+    .article_title_box {
+        display: flex;
+
+        .article_title {
+            margin: 30px auto 0px 8%;
+            font-size: 26px;
+        }
+    }
+
+    .test {
+        margin: 10px auto 0px 8%;
+        width: 84%;
+        height: 120px;
+        border: 2px solid #ccc;
+    }
+}
