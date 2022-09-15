@@ -24,6 +24,7 @@
 .loginBtn {
     float: right;
     display: flex;
+    border: none;
     background-color: #000;
     text-align: center;
     align-items: center;
@@ -38,6 +39,7 @@
 }
 
 .loginBtnDark {
+    border: none;
     float: right;
     display: flex;
     background-color: #fff;
