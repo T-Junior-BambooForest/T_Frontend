@@ -4,7 +4,7 @@ import '../Styles/editor.css';
 import Forum from './Forum';
 import { Editor } from '@tinymce/tinymce-react';
 
-const Write = ({ images }) => {
+const Write = () => {
     const editorRef = useRef(null);
     const log = () => {
         if (editorRef.current) {
@@ -66,7 +66,10 @@ const Write = ({ images }) => {
 
     return (
         <div>
-            <h1 className='post'>글 작성하기</h1>
+            {localStorage.getItem('theme') === 'dark' ?
+                <h1 className='post'>글 작성하기</h1>
+                :
+                <h1 className='darkPost'>글 작성하기</h1>}
             <div className='editorBox'>
                 <Editor
                     className='editor'
@@ -74,10 +77,10 @@ const Write = ({ images }) => {
                     onInit={(evt, editor) => editorRef.current = editor}
                     init={{
                         language: 'ko_KR',
+                        skin: localStorage.getItem('theme') === 'light' ? undefined : 'oxide-dark',
                         placeholder: '여기에 글을 작성해주세요!',
                         height: 200,
                         width: 865,
-                        skin: '',
                         menubar: true,
                         content_css: 'body { margin: 0 auto; }',
                         plugins: [
@@ -95,7 +98,6 @@ const Write = ({ images }) => {
             </div>
             {
                 <Forum
-                    images={images}
                     items={items}
                 />
             };
