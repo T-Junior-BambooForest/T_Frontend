@@ -1,25 +1,19 @@
 import React from 'react';
-import ForumItem from './ForumItem.js';
+import '../Style/Forum.scss';
 
-const Forum = ({ items }) => {
-
+const Forum = () => {
     return (
-        <div>
-            {
-                items.map((item) => (
-                    <ForumItem
-                        key={item.id}
-                        text={item.text}
-                        name={item.name}
-                        date={item.date}
-                        profileImg={item.profileImg}
-                        contentImg={item.contentImg}
-                    />
-                ))
-            }
+        <div className='forum_wrap'>
+            <div className='article_title_box'>
+                <h1 className='article_title'>
+                    게시글
+                </h1>
+            </div>
+            <div className='test' />
+            <div className='test' />
+            <div className='test' />
         </div>
     );
 };
-
 
 export default Forum;
