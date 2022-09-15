@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import '../Styles/Header.css';
 import '../Styles/Header_Section.css'
 
-const Header = ({ images }) => {
+const Header = () => {
 
     const Box = styled.div`
         ${props =>
@@ -26,7 +26,7 @@ const Header = ({ images }) => {
 
     return (
         <div>
-            {images ? <Box darkMode={false}>
+            {localStorage.getItem('theme') === 'light' ? <Box darkMode={false}>
                 <div className='section'>
                     <div className='home-section1'>부산소프트웨어마이스터고등학교 대나무숲</div>
                     {/* <div className='home-section'>
