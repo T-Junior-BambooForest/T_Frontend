@@ -5,16 +5,17 @@ import './Styles/Header.css';
 import axios from 'axios';
 
 const App = () => {
-  const [images, setImages] = useState(true);
   const [logo, setLogo] = useState('T-Logo');
+  const [isLogin, setIsLogin] = useState(false);
+  const [onMode, setOnMode] = useState(true);
 
   const onClick = () => {
-    if (images) {
-      setImages(!images);
-      setLogo('T-Logo-White');
+    if (onMode) {
+      localStorage.setItem('theme', 'dark')
+      setOnMode(false)
     } else {
-      setImages(!images);
-      setLogo('T-Logo');
+      localStorage.setItem('theme', 'light')
+      setOnMode(true)
     }
   }
 
@@ -31,7 +32,7 @@ const App = () => {
   return (
     <div className='background'
       style={
-        images ? {
+        localStorage.getItem('theme') === 'light' ? {
           backgroundColor: 'white',
         } : {
           backgroundColor: 'black'
@@ -41,30 +42,41 @@ const App = () => {
 
       <div className='headerBox'
         style={
-          images ? {
+          localStorage.getItem('theme') === 'light' ? {
             backgroundColor: 'white'
           } : {
             backgroundColor: '#101010'
           }
         }>
-        <img src={`/images/${logo}.png`} className='headerLogo' alt='logo' />
-        {images ?
+        {localStorage.getItem('theme') === 'dark' ?
+          <img src={`/images/T-Logo-White.png`} className='headerLogo' alt='logo' />
+          :
+          <img src={`/images/T-Logo.png`} className='headerLogo' alt='logo' />
+        }
+        {isLogin ?
           <>
-            <button className='loginBtn' onClick={onClickGetData}>로그인</button>
-            <img src={`/images/Sun.png`} className='changeModeBtn' alt='changeModeButton' onClick={onClick} />
+            {/* 프로필사진 */}
           </>
           :
           <>
-            <button className='loginBtnDark' onClick={onClickGetData}>로그인</button>
-            <img src={`/images/Moon.png`} className='changeModeBtn' alt='changeModeButton' onClick={onClick} />
+            {localStorage.getItem('theme') === 'light' ?
+              <>
+                <button className='loginBtn' onClick={onClickGetData}>로그인</button>
+                <img src={`/images/Sun.png`} className='changeModeBtn' alt='changeModeButton' onClick={onClick} />
+              </>
+              :
+              <>
+                <button className='loginBtnDark' onClick={onClickGetData}>로그인</button>
+                <img src={`/images/Moon.png`} className='changeModeBtn' alt='changeModeButton' onClick={onClick} />
+              </>}
           </>}
       </div>
-      <Header images={images} />
-      {images ?
+      <Header />
+      {localStorage.getItem('theme') === 'light' ?
         <img src='/images/ForumTitleWhite.png' className='forumTitle' alt='Title' /> :
         <img src='/images/ForumTitleBlack.png' className='forumTitle' alt='Title' />
       }
-      <Write images={images} />
+      <Write />
     </div>
   );
 };
