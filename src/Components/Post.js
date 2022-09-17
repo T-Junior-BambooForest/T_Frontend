@@ -5,11 +5,11 @@ import Forum from './Forum';
 
 const Post = () => {
     const editorRef = useRef(null);
-    const log = () => {
-        if (editorRef.current) {
-            console.log(editorRef.current.getContent());
-        }
-    };
+    // const log = () => {
+    //     if (editorRef.current) {
+    //         console.log(editorRef.current.getContent());
+    //     }
+    // };
 
     return (
         <div className='article_wrap'>
@@ -26,7 +26,7 @@ const Post = () => {
                         skin: undefined,
                         placeholder: '여기에 글을 작성해주세요!',
                         height: 200,
-                        width: 1200,
+                        width: 900,
                         menubar: true,
                         content_css: 'body { margin: 0 auto; }',
                         plugins: [
