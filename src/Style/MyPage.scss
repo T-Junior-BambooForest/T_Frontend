@@ -1,0 +1,155 @@
+.mypage_wrap {
+
+    .myprofile_title_box {
+        margin-top: 3%;
+        display: flex;
+        justify-content: center;
+
+        .myprofile_title {
+            font-size: 46px;
+        }
+    }
+
+    .myprofile_image_box {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+
+        .myprofile_image {
+            width: 150px;
+            height: 150px;
+            border-radius: 999px;
+            border: 3px solid #ccc;
+        }
+    }
+
+    .user_info_wrap {
+        .user_nickname_box {
+            display: flex;
+            justify-content: center;
+
+            .user_nickname {
+                margin-top: 15px;
+                font-size: 30px;
+                font-weight: 500;
+            }
+        }
+
+        .user_school_info_box {
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+
+            .user_grade,
+            .user_class,
+            .user_number,
+            .user_name {
+                margin: 5px 2px 0px 2px;
+            }
+        }
+
+        .user_change_image_wrap {
+            display: flex;
+            justify-content: center;
+
+            .user_change_profile_box {
+                margin-top: 20px;
+
+                display: inline-block;
+                padding: .5em .75em;
+                color: #999;
+                font-size: inherit;
+                line-height: normal;
+                vertical-align: middle;
+                background-color: #fdfdfd;
+                cursor: pointer;
+                border: 1px solid #ebebeb;
+                border-bottom-color: #e2e2e2;
+
+                input[type=file]::file-selector-button {
+
+                    width: 80px;
+                    height: 30px;
+                    margin-right: 10px;
+                    background-color: #fff;
+                    border: 1px solid gray;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: black;
+                        color: #fff;
+                    }
+                }
+
+                .user_change_file {
+                    width: 50px;
+                    height: 30px;
+                    color: #fff;
+                    background-color: black;
+                    border: 1px solid rgb(49, 49, 49);
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: rgb(147, 147, 147);
+                    }
+                }
+            }
+        }
+
+        .user_change_nickname_wrap {
+            display: flex;
+            justify-content: center;
+
+            .change_nickname_box {
+                width: 362px;
+                margin-top: 10px;
+                height: 42px;
+                display: inline-block;
+                padding: .5em .75em;
+                color: #999;
+                font-size: inherit;
+                line-height: normal;
+                vertical-align: middle;
+                background-color: #fdfdfd;
+                cursor: pointer;
+                border: 1px solid #ebebeb;
+                padding-bottom: 40px;
+
+                .change_button {
+                    float: right;
+                    width: 50px;
+                    height: 30px;
+                    color: #fff;
+                    background-color: black;
+                    border: 1px solid rgb(49, 49, 49);
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: rgb(147, 147, 147);
+                    }
+                }
+            }
+
+            input[type=text] {
+                margin-left: 5px;
+                border: none;
+                width: 250px;
+                height: 33px;
+                outline: none;
+            }
+        }
+
+        .management_page {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+
+            .management_button {
+                font-size: 14px;
+                cursor: pointer;
+                color: rgb(58, 58, 255);
+            }
+        }
+    }
+
+}

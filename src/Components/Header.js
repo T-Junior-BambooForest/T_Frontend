@@ -1,25 +1,22 @@
 import React from 'react';
-import '../Styles/Header.css';
-import '../Styles/Header_Section.css'
+import { Link } from 'react-router-dom';
+import '../Style/Header.scss';
 
-const Header = () => {
+const Header = ({ isLogin }) => {
 
     return (
-        <div>
-            <div className='section'>
-                <div className='home-section1'>부산소프트웨어마이스터고등학교 대나무숲</div>
-                {/* <div className='home-section'>
-                        HOME
-                    </div>
-                    <div className='forum-section'>
-                        FORUM
-                    </div>
-                    <div className='more-section'>
-                        MORE
-                    </div>
-                    <div className='option-section'>
-                        OPTION
-                    </div> */}
+        <div className='header_wrap'>
+            <img src='/images/logoBlack.png' alt='로고' className='logo_image'></img>
+            <Link to='/' className='title_link_tag'><h1 className='title'>BSMBOO</h1></Link>
+            <h1 className='subtitle'>부산소프트웨어마이스터고 대나무숲</h1>
+            <div className='login_wrap'>
+                {isLogin ?
+                    <Link to='/mypage' className='mypage_button'>마이페이지</Link>
+                    :
+                    <Link to='/login' className='mypage_button'>마이페이지</Link>
+                }
+                <div className='custom_line' />
+                <a className='login_button' href='https://bssm.kro.kr/oauth/login?clientId=59b9bb6b&redirectURI=http://bsmboo.kro.kr/oauth'>로그인</a>
             </div>
         </div>
     );
