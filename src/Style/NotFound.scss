@@ -1,0 +1,16 @@
+.not_found_wrap {
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .not_found_page {
+        font-size: 35px;
+    }
+
+    .home_button {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+}

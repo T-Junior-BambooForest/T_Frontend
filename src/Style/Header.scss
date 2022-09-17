@@ -30,6 +30,16 @@
             float: right;
             font-size: 16px;
             margin-right: 12px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .only_login_button {
+            float: right;
+            font-size: 16px;
+            margin-right: 40px;
+            text-decoration: none;
+            color: black;
         }
 
         .custom_line {
@@ -43,7 +53,14 @@
             float: right;
             font-size: 16px;
             margin: 0px 40px 0px 12px;
+            text-decoration: none;
+            color: black;
         }
     }
 
+}
+
+.title_link_tag {
+    text-decoration: none;
+    color: black;
 }
