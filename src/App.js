@@ -5,6 +5,7 @@ import Home from './Components/Router/Home';
 import MyPage from './Components/Router/MyPage';
 import Management from './Components/Router/Management';
 import NotFound from './Components/Router/NotFound';
+import Login from './Components/Router/Login';
 
 const userInfo = {
   isLogin: false,
@@ -41,9 +42,10 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path={'/'} element={<Home />} />
+        <Route path={'/'} element={<Home isLogin={userInfo.isLogin} />} />
         <Route path={'/mypage'} element={<MyPage />} />
         <Route path={'/management'} element={<Management />} />
+        <Route path={'/login'} element={<Login />} />
         <Route path={'*'} element={<NotFound />} />
       </Routes>
     </Router>
