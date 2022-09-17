@@ -2,10 +2,10 @@ import React from 'react';
 import Header from '../Header';
 import Post from '../Post';
 
-const Home = () => {
+const Home = ({ isLogin }) => {
     return (
         <div>
-            <Header />
+            <Header isLogin={isLogin} />
             <Post />
         </div>
     );
