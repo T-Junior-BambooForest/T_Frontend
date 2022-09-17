@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Style/Forum.scss';
+import PostItem from './PostItem';
 
 const Forum = () => {
     return (
@@ -9,9 +10,15 @@ const Forum = () => {
                     게시글
                 </h1>
             </div>
-            <div className='test' />
-            <div className='test' />
-            <div className='test' />
+            <div>
+                {/* {props.map((prop) => {
+                    <PostItem
+                        key={key}
+                    />
+                })
+                } */}
+                <PostItem />
+            </div>
         </div>
     );
 };
