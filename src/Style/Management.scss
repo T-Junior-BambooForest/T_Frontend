@@ -9,7 +9,7 @@ $content_image_width: 96%;
     }
 }
 
-.content_box_wrap {
+.content_box_wrap_m {
     max-height: fit-content;
     width: 62.5%;
     margin: 10px 0px 0px 20%;
@@ -17,14 +17,14 @@ $content_image_width: 96%;
     box-shadow: 1px 1px 1px 1px rgb(153, 153, 153);
     border-radius: 2px;
 
-    .content_box {
+    .content_box_m {
         max-height: fit-content;
         margin: 10px 0px 10px 5px;
 
-        .profile_image_box {
+        .profile_image_box_m {
             float: left;
 
-            .profile_image {
+            .profile_image_m {
                 margin-left: 5px;
                 width: 40px;
                 height: 40px;
@@ -32,20 +32,20 @@ $content_image_width: 96%;
             }
         }
 
-        .user_box {
+        .user_box_m {
             float: left;
             margin-top: 3px;
             margin-left: 5px;
 
-            .user_name_box {
-                .user_name {
+            .user_name_box_m {
+                .user_name_m {
                     font-size: 16px;
                     font-weight: 600;
                 }
             }
 
-            .post_date_box {
-                .post_date {
+            .post_date_box_m {
+                .post_date_m {
                     font-size: 12px;
                     font-weight: 500;
                     color: rgb(153, 153, 153);
@@ -88,7 +88,7 @@ $content_image_width: 96%;
 
         }
 
-        .custom_line {
+        .custom_line_m {
             background-color: rgb(208, 208, 208);
             clear: left;
             margin-left: -3px;
@@ -97,23 +97,23 @@ $content_image_width: 96%;
 
         }
 
-        .contents {
+        .contents_m {
             word-break: break-all;
             width: 96%;
             height: fit-content;
             margin: 10px auto 10px 2%;
 
-            .content {
+            .content_m {
                 font-size: 14px;
                 font-weight: 400;
             }
         }
 
-        .content_image_box {
+        .content_image_box_m {
             display: flex;
             justify-content: center;
 
-            .content_image {
+            .content_image_m {
                 margin-left: 2%;
                 margin-right: auto;
                 width: 300px;
