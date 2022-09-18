@@ -1,15 +1,22 @@
 .article_wrap {
+    display: flex;
+    justify-content: center;
 
-    .post_title_box {
-        display: flex;
+    .article_box {
+        width: 65vw;
 
-        .post_title {
-            margin: 20px auto 10px 20%;
-            font-size: 22px;
+        .post_title_box {
+
+            .post_title {
+                margin-top: 20px;
+                margin-bottom: 10px;
+                font-size: 22px;
+            }
         }
-    }
 
-    .editor_box {
-        margin: 0px 0px 0px 20%;
+        .editor_box {
+            display: flex;
+            justify-content: center;
+        }
     }
 }
