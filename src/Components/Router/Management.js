@@ -28,6 +28,48 @@ const Management = () => {
                 isAnony: true,
                 image: '/images/picture.png',
             },
+            {
+                id: '5',
+                text: 'sadnclacnlsacnlskcnlsaasdsklnfkldsvkldvlkdalkfdnalkasdklakdlnclksanclksnakcnsalkcnadlkcnaldkncaslkckadncalkncklascklasnclkanslkcanslkanlvnalkvnaslkvnsalkvnaslknvlkasnvlsanlk',
+                isAnony: true,
+            },
+            {
+                id: '6',
+                text: 'saadsgdsagbdadnclacnlsacnlskcnlsaas',
+                isAnony: false,
+            },
+            {
+                id: '7',
+                text: 'sadnclacnlsacasdvasdbsdabvdavjdabkvjabsjkvbsakjvbaskjvbjkasvn jkasnvkjadnvjkadnkjvadvnlskcnlsaas',
+                isAnony: false,
+            },
+            {
+                id: '8',
+                text: 'sadnclacnlsacnlsk',
+                isAnony: true,
+                image: '/images/picture.png',
+            },
+            {
+                id: '9',
+                text: 'sadnclacnlsacnlskcnlsaasdsklnfkldsvkldvlkdalkfdnalkasdklakdlnclksanclksnakcnsalkcnadlkcnaldkncaslkckadncalkncklascklasnclkanslkcanslkanlvnalkvnaslkvnsalkvnaslknvlkasnvlsanlk',
+                isAnony: true,
+            },
+            {
+                id: '10',
+                text: 'saadsgdsagbdadnclacnlsacnlskcnlsaas',
+                isAnony: false,
+            },
+            {
+                id: '11',
+                text: 'sadnclacnlsacasdvasdbsdabvdavjdabkvjabsjkvbsakjvbaskjvbjkasvn jkasnvkjadnvjkadnkjvadvnlskcnlsaas',
+                isAnony: false,
+            },
+            {
+                id: '12',
+                text: 'sadnclacnlsacnlsk',
+                isAnony: true,
+                image: '/images/picture.png',
+            },
         ]
     )
 
