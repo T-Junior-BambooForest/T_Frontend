@@ -20,14 +20,14 @@ const App = () => {
   });
 
   const getUserInfo = () => {
-    // return axios.get('https://fakedataapi.vercel.app')
-    //   .then(response => {
-    //     try {
-    //       console.log(response);
-    //     } catch (Error) {
-    //       console.log(Error)
-    //     }
-    //   });
+    return axios.get('bssm.kro.kr/islogin')
+      .then(response => {
+        try {
+          console.log(response);
+        } catch (Error) {
+          console.log(Error)
+        }
+      });
   };
 
   useEffect(() => {
