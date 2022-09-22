@@ -7,42 +7,27 @@ import Management from './Components/Router/Management';
 import NotFound from './Components/Router/NotFound';
 import Login from './Components/Router/Login';
 
-const userInfo = {
-  isLogin: false,
-  usercode: 0,
-  nickname: "",
-  name: "",
-  grade: 0,
-  classNo: 0,
-  studentNo: 0,
-};
-
 const App = () => {
-  const [user, setUser] = useState(userInfo);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        setUser({
-          ...(await getUserInfo()).data,
-          isLogin: true,
-        });
-      } catch (error) {
-        if (error instanceof AxiosError && error.response?.status === 401) {
-          setUser((prev) => ({ ...prev, isLogin: false }));
-        }
-      }
-    })();
-  }, []);
 
   const getUserInfo = () => {
-    return axios.get("#", { withCredentials: true });
+    return axios.get('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => {
+        try {
+          console.log(response);
+        } catch (Error) {
+          console.log(Error)
+        }
+      });
   };
+
+  useEffect(() => {
+    getUserInfo();
+  }, [])
 
   return (
     <Router>
       <Routes>
-        <Route path={'/'} element={<Home isLogin={userInfo.isLogin} />} />
+        <Route path={'/'} element={<Home />} />
         <Route path={'/mypage'} element={<MyPage />} />
         <Route path={'/management'} element={<Management />} />
         <Route path={'/login'} element={<Login />} />
