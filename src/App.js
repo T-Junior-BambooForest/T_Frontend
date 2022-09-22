@@ -8,16 +8,26 @@ import NotFound from './Components/Router/NotFound';
 import Login from './Components/Router/Login';
 
 const App = () => {
+  const [userInfo, setUserInfo] = useState({
+    isLogin: true,
+    usercode: 57,
+    nickname: "ubinp",
+    name: "박우빈",
+    grade: 1,
+    classNo: 4,
+    studentNo: 9,
+    isManager: true,
+  });
 
   const getUserInfo = () => {
-    return axios.get('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => {
-        try {
-          console.log(response);
-        } catch (Error) {
-          console.log(Error)
-        }
-      });
+    // return axios.get('https://fakedataapi.vercel.app')
+    //   .then(response => {
+    //     try {
+    //       console.log(response);
+    //     } catch (Error) {
+    //       console.log(Error)
+    //     }
+    //   });
   };
 
   useEffect(() => {
@@ -27,11 +37,11 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path={'/'} element={<Home />} />
-        <Route path={'/mypage'} element={<MyPage />} />
-        <Route path={'/management'} element={<Management />} />
-        <Route path={'/login'} element={<Login />} />
-        <Route path={'*'} element={<NotFound />} />
+        <Route path={'/'} element={<Home isLogin={userInfo} />} />
+        <Route path={'/mypage'} element={<MyPage userInfo={userInfo} />} />
+        <Route path={'/management'} element={<Management userInfo={userInfo} />} />
+        <Route path={'/login'} element={<Login userInfo={userInfo} />} />
+        <Route path={'*'} element={<NotFound userInfo={userInfo} />} />
       </Routes>
     </Router>
   );
