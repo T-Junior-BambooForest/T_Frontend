@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Header from '../Header';
 import '../../Style/Management.scss';
 
-const Management = () => {
-    const isManager = true;
+const Management = ({ }) => {
+
     const [testUser, setTestUser] = useState(
         [
             {
@@ -79,10 +79,11 @@ const Management = () => {
 
     return (
         <div>
-            {!isManager ?
+            {/* { ?
                 <Navigate to='!' replace={true} />
                 : null
-            }
+            } */}
+
             <Header />
             <div className='management_title_box'>
                 <h1 className='management_title'>
@@ -118,7 +119,7 @@ const Management = () => {
                         <div key={user.id}
                             className='management_content_box' >
                             <div className='management_id_box'>
-                                <span className='management_id'>{user.id}</span>
+                                <span className='management_id'>{testUser.id}</span>
                             </div>
                             <div className='management_text_box'>
                                 <span className='management_text'>{
@@ -127,9 +128,9 @@ const Management = () => {
                                         user.text
                                 }
                                 </span>
-                                <button className='text_detail_btn' onClick={onClickTextDetail} value={user.text}>보기</button>
+                                <button className='text_detail_btn' onClick={onClickTextDetail} value={testUser.text}>보기</button>
                                 <div className='custome_line' />
-                                <span className='management_isAnony'>{user.isAnony ? '익명' : '비익명'}</span>
+                                <span className='management_isAnony'>{testUser.isAnony ? '익명' : '비익명'}</span>
                                 <div className='custome_line' />
                                 <img src='/images/picture.png' alt='images' className='img_preview' />
                                 <div className='custome_line' />
