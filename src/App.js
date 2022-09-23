@@ -32,7 +32,7 @@ const App = () => {
 
   useEffect(() => {
     getUserInfo();
-  }, [])
+  })
 
   return (
     <Router>
