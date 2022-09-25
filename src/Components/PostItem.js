@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Style/PostItem.scss';
 
-const PostItem = () => {
+const PostItem = ({ text, name }) => {
     return (
         <div className='content_box_wrap'>
             <div className='content_box'>
@@ -10,7 +10,7 @@ const PostItem = () => {
                 </div>
                 <div className='user_box'>
                     <div className='user_name_box'>
-                        <h1 className='user_name'>username</h1>
+                        <h1 className='user_name'>{name}</h1>
                     </div>
                     <div className='post_date_box'>
                         <h1 className='post_date'>2022년 9월 31</h1>
@@ -19,7 +19,7 @@ const PostItem = () => {
                 <div className='custom_line' />
                 <div className='contents'>
                     <h1 className='content'>
-                        just longer letter just longer letter just longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letter
+                        {text}
                     </h1>
                 </div>
                 <div className='content_image_box'>
@@ -30,4 +30,4 @@ const PostItem = () => {
     );
 };
 
-export default PostItem;
+export default React.memo(PostItem);
