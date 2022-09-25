@@ -8,7 +8,7 @@ import NotFound from './Components/Router/NotFound';
 import Login from './Components/Router/Login';
 
 const App = () => {
-  const [userInfo, setUserInfo] = useState({
+  const [userInfo, setUserInfo] = useState([{
     isLogin: true,
     usercode: 57,
     nickname: "ubinp",
@@ -17,7 +17,7 @@ const App = () => {
     classNo: 4,
     studentNo: 9,
     isManager: true,
-  });
+  }]);
 
   const getUserInfo = () => {
     return axios.get('bssm.kro.kr/islogin')
@@ -37,7 +37,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path={'/'} element={<Home isLogin={userInfo} />} />
+        <Route path={'/'} element={<Home userInfo={userInfo} />} />
         <Route path={'/mypage'} element={<MyPage userInfo={userInfo} />} />
         <Route path={'/management'} element={<Management userInfo={userInfo} />} />
         <Route path={'/login'} element={<Login userInfo={userInfo} />} />
