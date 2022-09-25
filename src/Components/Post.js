@@ -1,15 +1,71 @@
-import React, { useRef } from 'react';
-import { Editor } from '@tinymce/tinymce-react';
+import React, { useCallback, useState } from 'react';
 import '../Style/Post.scss';
+import axios from 'axios';
 import Forum from './Forum';
 
-const Post = () => {
-    const editorRef = useRef(null);
-    // const log = () => {
-    //     if (editorRef.current) {
-    //         console.log(editorRef.current.getContent());
-    //     }
-    // };
+const Post = ({ userInfo }) => {
+    const [date] = useState(new Date());
+    const [isAnony, setIsAnony] = useState(true);
+    const [postInfo, setPostInfo] = useState([
+        {
+            postId: 1,
+            postDate: date,
+            text: 'ㅁ',
+        },
+        {
+            postId: 2,
+            postDate: date,
+            text: 'ㄴ',
+        },
+        {
+            postId: 3,
+            postDate: date,
+            text: 'ㅇㄴ머ㅜ람ㅍ',
+        },
+    ])
+
+    const onClickIsAnony = useCallback(() => {
+        setIsAnony(!isAnony);
+    }, [isAnony])
+
+    const onSubmit = useCallback((e) => {
+        e.preventDefault();
+        isAnony ? (
+            axios
+                .post(
+                    '/bsmboo.kro.kr/users/login',
+                    { postInfo },
+                    { withCredentials: true, }
+                )
+                .then(() => {
+                    // revalidate();
+                })
+                .catch((error) => {
+                    alert(error);
+                })
+        ) : (
+            axios
+                .post(
+                    '/bsmboo.kro.kr/users/login',
+                    { userInfo, postInfo },
+                    { withCredentials: true, }
+                )
+                .then(() => {
+                    // revalidate();
+                })
+                .catch((error) => {
+                    alert(error);
+                })
+        )
+
+    }, [isAnony, postInfo, userInfo]
+    );
+
+    const onChangeText = useCallback((e) => {
+        setPostInfo({
+            text: e.target.value
+        })
+    }, [])
 
     return (
         <div className='article_wrap'>
@@ -18,29 +74,17 @@ const Post = () => {
                     <h1 className='post_title'>글 작성하기</h1>
                 </div>
                 <div className='editor_box'>
-                    <Editor
-                        className='editor'
-                        apiKey='iple01nb1njvg519n1xm9kw2ok1gfv0u5jyx4ety2gc2ay16'
-                        onInit={(evt, editor) => editorRef.current = editor}
-                        init={{
-                            language: 'ko_KR',
-                            skin: undefined,
-                            placeholder: '여기에 글을 작성해주세요!',
-                            height: 200,
-                            width: '65vw',
-                            menubar: true,
-                            content_css: 'body { margin: 0 auto; }',
-                            plugins: [
-                                'code', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks', 'table', 'wordcount', 'codesample'
-                            ],
-                            toolbar: 'undo redo codesample | bold italic | alignleft alignright aligncenter | emoticon image media ',
-
-                            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px; }',
-                        }}
-
-                    />
+                    <form onSubmit={onSubmit}>
+                        <input type='text' className='editor' onChange={onChangeText} />
+                        <label htmlFor='anony-button'>익명 여부</label>
+                        <input type='button' id='anony-button' onClick={onClickIsAnony} value='✓' />
+                        <button type='submit'>게시</button>
+                    </form>
                 </div>
-                <Forum />
+                <Forum
+                    postInfo={postInfo}
+                    userInfo={userInfo}
+                />
             </div>
         </div>
 
