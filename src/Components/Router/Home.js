@@ -2,11 +2,11 @@ import React from 'react';
 import Header from '../Header';
 import Post from '../Post';
 
-const Home = ({ isLogin }) => {
+const Home = ({ userInfo }) => {
     return (
         <div>
-            <Header isLogin={isLogin} />
-            <Post />
+            <Header userInfo={userInfo} />
+            <Post userInfo={userInfo} />
         </div>
     );
 };
