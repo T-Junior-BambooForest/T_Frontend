@@ -17,6 +17,8 @@ const Header = ({ userInfo }) => {
                 </div>
                 <div className='login_btn'>
                     <span>LOGIN</span>
+                    &nbsp;|&nbsp;
+                    <span>MYPAGE</span>
                 </div>
             </div>
             <div className='title_box_wrap'>
