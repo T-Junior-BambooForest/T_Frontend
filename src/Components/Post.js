@@ -11,7 +11,7 @@ const Post = ({ userInfo }) => {
         {
             postId: 1,
             postDate: date,
-            text: 'ㅁ',
+            text: 'ah deu di oh da hat da!',
         },
         {
             postId: 2,
@@ -21,7 +21,7 @@ const Post = ({ userInfo }) => {
         {
             postId: 3,
             postDate: date,
-            text: 'ㅇㄴ머ㅜ람ㅍ',
+            text: 'ㅇㄴ머ㅜ람ㅍnaslkfnklsancaslkckasncsanlkcsanvkndabjndjbnvadlsjkcnjksfbnrwljiefdsfnbvfcjkdsfbhgkvjdhcjkldshklsahjdfldshdjlkdahjcfkashkdhsadksakjdaslkjdfhdasljkfklfjhfaskjcbvjdfslbvfajksbcvkjfsbkjsabvlkjfdsbkjldfnvkjdsancvjkfsbnvkdajvjsdlkbvjkdnvkadnbkjdflfcasjknvbklfahcxaosugvuydsghfiwrefuidlashbl fghgifdahnblfcojdblejrwopejwsoidjbnlerkjnxiadnvdsk;nvkjbfdnbjlkenfgjkdsnfkjvflnsvkjfndkbjfngfldfjc;ioadjofwirhorwiefpi;asjdcklsamvklfdbklsdaldasxlksmckdfjbnfsjklfnlskdnjsa;텀ㄴㄹ가힏버이ㅏ저이ㅏㅈㅂㄷ;ㅈㅂㄷㄴ;나;ㅣㅁ나;ㅏㅇ;낭리;ㅇ나차우파ㅣ뤂ㅇ나ㅓㅜㅁㄴ;ㅏㅜㅏㅓ',
         },
     ])
 
