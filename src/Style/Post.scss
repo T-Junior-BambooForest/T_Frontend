@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'main';
+    src: url('../../src/fonts/Segoe\ UI\ Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'sub';
+    src: url('../../src/fonts/Segoe\ UI.ttf');
+}
+
 .article_wrap {
     display: flex;
     justify-content: center;
@@ -11,12 +21,78 @@
                 margin-top: 20px;
                 margin-bottom: 10px;
                 font-size: 22px;
+                color: #E5EDF5;
+            }
+
+            .form_boxs {
+                margin-top: -30px;
+                margin-bottom: 10px;
+                color: white;
+                float: right;
+
+                .anony_button_span {
+                    font-size: 14px;
+                    font-family: 'main';
+                    font-style: normal;
+                    font-weight: 700;
+                }
+
+                .anony_button {
+                    margin-left: 5px;
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 6px;
+                    background-color: #21262D;
+                    border: 1px solid #30363D;
+                    color: #E5EDF5;
+                    cursor: pointer;
+                }
+
+
+                input[type=file]::file-selector-button {
+                    font-family: 'main';
+                    font-style: normal;
+                    font-weight: 700;
+                    width: 70px;
+                    height: 20px;
+                    background-color: #0D1117;
+                    color: #E5EDF5;
+                    border: none;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+
+                .post_button {
+                    width: 60px;
+                    height: 25px;
+                    font-size: 12px;
+                    color: #E5EDF5;
+                    border-radius: 4px;
+                    background-color: #238636;
+                    border: 1px solid #30363D;
+                    font-family: 'main';
+                    font-style: normal;
+                    font-weight: 700;
+                }
             }
         }
 
         .editor_box {
-            display: flex;
-            justify-content: center;
+
+            .editor {
+                outline: none;
+                border: 2px solid #30363D;
+                border-radius: 6px;
+                background-color: #0D1117;
+                color: #E5EDF5;
+                width: 65vw;
+                height: 110px;
+                padding: 15px;
+            }
         }
+
     }
 }
