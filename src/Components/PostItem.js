@@ -11,7 +11,7 @@ const PostItem = ({ text, name, id }) => {
                         <span className='date_text'>2022년 9월 30일 오후 12:03</span>
                     </div>
                     <div className='author_text_box'>
-                        <span className='author_text'> 제보자 : 박우빈</span>
+                        <span className='author_text'>박우빈</span>
                     </div>
                 </div>
                 <div className='text_box'>

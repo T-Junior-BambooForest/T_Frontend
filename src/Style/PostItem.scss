@@ -14,14 +14,13 @@
 
 .content_box_wrap {
     color: #E5EDF5;
-
     .content_box {
         word-break: break-all;
         margin: 20px 0px 20px 0px;
         border-radius: 6px;
         border: 2px solid #30363D;
         padding: 0px 15px 20px 0px;
-        width: 65vw;
+        width: 100%;
 
         .header_info_box {
             display: flex;
@@ -31,6 +30,9 @@
             .count_text {
                 font-size: 16px;
                 margin-right: 8px;
+                @media ALL and (max-width:600px) {
+                    font-size: 10px;
+                }
             }
 
             .date_text_box {
@@ -39,16 +41,25 @@
                 .date_text {
                     font-size: 12px;
                     color: #83888E;
+                    @media ALL and (max-width:600px) {
+                        font-size: 10px;
+                    }
                 }
             }
 
             .author_text_box {
                 margin-left: auto;
-                margin-right: 15px;
                 font-size: 12px;
+                @media ALL and (max-width:600px) {
+                    font-size: 10px;
+                }
 
                 .author_text {
                     color: #ACAFB2;
+                    @media ALL and (max-width:600px) {
+                        font-size: 10px;
+                        width: 30px;
+                    }
                 }
             }
         }

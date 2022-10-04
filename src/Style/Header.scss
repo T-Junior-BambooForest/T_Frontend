@@ -22,6 +22,9 @@ $element-color: #21262D;
 
     .github_logo {
         margin-left: 30px;
+        @media ALL and (max-width:600px) {
+            margin-left: 15px;
+        }
     }
 
     .team_name {
@@ -36,6 +39,10 @@ $element-color: #21262D;
         margin-right: 30px;
         color: white;
         font-family: 'main';
+        @media ALL and (max-width:600px) {
+            margin-right: 15px;
+            font-size: 5px;
+        }
     }
 }
 
@@ -46,7 +53,9 @@ $element-color: #21262D;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #30363D;
-
+    @media ALL and (max-width:600px) {
+        display: inline;
+    }
     .team_image_box {
         display: flex;
         justify-content: center;
@@ -56,12 +65,21 @@ $element-color: #21262D;
         border: 1px solid $line-color;
         border-radius: 10px;
         width: 95px;
-        height: 90px;
-
+        height: 95px;
+        @media ALL and (max-width:600px) {
+            width: 75px;
+            height: 75px;
+            margin-top: 12.5px;
+            margin-left: 30px;
+        }
         .logo_image {
             margin-top: 5px;
             width: 65px;
             height: 65px;
+            @media ALL and (max-width:600px) {
+                width: 50px;
+                height: 50px;
+            }
         }
     }
 
@@ -69,7 +87,9 @@ $element-color: #21262D;
         display: flex;
         justify-content: center;
         flex-direction: column;
-
+        @media ALL and (max-width:600px) {
+            margin-top: 5px;
+        }
         .service_name {
             color: $white-color;
             margin-left: 25px;
@@ -79,6 +99,9 @@ $element-color: #21262D;
                 font-family: 'main';
                 font-style: normal;
                 font-weight: 700;
+                @media ALL and (max-width:600px) {
+                    font-size: 14px;
+                }
             }
         }
 
@@ -103,7 +126,9 @@ $element-color: #21262D;
                     font-size: 16px;
                     font-family: 'sub';
                     color: $white-color;
-
+                    @media ALL and (max-width:600px) {
+                        font-size: 12px;
+                    }
                 }
             }
         }
@@ -123,6 +148,11 @@ $element-color: #21262D;
         height: 30px;
         border: 1px solid $line-color;
         background-color: $element-color;
+        @media ALL and (max-width:600px) {
+            position: absolute;
+            left: 65%;
+            top: 20%;
+        }
 
         .a_link_button {
             font-family: 'main';
