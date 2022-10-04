@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
 a,
 abbr,
 acronym,
@@ -96,6 +102,7 @@ video {
 html,
 body,
 #root {
+    background-color: #0D1117;
     height: 100%;
     width: 100%;
 }

@@ -1,33 +1,25 @@
 import React from 'react';
 import '../Style/PostItem.scss';
 
-const PostItem = () => {
+const PostItem = ({ text, name, id }) => {
     return (
         <div className='content_box_wrap'>
             <div className='content_box'>
-                <div className='profile_image_box'>
-                    <img className='profile_image' src='/images/picture.png' alt='프로필' />
-                </div>
-                <div className='user_box'>
-                    <div className='user_name_box'>
-                        <h1 className='user_name'>username</h1>
+                <div className='header_info_box'>
+                    <span className='count_text'>부마숲 #{id}번째 제보</span>
+                    <div className='date_text_box'>
+                        <span className='date_text'>2022년 9월 30일 오후 12:03</span>
                     </div>
-                    <div className='post_date_box'>
-                        <h1 className='post_date'>2022년 9월 31</h1>
+                    <div className='author_text_box'>
+                        <span className='author_text'>박우빈</span>
                     </div>
                 </div>
-                <div className='custom_line' />
-                <div className='contents'>
-                    <h1 className='content'>
-                        just longer letter just longer letter just longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letterjust longer letter
-                    </h1>
-                </div>
-                <div className='content_image_box'>
-                    <img className='content_image' src='/images/picture.png' alt='i' />
+                <div className='text_box'>
+                    <span className='content_text'>{text}</span>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
-export default PostItem;
+export default React.memo(PostItem);

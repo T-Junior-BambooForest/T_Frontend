@@ -1,66 +1,165 @@
+$main-background-color : #0D1117;
+$line-color: #30363D;
+$white-color: #E5EDF5;
+$element-color: #21262D;
+
+@font-face {
+    font-family: 'main';
+    src: url('../../src/fonts/Segoe\ UI\ Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'sub';
+    src: url('../../src/fonts/Segoe\ UI.ttf');
+}
+
 .header_wrap {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 80px;
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
+    height: 60px;
+    background-color: #161b22;
 
-    .logo_image {
-        width: 50px;
-        height: 50px;
+    .github_logo {
         margin-left: 30px;
+        @media ALL and (max-width:600px) {
+            margin-left: 15px;
+        }
     }
 
-    .title {
-        margin-left: 25px;
-        font-size: 40px;
-    }
-
-    .subtitle {
-        margin-left: 20px;
+    .team_name {
+        font-family: 'main';
+        color: white;
         font-size: 16px;
+        margin-left: 22px;
     }
 
-    .login_wrap {
+    .login_btn {
         margin-left: auto;
-        align-items: center;
-
-        .login_button {
-            float: right;
-            font-size: 16px;
-            margin-right: 12px;
-            text-decoration: none;
-            color: black;
-        }
-
-        .only_login_button {
-            float: right;
-            font-size: 16px;
-            margin-right: 40px;
-            text-decoration: none;
-            color: black;
-        }
-
-        .custom_line {
-            float: right;
-            background-color: rgb(141, 141, 141);
-            width: 1.5px;
-            height: 20px;
-        }
-
-        .mypage_button {
-            float: right;
-            font-size: 16px;
-            margin: 0px 40px 0px 12px;
-            text-decoration: none;
-            color: black;
+        margin-right: 30px;
+        color: white;
+        font-family: 'main';
+        @media ALL and (max-width:600px) {
+            margin-right: 15px;
+            font-size: 5px;
         }
     }
-
 }
 
-.title_link_tag {
-    text-decoration: none;
-    color: black;
+.title_box_wrap {
+    background-color: $main-background-color;
+    width: 100%;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #30363D;
+    @media ALL and (max-width:600px) {
+        display: inline;
+    }
+    .team_image_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 130px;
+        background-color: $main-background-color;
+        border: 1px solid $line-color;
+        border-radius: 10px;
+        width: 95px;
+        height: 95px;
+        @media ALL and (max-width:600px) {
+            width: 75px;
+            height: 75px;
+            margin-top: 12.5px;
+            margin-left: 30px;
+        }
+        .logo_image {
+            margin-top: 5px;
+            width: 65px;
+            height: 65px;
+            @media ALL and (max-width:600px) {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+
+    .align_box {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        @media ALL and (max-width:600px) {
+            margin-top: 5px;
+        }
+        .service_name {
+            color: $white-color;
+            margin-left: 25px;
+
+            .bamboo_name {
+                font-size: 28px;
+                font-family: 'main';
+                font-style: normal;
+                font-weight: 700;
+                @media ALL and (max-width:600px) {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .align_boxs {
+            display: flex;
+            flex-direction: row;
+            margin-top: 0px;
+            margin-left: 25px;
+
+            .image_box {
+                margin-top: 3px;
+
+                .location_box {
+                    margin-top: 0px;
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            .name_box {
+                .school_names {
+                    font-size: 16px;
+                    font-family: 'sub';
+                    color: $white-color;
+                    @media ALL and (max-width:600px) {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    .follow_btn_box_link {
+        margin-top: -20px;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 130px;
+        margin-left: auto;
+        color: white;
+        background-color: green;
+        width: 80px;
+        height: 30px;
+        border: 1px solid $line-color;
+        background-color: $element-color;
+        @media ALL and (max-width:600px) {
+            position: absolute;
+            left: 65%;
+            top: 20%;
+        }
+
+        .a_link_button {
+            font-family: 'main';
+            font-size: 14px;
+            text-decoration: none;
+            color: white;
+            margin-top: -2px;
+        }
+    }
 }
