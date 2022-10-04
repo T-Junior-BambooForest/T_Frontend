@@ -102,6 +102,7 @@ video {
 html,
 body,
 #root {
+    background-color: #0D1117;
     height: 100%;
     width: 100%;
 }
