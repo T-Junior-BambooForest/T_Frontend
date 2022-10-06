@@ -20,8 +20,7 @@
                 margin-bottom: 10px;
                 font-size: 22px;
                 color: #E5EDF5;
-
-                @media ALL and (max-width:600px) {
+                @media ALL and (max-width:500px) {
                     font-size: 15px;
                 }
             }
@@ -33,30 +32,20 @@
                 display: flex;
                 flex-direction: row;
                 margin-top: 10px;
-                @media ALL and (max-width:600px) {
-                    font-size: 5px;   
+                @media ALL and (max-width:500px) {
+                    flex-direction: column;
+                    margin-left: 60%;
+                    padding-left: 80%;
                 }
                 
                 div {
-                    @media (min-width:321px) and (max-width:600px) {
-                        display: inline;
-                        margin-left: 13%;    
-                    }
-                    @media ALL and (max-width:320px) {
-                        display: inline;
-                        margin-left: 20%;    
-                    }
                     div {
                         display: inline;
-
                         .anony_button_span {
                             font-size: 14px;
                             font-family: 'main';
                             font-style: normal;
                             font-weight: 700;
-                            @media ALL and (max-width:600px) {
-                                font-size: 5px;   
-                            }
                         }
 
                         .anony_button {
@@ -68,12 +57,8 @@
                             border: 1px solid #30363D;
                             color: #E5EDF5;
                             cursor: pointer;
-                            @media ALL and (max-width:600px) {
-                                font-size: 5px;   
-                            }
                         }
                     }
-
                     input[type=file]::file-selector-button {
                         margin-top: 2px;
                         margin-bottom: 2px;
@@ -90,9 +75,6 @@
                             color: #fff;
                         }
                         margin-left: 16%;
-                        @media ALL and (max-width:600px) {
-                            font-size: 5px;   
-                        }
                     }
                 }
 
@@ -107,15 +89,6 @@
                     font-family: 'main';
                     font-style: normal;
                     font-weight: 700;
-                    @media ALL and (max-width:600px) {
-                        float: right;
-                        width: 110px;
-                        height: 30px;
-                        margin-top: 10px;
-                    }
-                    @media ALL and (max-width:600px) {
-                        font-size: 5px;   
-                    }
                 }
             }
         }
