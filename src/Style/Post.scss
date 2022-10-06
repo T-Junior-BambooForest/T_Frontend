@@ -14,10 +14,11 @@
 
     .article_box {
         width: 65vw;
+
         .post_title_box {
             .post_title {
                 margin-top: 20px;
-                margin-bottom: 10px;
+                margin-bottom: -30px;
                 font-size: 22px;
                 color: #E5EDF5;
 
@@ -25,6 +26,7 @@
                     font-size: 15px;
                 }
             }
+
             .form_boxs {
                 margin-top: -30px;
                 margin-bottom: 10px;
@@ -33,19 +35,22 @@
                 display: flex;
                 flex-direction: row;
                 margin-top: 10px;
+
                 @media ALL and (max-width:600px) {
-                    font-size: 5px;   
+                    font-size: 5px;
                 }
-                
+
                 div {
                     @media (min-width:321px) and (max-width:600px) {
                         display: inline;
-                        margin-left: 13%;    
+                        margin-left: 13%;
                     }
+
                     @media ALL and (max-width:320px) {
                         display: inline;
-                        margin-left: 20%;    
+                        margin-left: 20%;
                     }
+
                     div {
                         display: inline;
 
@@ -54,8 +59,9 @@
                             font-family: 'main';
                             font-style: normal;
                             font-weight: 700;
+
                             @media ALL and (max-width:600px) {
-                                font-size: 5px;   
+                                font-size: 5px;
                             }
                         }
 
@@ -68,8 +74,9 @@
                             border: 1px solid #30363D;
                             color: #E5EDF5;
                             cursor: pointer;
+
                             @media ALL and (max-width:600px) {
-                                font-size: 5px;   
+                                font-size: 5px;
                             }
                         }
                     }
@@ -89,9 +96,11 @@
                         &:hover {
                             color: #fff;
                         }
+
                         margin-left: 16%;
+
                         @media ALL and (max-width:600px) {
-                            font-size: 5px;   
+                            font-size: 5px;
                         }
                     }
                 }
@@ -107,14 +116,16 @@
                     font-family: 'main';
                     font-style: normal;
                     font-weight: 700;
+
                     @media ALL and (max-width:600px) {
                         float: right;
                         width: 110px;
                         height: 30px;
                         margin-top: 10px;
                     }
+
                     @media ALL and (max-width:600px) {
-                        font-size: 5px;   
+                        font-size: 5px;
                     }
                 }
             }
