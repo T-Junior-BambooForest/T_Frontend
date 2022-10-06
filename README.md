@@ -1,7 +1,2 @@
-# T_bamboo_FrontEnd
-
-## 깃 커밋 메세지 ADD: , DELETE: , FIX:, UPDATE: ```자세한 내용``` 으로 고정.
-
-### 개발후 readme에 내용 추가 바람
-
----
+# BSMBOO 
+## 부산소프트웨어마이스터고등학교 대나무숲 프로젝트
