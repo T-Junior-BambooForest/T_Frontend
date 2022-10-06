@@ -20,7 +20,7 @@ const App = () => {
   }]);
 
   const getUserInfo = () => {
-    return axios.get('bssm.kro.kr/islogin')
+    return axios.get('/islogin')
       .then(response => {
         try {
           console.log(response);
