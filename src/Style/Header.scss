@@ -13,6 +13,11 @@ $element-color: #21262D;
     src: url('../../src/fonts/Segoe\ UI.ttf');
 }
 
+a {
+    text-decoration: none;
+    color: $white-color;
+}
+
 .header_wrap {
     display: flex;
     align-items: center;
