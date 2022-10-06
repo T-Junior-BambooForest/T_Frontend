@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../Style/Header.scss';
 
 const Header = ({ userInfo }) => {
-    const loginurl = "https://bssm.kro.kr/oauth/login?clientId=75711f76&redirectURI=http://localhost:3000/oauth";
+    const loginurl = "https://bssm.kro.kr/oauth/login?clientId=59b9bb6b&redirectURI=http://bsmboo.kro.kr/oauth";
     return (
         <div>
             <div className='header_wrap'>
