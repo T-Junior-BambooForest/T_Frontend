@@ -1,10 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../Style/Header.scss';
-import { URL } from '../env.js';
 
 const Header = ({ userInfo }) => {
-    const loginurl = URL;
     return (
         <div>
             <div className='header_wrap'>
@@ -17,7 +14,7 @@ const Header = ({ userInfo }) => {
                     <span>T-Shape-Junior</span>
                 </div>
                 <div className='login_btn'>
-                    <span><a href={loginurl}>LOGIN</a></span>
+                    <span><a href={''}>LOGIN</a></span>
                     &nbsp;|&nbsp;
                     <span>MYPAGE</span>
                 </div>
