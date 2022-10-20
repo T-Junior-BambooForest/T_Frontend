@@ -27,6 +27,7 @@ a {
 
     .github_logo {
         margin-left: 30px;
+
         @media ALL and (max-width:600px) {
             margin-left: 15px;
         }
@@ -44,6 +45,7 @@ a {
         margin-right: 30px;
         color: white;
         font-family: 'main';
+
         @media ALL and (max-width:600px) {
             margin-right: 15px;
             font-size: 5px;
@@ -58,9 +60,11 @@ a {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #30363D;
+
     @media ALL and (max-width:600px) {
         display: inline;
     }
+
     .team_image_box {
         display: flex;
         justify-content: center;
@@ -71,16 +75,19 @@ a {
         border-radius: 10px;
         width: 95px;
         height: 95px;
+
         @media ALL and (max-width:600px) {
             width: 75px;
             height: 75px;
             margin-top: 12.5px;
             margin-left: 30px;
         }
+
         .logo_image {
             margin-top: 5px;
             width: 65px;
             height: 65px;
+
             @media ALL and (max-width:600px) {
                 width: 50px;
                 height: 50px;
@@ -92,9 +99,11 @@ a {
         display: flex;
         justify-content: center;
         flex-direction: column;
+
         @media ALL and (max-width:600px) {
             margin-top: 5px;
         }
+
         .service_name {
             color: $white-color;
             margin-left: 25px;
@@ -104,6 +113,7 @@ a {
                 font-family: 'main';
                 font-style: normal;
                 font-weight: 700;
+
                 @media ALL and (max-width:600px) {
                     font-size: 14px;
                 }
@@ -131,6 +141,7 @@ a {
                     font-size: 16px;
                     font-family: 'sub';
                     color: $white-color;
+
                     @media ALL and (max-width:600px) {
                         font-size: 12px;
                     }
@@ -153,6 +164,7 @@ a {
         height: 30px;
         border: 1px solid $line-color;
         background-color: $element-color;
+
         @media ALL and (max-width:600px) {
             position: absolute;
             left: 65%;
