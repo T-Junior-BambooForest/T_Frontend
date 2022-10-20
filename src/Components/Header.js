@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Style/Header.scss';
+import { URL } from '../env.js';
 
 const Header = ({ userInfo }) => {
-    const loginurl = "https://bssm.kro.kr/oauth/login?clientId=59b9bb6b&redirectURI=http://bsmboo.kro.kr/oauth";
+    const loginurl = URL;
     return (
         <div>
             <div className='header_wrap'>
