@@ -1,5 +1,6 @@
 .management_title_box {
     display: flex;
+    color: white;
     justify-content: center;
 
     .management_title {
@@ -13,125 +14,26 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    color: white;
 
-    .management_content_box {
-        margin-bottom: 2px;
-        border: 1px solid #ccc;
-        width: 70vw;
-        height: 50px;
-
-        .management_id_box {
-            float: left;
-            border-right: 1px solid #ccc;
-            width: 4vw;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            .management_id {
-                font-size: 15px;
-                font-weight: 500;
-            }
-        }
-
-        .management_text_box {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            margin-left: 70px;
-            width: 65vw;
-
-            .management_text {
-                font-size: 13px;
-                font-weight: 500;
-            }
-
-            .text_detail_btn {
-                margin-left: auto;
-                margin-right: 15px;
-                border: 1px solid #ccc;
-                width: 50px;
-                height: 30px;
-            }
-
-            .custome_line {
-                height: 100%;
-                width: 1px;
-                background-color: #ccc;
-            }
-
-            .management_isAnony {
-                margin: 0px 20px 0px 20px;
-                width: 3vw;
-                height: 18px;
-                font-size: 16px;
-                text-align: center;
-            }
-
-            .img_preview {
-                width: 80px;
-                height: 50px;
-            }
-
-            .accept_btn {
-                margin: 0px 20px 0px 20px;
-                width: 70px;
-                height: 30px;
-                border: 1px solid #ccc;
-                color: white;
-                background-color: rgb(255, 133, 133);
-            }
-
-            .reject_btn {
-                margin: 0px 10px 0px 20px;
-                color: white;
-                width: 70px;
-                height: 30px;
-                border: 1px solid #ccc;
-                background-color: rgb(125, 125, 255);
-            }
-        }
+    .management_content_title {
+        display: flex;
+        align-items: center;
+        color: white;
+        margin-bottom: 12px;
+        flex-direction: column;
     }
 }
 
-.text_detail {
-    background-color: green;
-    width: 300px;
-    height: 300px;
-}
+table {
+    border: 1.5px solid rgb(149, 149, 149);
+    border-spacing: 2px;
+    border-collapse: separate;
 
-.text_detail_btn_preview {
-    margin-left: auto;
-    margin-right: 15px;
-    border: none;
-    background-color: white;
-    width: 50px;
-    height: 30px;
-}
-
-.management_isAnony_preview {
-    margin: 0px 20px 0px 20px;
-    width: 3vw;
-    height: 18px;
-    font-size: 12px;
-    text-align: center;
-}
-
-.accept_btn_preview {
-    margin: 0px 20px 0px 20px;
-    width: 70px;
-    height: 30px;
-    border: none;
-    color: black;
-    background-color: white;
-}
-
-.reject_btn_preview {
-    margin: 0px 10px 0px 20px;
-    color: black;
-    border: none;
-    width: 70px;
-    height: 30px;
-    background-color: white;
+    tr,
+    td {
+        padding: 5px 10px 5px 10px;
+        border: 1.5px solid rgb(149, 149, 149);
+        border-collapse: collapse;
+    }
 }
