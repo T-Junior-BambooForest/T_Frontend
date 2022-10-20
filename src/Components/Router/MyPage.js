@@ -22,8 +22,8 @@ const MyPage = ({ userInfo }) => {
     return (
         <div className='mypage_wrap'>
             {!userInfo.isLogin ?
-                <Navigate to='/login' replace={true} />
-                : null
+                null
+                : <Navigate to='/login' replace={true} />
             }
             <Header />
             <div className='myprofile_title_box'>
@@ -41,10 +41,10 @@ const MyPage = ({ userInfo }) => {
                     <span className='user_nickname'>{user.nickname}</span>
                 </div>
                 <div className='user_school_info_box'>
-                    <span className='user_grade'>{user.grade}학년</span>
-                    <span className='user_class'>{user.classNo}반</span>
-                    <span className='user_number'>{user.studentNo}번</span>
-                    <span className='user_name'>{user.name}</span>
+                    <span className='user_grade'>{1}학년</span>
+                    <span className='user_class'>{4}반</span>
+                    <span className='user_number'>{9}번</span>
+                    <span className='user_name'>{'박우빈'}</span>
                 </div>
                 <div className='user_change_image_wrap'>
                     <div className='user_change_profile_box' >
