@@ -28,6 +28,7 @@ const Post = ({ userInfo }) => {
     const onClickIsAnony = useCallback(() => {
         isAnony ? document.getElementById('buttonDOM').style.backgroundColor = '#238636' : document.getElementById('buttonDOM').style.backgroundColor = '#21262D';
         setIsAnony(!isAnony);
+        console.log(isAnony);
     }, [isAnony])
 
     const onSubmit = useCallback((e) => {
@@ -77,7 +78,8 @@ const Post = ({ userInfo }) => {
                             <div>
                                 <div>
                                     <span className='anony_button_span'>익명 여부</span>
-                                    <input type='button' className='anony_button' onClick={onClickIsAnony} value='✓' id='buttonDOM' />
+                                    {isAnony ? (<input type='button' className='anony_button' onClick={onClickIsAnony} value=' ' id='buttonDOM' />)
+                                        : (<input type='button' className='anony_button' onClick={onClickIsAnony} value='✓' id='buttonDOM' />)}
                                 </div>
                                 <input type='file' className='user__file' />
                             </div>
