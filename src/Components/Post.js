@@ -90,7 +90,7 @@ const Post = ({ userInfo }) => {
                         </div>
                     </div>
                     <div className='editor_box'>
-                        <textarea className='editor' onChange={onChangeText} value={text} />
+                        <input type='text' className='editor' onChange={onChangeText} value={text} />
                     </div>
                     <Forum
                         postInfo={postInfo}
