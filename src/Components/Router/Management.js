@@ -99,7 +99,7 @@ const Management = ({ }) => {
                             <td>글번호</td>
                             <td>글내용</td>
                             <td>사진</td>
-                            <td>익명 여부</td>
+                            <td>요청자</td>
                             <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                         </tr>
                         {testUser.map((user) => {
@@ -108,7 +108,7 @@ const Management = ({ }) => {
                                     <td>{user.id}</td>
                                     <td style={{ fontSize: '14px' }}>{user.text}</td>
                                     <td>{user.image ? '있음' : ''} </td>
-                                    <td>{user.isAnony ? '익명' : '실명'}</td>
+                                    <td>{user.isAnony ? '익명' : `박우빈`}</td>
                                     <td>수락</td>
                                     <td>거절</td>
                                 </tr>
