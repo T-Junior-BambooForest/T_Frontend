@@ -100,6 +100,7 @@ const Management = ({ }) => {
                             <td>글내용</td>
                             <td>사진</td>
                             <td>익명 여부</td>
+                            <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                         </tr>
                         {testUser.map((user) => {
                             return (
@@ -108,6 +109,8 @@ const Management = ({ }) => {
                                     <td style={{ fontSize: '14px' }}>{user.text}</td>
                                     <td>{user.image ? '있음' : ''} </td>
                                     <td>{user.isAnony ? '익명' : '실명'}</td>
+                                    <td>수락</td>
+                                    <td>거절</td>
                                 </tr>
                             )
                         })
