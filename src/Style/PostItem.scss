@@ -14,6 +14,7 @@
 
 .content_box_wrap {
     color: #E5EDF5;
+
     .content_box {
         word-break: break-all;
         margin: 20px 0px 20px 0px;
@@ -28,19 +29,21 @@
             margin-left: 15px;
 
             .count_text {
-                font-size: 16px;
+                font-size: 14px;
                 margin-right: 8px;
+
                 @media ALL and (max-width:600px) {
                     font-size: 10px;
                 }
             }
 
             .date_text_box {
-                margin-top: -1px;
+                margin-top: -2px;
 
                 .date_text {
                     font-size: 12px;
                     color: #83888E;
+
                     @media ALL and (max-width:600px) {
                         font-size: 10px;
                     }
@@ -50,12 +53,14 @@
             .author_text_box {
                 margin-left: auto;
                 font-size: 12px;
+
                 @media ALL and (max-width:600px) {
                     font-size: 10px;
                 }
 
                 .author_text {
                     color: #ACAFB2;
+
                     @media ALL and (max-width:600px) {
                         font-size: 10px;
                         width: 30px;

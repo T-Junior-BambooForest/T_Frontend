@@ -5,6 +5,8 @@
         .article_title {
             margin-top: 30px;
             font-size: 22px;
+            margin-bottom: -10px;
+
             @media ALL and (max-width:600px) {
                 font-size: 15px;
             }
