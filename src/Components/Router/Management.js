@@ -11,11 +11,13 @@ const Management = ({ }) => {
                 id: '1',
                 text: 'sadnclacnlsacnlskcnlsaasdsklnfkldsvkldvlkdalkfdnalkasdklakdlnclksanclksnakcnsalkcnadlkcnaldkncaslkckadncalkncklascklasnclkanslkcanslkanlvnalkvnaslkvnsalkvnaslknvlkasnvlsanlk',
                 isAnony: true,
+                image: 'https://webisfree.com/static/uploads/2019/9866_images580.jpg'
             },
             {
                 id: '2',
                 text: 'saadsgdsagbdadnclacnlsacnlskcnlsaas',
                 isAnony: false,
+                image: ''
             },
             {
                 id: '3',
@@ -91,58 +93,50 @@ const Management = ({ }) => {
                 </h1>
             </div>
             <div className='management_content_wrap'>
-                <div
-                    className='management_content_box' >
-                    <div className='management_id_box'>
-                        <span className='management_id'>아이디</span>
-                    </div>
-                    <div className='management_text_box'>
-                        <span className='management_text'>
-                            게시글
-                        </span>
-                        <button className='text_detail_btn_preview' ></button>
-                        <div className='custome_line' />
-                        <span className='management_isAnony_preview'>익명여부</span>
-                        <div className='custome_line' />
-                        <img src='/images/picture.png' alt='images' className='img_preview' />
-                        <div className='custome_line' />
-                        <button className='accept_btn_preview'>수락 여부</button>
-                        <button className='reject_btn_preview'></button>
-
-                    </div>
-                </div>
-
-            </div>
-            <div className='management_content_wrap'>
-                {testUser.map((user) => {
-                    return (
-                        <div key={user.id}
-                            className='management_content_box' >
-                            <div className='management_id_box'>
-                                <span className='management_id'>{testUser.id}</span>
-                            </div>
-                            <div className='management_text_box'>
-                                <span className='management_text'>{
-                                    user.text.length > 75 ? user.text.slice(0, 75) + ' ...'
+                <div className='management_content_title'>
+                    <table style={{ marginBottom: '50px' }}>
+                        <tr>
+                            <td>글번호</td>
+                            <td>글내용</td>
+                            <td>사진</td>
+                            <td>요청자</td>
+                            <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
+                        </tr>
+                        {testUser.map((user) => {
+                            return (
+                                <tr>
+                                    <td>{user.id}</td>
+                                    <td style={{ fontSize: '14px' }}>{user.text}</td>
+                                    <td>{user.image ? '있음' : ''} </td>
+                                    <td>{user.isAnony ? '익명' : `박우빈`}</td>
+                                    <td>수락</td>
+                                    <td>거절</td>
+                                </tr>
+                            )
+                        })
+                        }
+                    </table>
+                    <table>
+                        <tr>
+                            <td>사진 글번호</td>
+                            <td>사진</td>
+                        </tr>
+                        {testUser.map((user) => {
+                            return (
+                                <tr>
+                                    {user.image ?
+                                        <>
+                                            <td style={{ textAlign: 'center' }}>{user.id}</td>
+                                            <td><img src={user.image} alt='Error : 올바르지 않은 href입니다.' /></td>
+                                        </>
                                         :
-                                        user.text
-                                }
-                                </span>
-                                <button className='text_detail_btn' onClick={onClickTextDetail} value={testUser.text}>보기</button>
-                                <div className='custome_line' />
-                                <span className='management_isAnony'>{testUser.isAnony ? '익명' : '비익명'}</span>
-                                <div className='custome_line' />
-                                <img src='/images/picture.png' alt='images' className='img_preview' />
-                                <div className='custome_line' />
-                                <button className='accept_btn'>수락</button>
-                                <div className='custome_line' />
-                                <button className='reject_btn'>거절</button>
-
-                            </div>
-                        </div>
-                    )
-                })
-                }
+                                        ''}
+                                </tr>
+                            )
+                        })
+                        }
+                    </table>
+                </div>
             </div>
         </div>
     );

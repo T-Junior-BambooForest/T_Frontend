@@ -20,14 +20,10 @@ const App = () => {
   }]);
 
   const getUserInfo = () => {
-    return axios.get('/islogin')
-      .then(response => {
-        try {
-          console.log(response);
-        } catch (Error) {
-          console.log(Error)
-        }
-      });
+    axios.get('http://bsmboo.kro.kr/islogin')
+      .then((response) => {
+        console.log(response)
+      })
   };
 
   useEffect(() => {
