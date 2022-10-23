@@ -4,6 +4,8 @@ import PostItem from './PostItem';
 
 const Forum = ({ postInfo, userInfo }) => {
 
+    const POSTINFO_DESC = [...postInfo].reverse();
+
     return (
         <div className='forum_wrap'>
             <div className='article_title_box'>
@@ -12,7 +14,7 @@ const Forum = ({ postInfo, userInfo }) => {
                 </h1>
             </div>
             <div>
-                {postInfo && postInfo.reverse().map((post) => (
+                {POSTINFO_DESC && POSTINFO_DESC.map((post) => (
                     <PostItem
                         key={post.postId}
                         text={post.text}
