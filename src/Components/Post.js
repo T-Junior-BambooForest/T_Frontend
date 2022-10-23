@@ -89,12 +89,11 @@ const Post = ({ userInfo }) => {
                 })
         )
 
-    }, [isAnony, postInfo, userInfo]
-    );
+    }, [postInfo, userInfo, isAnony]);
 
-    const onChangeText = (e) => {
+    const onChangeText = useCallback((e) => {
         setText(e.target.value)
-    }
+    }, []);
 
     return (
         <form onSubmit={onSubmit}>
@@ -109,7 +108,7 @@ const Post = ({ userInfo }) => {
                                     {isAnony ? (<input type='button' className='anony_button' onClick={onClickIsAnony} value='✓' style={{ backgroundColor: '#238636' }} />)
                                         : (<input type='button' className='anony_button' onClick={onClickIsAnony} value=' ' style={{ backgroundColor: '#21262D' }} />)}
                                 </div>
-                                <input type='file' className='user__file' accept="image/png, image/gif, image/jpeg" />
+                                <input type='file' className='user__file' accept="image/png, image/jpeg" />
                             </div>
                             <button type='submit' id='post' className='post_button' >
                                 <svg width="10" height="10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
