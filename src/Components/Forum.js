@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../Style/Forum.scss';
 import PostItem from './PostItem';
 
@@ -12,11 +12,12 @@ const Forum = ({ postInfo, userInfo }) => {
                 </h1>
             </div>
             <div>
-                {postInfo && postInfo.map((post) => (
+                {postInfo && postInfo.reverse().map((post) => (
                     <PostItem
                         key={post.postId}
                         text={post.text}
                         id={post.postId}
+                        date={post.postDate}
                         name={userInfo && userInfo[0].name}
                     />
                 ))}

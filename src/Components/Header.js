@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Style/Header.scss';
@@ -21,7 +20,7 @@ const Header = ({ userInfo }) => {
                     </Link>
                 </div>
                 <div className='login_btn'>
-                    <span><a href={''}>LOGIN</a></span>
+                    <span><a href={'https://auth.bssm.kro.kr/oauth?clientId=aa5a3f05&redirectURI=http://bsmbooback.kro.kr/oauth'}>LOGIN</a></span>
                     &nbsp;&nbsp;|&nbsp;&nbsp;
                     <span><Link to={'/mypage'}>MYPAGE</Link></span>
                 </div>
