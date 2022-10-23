@@ -23,6 +23,36 @@ const Post = ({ userInfo }) => {
             postDate: date,
             text: 'ㅇㄴ머ㅜ람ㅍnaslkfnklsancaslkckasncsanlkcsanvkndabjndjbnvadlsjkcnjksfbnrwljiefdsfnbvfcjkdsfbhgkvjdhcjkldshklsahjdfldshdjlkdahjcfkashkdhsadksakjdaslkjdfhdasljkfklfjhfaskjcbvjdfslbvfajksbcvkjfsbkjsabvlkjfdsbkjldfnvkjdsancvjkfsbnvkdajvjsdlkbvjkdnvkadnbkjdflfcasjknvbklfahcxaosugvuydsghfiwrefuidlashbl fghgifdahnblfcojdblejrwopejwsoidjbnlerkjnxiadnvdsk;nvkjbfdnbjlkenfgjkdsnfkjvflnsvkjfndkbjfngfldfjc;ioadjofwirhorwiefpi;asjdcklsamvklfdbklsdaldasxlksmckdfjbnfsjklfnlskdnjsa;텀ㄴㄹ가힏버이ㅏ저이ㅏㅈㅂㄷ;ㅈㅂㄷㄴ;나;ㅣㅁ나;ㅏㅇ;낭리;ㅇ나차우파ㅣ뤂ㅇ나ㅓㅜㅁㄴ;ㅏㅜㅏㅓ',
         },
+        {
+            postId: 4,
+            postDate: date,
+            text: 'ah deu di oh da hat da!',
+        },
+        {
+            postId: 5,
+            postDate: date,
+            text: 'ㄴ',
+        },
+        {
+            postId: 6,
+            postDate: date,
+            text: 'x민석',
+        },
+        {
+            postId: 7,
+            postDate: date,
+            text: 'ah deㅣㅏㅁ나ㅣㅜㅊ',
+        },
+        {
+            postId: 8,
+            postDate: date,
+            text: 'ㄴㅣㅣㅣㅣㅣㅣㅣㅣㅣ',
+        },
+        {
+            postId: 9,
+            postDate: date,
+            text: '안녕',
+        },
     ])
 
     const onClickIsAnony = useCallback(() => {
@@ -79,7 +109,7 @@ const Post = ({ userInfo }) => {
                                     {isAnony ? (<input type='button' className='anony_button' onClick={onClickIsAnony} value='✓' style={{ backgroundColor: '#238636' }} />)
                                         : (<input type='button' className='anony_button' onClick={onClickIsAnony} value=' ' style={{ backgroundColor: '#21262D' }} />)}
                                 </div>
-                                <input type='file' className='user__file' />
+                                <input type='file' className='user__file' accept="image/png, image/gif, image/jpeg" />
                             </div>
                             <button type='submit' id='post' className='post_button' >
                                 <svg width="10" height="10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
