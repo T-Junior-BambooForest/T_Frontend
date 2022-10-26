@@ -17,7 +17,8 @@ const MyPage = ({ userInfo }) => {
             studentNo: userInfo.studentNo,
             isManager: userInfo.isManager,
         })
-    }, [])
+        console.log(isLogin)
+    }, [userInfo, isLogin])
 
     return (
         <div className='mypage_wrap'>
