@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import Header from '../Header';
 import '../../Style/Management.scss';
 
-const Management = ({ }) => {
+const Management = () => {
 
-    const [testUser, setTestUser] = useState(
+    const [testUser] = useState(
         [
             {
                 id: '1',
@@ -74,10 +73,6 @@ const Management = ({ }) => {
             },
         ]
     )
-
-    const onClickTextDetail = (e) => {
-        alert(e.target.value)
-    }
 
     return (
         <div>
