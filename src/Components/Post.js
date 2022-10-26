@@ -1,9 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import '../Style/Post.scss';
 import axios from 'axios';
 import Forum from './Forum';
+import { UserContext } from '../App';
 
-const Post = ({ userInfo }) => {
+const Post = () => {
+    const user = useContext(UserContext);
     const [date] = useState(new Date());
     const [isAnony, setIsAnony] = useState(true);
     const [text, setText] = useState('');
@@ -65,7 +67,7 @@ const Post = ({ userInfo }) => {
             axios
                 .post(
                     '/bsmboo.kro.kr/users/login',
-                    { postInfo },
+                    { user, postInfo },
                     { withCredentials: true, }
                 )
                 .then(() => {
@@ -78,7 +80,7 @@ const Post = ({ userInfo }) => {
             axios
                 .post(
                     '/bsmboo.kro.kr/users/login',
-                    { userInfo, postInfo },
+                    { postInfo },
                     { withCredentials: true, }
                 )
                 .then(() => {
@@ -89,7 +91,7 @@ const Post = ({ userInfo }) => {
                 })
         )
 
-    }, [postInfo, userInfo, isAnony]);
+    }, [postInfo, isAnony]);
 
     const onChangeText = useCallback((e) => {
         setText(e.target.value)
@@ -123,7 +125,6 @@ const Post = ({ userInfo }) => {
                     </div>
                     <Forum
                         postInfo={postInfo}
-                        userInfo={userInfo}
                     />
                 </div>
             </div>

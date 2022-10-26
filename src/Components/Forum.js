@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import '../Style/Forum.scss';
 import PostItem from './PostItem';
 
-const Forum = ({ postInfo, userInfo }) => {
+const Forum = ({ postInfo }) => {
 
     const POSTINFO_DESC = [...postInfo].reverse();
+    console.log(postInfo)
 
     return (
         <div className='forum_wrap'>
@@ -20,7 +21,6 @@ const Forum = ({ postInfo, userInfo }) => {
                         text={post.text}
                         id={post.postId}
                         date={post.postDate}
-                        name={userInfo && userInfo[0].name}
                     />
                 ))}
             </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../Header';
-import '../../Style/MyPage.scss';
+import Header from '../components/Header';
+import '../Style/MyPage.scss';
 import { Link, Navigate } from 'react-router-dom';
 
 const MyPage = ({ userInfo }) => {

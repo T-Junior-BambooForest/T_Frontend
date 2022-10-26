@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Header from '../Header';
-import '../../Style/Management.scss';
+import Header from '../components/Header';
+import '../Style/Management.scss';
 
 const Management = () => {
 
