@@ -22,7 +22,7 @@ const App = () => {
   }]);
 
   const getUserInfo = () => {
-    axios.get('http://bsmbooback.kro.kr/islogin')
+    axios.get('http://bsmboo.kro.kr:8000/isLogin')
       .then((response) => {
         console.log(response)
       })
