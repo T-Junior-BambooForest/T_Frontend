@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../Style/PostItem.scss';
 
 const PostItem = ({ text, name, id, date }) => {
