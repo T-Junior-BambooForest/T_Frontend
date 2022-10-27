@@ -1,9 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import '../Style/Post.scss';
 import axios from 'axios';
 import Forum from './Forum';
+import { UserContext } from '../App';
 
-const Post = ({ userInfo }) => {
+const Post = () => {
+    const user = useContext(UserContext);
     const [date] = useState(new Date());
     const [isAnony, setIsAnony] = useState(true);
     const [text, setText] = useState('');
@@ -65,7 +67,7 @@ const Post = ({ userInfo }) => {
             axios
                 .post(
                     '/bsmboo.kro.kr/users/login',
-                    { postInfo },
+                    { user, postInfo },
                     { withCredentials: true, }
                 )
                 .then(() => {
@@ -78,7 +80,7 @@ const Post = ({ userInfo }) => {
             axios
                 .post(
                     '/bsmboo.kro.kr/users/login',
-                    { userInfo, postInfo },
+                    { postInfo },
                     { withCredentials: true, }
                 )
                 .then(() => {
@@ -89,12 +91,11 @@ const Post = ({ userInfo }) => {
                 })
         )
 
-    }, [isAnony, postInfo, userInfo]
-    );
+    }, [postInfo, isAnony]);
 
-    const onChangeText = (e) => {
+    const onChangeText = useCallback((e) => {
         setText(e.target.value)
-    }
+    }, []);
 
     return (
         <form onSubmit={onSubmit}>
@@ -104,12 +105,12 @@ const Post = ({ userInfo }) => {
                         <h1 className='post_title'>제보하기</h1>
                         <div className='form_boxs'>
                             <div>
-                                <div>
+                                <div className='anony-button-wrap'>
                                     <span className='anony_button_span'>익명</span>
                                     {isAnony ? (<input type='button' className='anony_button' onClick={onClickIsAnony} value='✓' style={{ backgroundColor: '#238636' }} />)
                                         : (<input type='button' className='anony_button' onClick={onClickIsAnony} value=' ' style={{ backgroundColor: '#21262D' }} />)}
                                 </div>
-                                <input type='file' className='user__file' accept="image/png, image/gif, image/jpeg" />
+                                <input type='file' className='image-file' accept="image/png, image/jpeg" />
                             </div>
                             <button type='submit' id='post' className='post_button' >
                                 <svg width="10" height="10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,7 +125,6 @@ const Post = ({ userInfo }) => {
                     </div>
                     <Forum
                         postInfo={postInfo}
-                        userInfo={userInfo}
                     />
                 </div>
             </div>

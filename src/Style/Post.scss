@@ -16,14 +16,18 @@
         width: 65vw;
 
         .post_title_box {
+            @media ALL and (max-width:500px) {
+                margin-top: 40px;
+            }
+
             .post_title {
                 margin-top: 30px;
                 margin-bottom: -35px;
-                font-size: 22px;
+                font-size: 1.5vw;
                 color: #E5EDF5;
 
                 @media ALL and (max-width:500px) {
-                    font-size: 15px;
+                    font-size: 0;
                 }
             }
 
@@ -37,9 +41,7 @@
                 margin-top: 10px;
 
                 @media ALL and (max-width:500px) {
-                    flex-direction: column;
-                    margin-left: 60%;
-                    padding-left: 80%;
+                    float: left;
                 }
 
                 div {
@@ -47,7 +49,7 @@
                         display: inline;
 
                         .anony_button_span {
-                            font-size: 14px;
+                            font-size: 1vw;
                             font-family: 'main';
                             font-style: normal;
                             font-weight: 700;
@@ -62,6 +64,19 @@
                             border: 1px solid #30363D;
                             color: #E5EDF5;
                             cursor: pointer;
+
+                            @media ALL and (max-width:500px) {
+                                width: 12px;
+                                height: 12px;
+                                border-radius: 3px;
+                                font-size: 8px;
+                            }
+                        }
+                    }
+
+                    input {
+                        @media ALL and (max-width:500px) {
+                            width: 60px;
                         }
                     }
 
@@ -76,6 +91,7 @@
                         color: #E5EDF5;
                         border: none;
                         cursor: pointer;
+                        font-size: 1vw;
 
                         &:hover {
                             color: #fff;
@@ -96,6 +112,14 @@
                     font-family: 'main';
                     font-style: normal;
                     font-weight: 700;
+
+                    @media ALL and (max-width:500px) {
+                        width: 35px;
+                        height: 16px;
+                        font-size: 0px;
+                        margin-top: 5px;
+                        margin-left: 100px;
+                    }
                 }
             }
         }
