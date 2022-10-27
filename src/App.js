@@ -7,7 +7,7 @@ import Management from './pages/Management';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 
-axios.defaults.withCredentials = false;
+axios.defaults.withCredentials = true;
 
 const userInfo = {
   isLogin: false,
@@ -41,7 +41,7 @@ const App = () => {
   }, []);
 
   const getUserInfo = () => {
-    return axios.get("#", { withCredentials: true });
+    return axios.get("http://bsmboo.kro.kr:8000/islogin", { withCredentials: true });
   };
 
   return (
