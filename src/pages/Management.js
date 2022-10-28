@@ -42,7 +42,6 @@ const Management = () => {
                     게시글
                 </h1>
             </div>
-            <button onClick={test}>히히 테스트버튼</button>
             <div className='management_content_wrap'>
                 <div className='management_content_title'>
                     <table style={{ marginBottom: '50px' }}>
@@ -60,7 +59,6 @@ const Management = () => {
                                     <td>{post.isAnonymous ? '익명' : post.User.name}</td>
                                     <td>수락</td>
                                     <td>거절</td>
-                                    <td>test</td>
                                 </tr>
                             )
                         })
