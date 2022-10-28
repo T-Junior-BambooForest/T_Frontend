@@ -49,9 +49,9 @@ const Management = () => {
     }
 
     useEffect(() => {
-        // if (!user.isManage) {
-        //     navigate('/error')
-        // }
+        if (!user.isManage) {
+            navigate('/error')
+        }
         (async () => {
             try {
                 const data = await getPostInfo();
@@ -71,48 +71,48 @@ const Management = () => {
 
     return (
         <div>
-            {user && !user.isManage ?
+            {/* {user && !user.isManage ?
                 <Navigate to='/error' replace={true} />
                 :
-                <>
-                    <Header />
-                    <div className='management_title_box'>
-                        <h1 className='management_title'>
-                            게시글
-                        </h1>
-                    </div>
-                    <div className='management_content_wrap'>
-                        <div className='management_content_title'>
-                            <table style={{ marginBottom: '50px' }}>
-                                <tr>
-                                    <td>글번호</td>
-                                    <td>글내용</td>
-                                    <td>요청자</td>
-                                    <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
-                                </tr>
-                                {post && post.map((post) => {
-                                    return (
-                                        <>{post.allowBoard ?
-                                            ''
-                                            : <tbody key={post.boardCode}>
-                                                <tr>
-                                                    <td>{post.boardCode}</td>
-                                                    <td style={{ fontSize: '14px' }}>{post.contents}</td>
-                                                    <td>{post.isAnonymous ? '익명' : post.User.name}</td>
-                                                    <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >수락</td>
-                                                    <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
-                                                </tr>
-                                            </tbody>
-                                        }</>
-                                    )
-                                })
-                                }
-                            </table>
-                        </div>
-                    </div>
-                </>
-            }
-        </div>
+                <> */}
+            <Header />
+            <div className='management_title_box'>
+                <h1 className='management_title'>
+                    게시글
+                </h1>
+            </div>
+            <div className='management_content_wrap'>
+                <div className='management_content_title'>
+                    <table style={{ marginBottom: '50px' }}>
+                        <tr>
+                            <td>글번호</td>
+                            <td>글내용</td>
+                            <td>요청자</td>
+                            <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
+                        </tr>
+                        {post && post.map((post) => {
+                            return (
+                                <>{post.allowBoard ?
+                                    ''
+                                    : <tbody key={post.boardCode}>
+                                        <tr>
+                                            <td>{post.boardCode}</td>
+                                            <td style={{ fontSize: '14px' }}>{post.contents}</td>
+                                            <td>{post.isAnonymous ? '익명' : post.User.name}</td>
+                                            <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >수락</td>
+                                            <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
+                                        </tr>
+                                    </tbody>
+                                }</>
+                            )
+                        })
+                        }
+                    </table>
+                </div>
+            </div>
+            {/* </>
+            } */}
+        </div >
     );
 };
 
