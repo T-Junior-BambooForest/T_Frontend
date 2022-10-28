@@ -20,26 +20,30 @@ const Post = () => {
     const onSubmit = useCallback((e) => {
         e.preventDefault();
 
-        if (!content) {
-            alert('내용이 비어있습니다. 다시 확인해주세요.')
+        if (!user.isLogin) {
+            alert('Error : 로그인 상태를 확인할 수 없습니다. 로그인 후에 글을 작성하실 수 있습니다.')
         } else {
-            axios
-                .post(
-                    'http://bsmboo.kro.kr:8000/board',
-                    {
-                        contents: content,
-                        Usercode: user.code,
-                        isAnonymous: anony
-                    }
-                )
-                .then(() => {
-                    alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-                    window.location.reload('/');
-                })
-                .catch((error) => {
-                    alert(`에러가 발생하였습니다. ${error}`);
-                    window.location.reload('/');
-                })
+            if (!content) {
+                alert('내용이 비어있습니다. 제보 내용을 다시 한 번 확인해주세요.')
+            } else {
+                axios
+                    .post(
+                        'http://bsmboo.kro.kr:8000/board',
+                        {
+                            contents: content,
+                            Usercode: user.code,
+                            isAnonymous: anony
+                        }
+                    )
+                    .then(() => {
+                        alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
+                        window.location.reload('/');
+                    })
+                    .catch((error) => {
+                        alert(`에러가 발생하였습니다. ${error}`);
+                        window.location.reload('/');
+                    })
+            }
         }
     }, [user, content, anony]);
 
