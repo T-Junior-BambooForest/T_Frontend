@@ -63,7 +63,7 @@ const Management = () => {
                 }
             }
         })();
-    }, []);
+    }, [user]);
 
     const getPostInfo = () => {
         return axios.get("http://bsmboo.kro.kr:8000/board/manage", { withCredentials: true });
