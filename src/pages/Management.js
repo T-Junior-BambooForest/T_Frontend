@@ -3,31 +3,16 @@ import React, { useEffect, useState } from 'react';
 import Header from '../Components/Header';
 import '../Style/Management.scss';
 
-const postInfo = {
-    boardCode: 0,
-    contents: "",
-    allowBoard: null,
-    isAnonyMous: true,
-    createdAt: "",
-    updatedAt: "",
-    Usercode: 0,
-    User: {
-        code: 0,
-        name: "",
-        nickname: "",
-    }
-};
-
 const Management = () => {
 
-    const [post, setPost] = useState(postInfo);
+    const [post, setPost] = useState();
 
     useEffect(() => {
         (async () => {
             try {
                 const data = await getPostInfo();
                 setPost(data)
-                console.log(data)
+                console.log(post)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
                     setPost((prev) => ({ ...prev, isLogin: false }));
