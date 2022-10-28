@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useDidMountEffect from '../hooks/useDidMountEffect';
 import { UserContext } from '../App';
 import Header from '../Components/Header';
@@ -56,7 +56,6 @@ const Management = () => {
             try {
                 const data = await getPostInfo();
                 setPost(data.data)
-                console.log(post)
                 setIsLoad(true)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
@@ -65,13 +64,11 @@ const Management = () => {
             }
         })();
     }, []);
-    console.log(user)
 
     useDidMountEffect(() => {
         if (!user.isManage) {
             navigate('/error')
         }
-        console.log(user)
     }, [user])
 
     const getPostInfo = () => {
