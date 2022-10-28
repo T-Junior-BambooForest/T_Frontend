@@ -26,8 +26,9 @@ const Post = () => {
             if (anony) {
                 axios
                     .post(
-                        '/bsmboo.kro.kr/users/login',
-                        { content, anony },
+                        'http://bsmboo.kro.kr:8000/board',
+                        { user, content },
+                        true
                     )
                     .then(() => {
                         alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
@@ -38,8 +39,9 @@ const Post = () => {
             } else {
                 axios
                     .post(
-                        '/bsmboo.kro.kr/users/login',
-                        { user, content, anony },
+                        'http://bsmboo.kro.kr:8000/board',
+                        { user, content },
+                        false
                     )
                     .then(() => {
                         alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
