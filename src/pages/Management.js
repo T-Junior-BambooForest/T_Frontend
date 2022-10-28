@@ -49,9 +49,9 @@ const Management = () => {
     }
 
     useEffect(() => {
-        if (!user.isManage) {
-            navigate('/error')
-        }
+        // if (!user.isManage) {
+        //     navigate('/error')
+        // }
         (async () => {
             try {
                 const data = await getPostInfo();
