@@ -29,7 +29,7 @@ const App = () => {
     (async () => {
       try {
         let user = await getUserInfo();
-        console.log(user)
+        console.log(user.data.data)
         setUser({
           ...(await getUserInfo()),
           isLogin: true,
