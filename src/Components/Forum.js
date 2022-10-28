@@ -10,7 +10,7 @@ const Forum = () => {
         (async () => {
             try {
                 const data = await getAllowPostInfo();
-                setAllowPost(...data.data)
+                setAllowPost([...data.data].reverse())
 
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
@@ -32,10 +32,10 @@ const Forum = () => {
                 </h1>
             </div>
             <div>
-                {allowPost && allowPost.reverse().map((post, index) => (
+                {allowPost && allowPost.map((post, index) => (
                     <PostItem
                         key={post.boardCode}
-                        num={index}
+                        num={index.reverse()}
                         contents={post.contents}
                         name={post.User.name}
                         date={post.createdAt}
