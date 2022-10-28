@@ -10,6 +10,7 @@ const Management = () => {
     const user = useContext(UserContext);
     const navigate = useNavigate();
     const [post, setPost] = useState();
+    const [isLoad, setIsLoad] = useState(false);
 
     const onClickUpdatePost = (code, index) => {
         axios
@@ -56,6 +57,7 @@ const Management = () => {
                 const data = await getPostInfo();
                 setPost(data.data)
                 console.log(post)
+                setIsLoad(true)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
                     setPost((prev) => ({ ...prev, isLogin: false }));
@@ -78,8 +80,8 @@ const Management = () => {
 
     return (
         <div>
-            {user && !user.isManage ?
-                <Navigate to='/error' replace={true} />
+            {!isLoad ?
+                ''
                 :
                 <>
                     <Header />
