@@ -15,7 +15,7 @@ const Management = () => {
         (async () => {
             try {
                 const data = await getPostInfo();
-                setPost(data)
+                setPost(data.data)
                 console.log(post)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
@@ -49,45 +49,23 @@ const Management = () => {
                         <tr>
                             <td>글번호</td>
                             <td>글내용</td>
-                            <td>사진</td>
                             <td>요청자</td>
                             <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                         </tr>
-                        {/* {post.map((post) => {
+                        {post && post.map((post) => {
                             return (
                                 <tr>
-                                    <td>{user.id}</td>
-                                    <td style={{ fontSize: '14px' }}>{user.text}</td>
-                                    <td>{user.image ? '있음' : ''} </td>
-                                    <td>{user.isAnony ? '익명' : `박우빈`}</td>
+                                    <td>{post.boardCode}</td>
+                                    <td style={{ fontSize: '14px' }}>{post.contents}</td>
+                                    <td>{post.isAnonymous ? '익명' : post.User.name}</td>
                                     <td>수락</td>
                                     <td>거절</td>
                                     <td>test</td>
                                 </tr>
                             )
                         })
-                        } */}
-                    </table>
-                    {/* <table>
-                        <tr>
-                            <td>사진 글번호</td>
-                            <td>사진</td>
-                        </tr>
-                        {testUser.map((user) => {
-                            return (
-                                <tr>
-                                    {user.image ?
-                                        <>
-                                            <td style={{ textAlign: 'center' }}>{user.id}</td>
-                                            <td><img src={user.image} alt='Error : 올바르지 않은 href입니다.' /></td>
-                                        </>
-                                        :
-                                        ''}
-                                </tr>
-                            )
-                        })
                         }
-                    </table> */}
+                    </table>
                 </div>
             </div>
         </div>
