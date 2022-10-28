@@ -63,20 +63,20 @@ const Management = () => {
                             <td>요청자</td>
                             <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                         </tr>
-                        {post.map((post) => {
+                        {/* {post.map((post) => {
                             return (
                                 <tr>
-                                    {/* <td>{user.id}</td>
+                                    <td>{user.id}</td>
                                     <td style={{ fontSize: '14px' }}>{user.text}</td>
                                     <td>{user.image ? '있음' : ''} </td>
                                     <td>{user.isAnony ? '익명' : `박우빈`}</td>
                                     <td>수락</td>
-                                    <td>거절</td> */}
+                                    <td>거절</td>
                                     <td>test</td>
                                 </tr>
                             )
                         })
-                        }
+                        } */}
                     </table>
                     {/* <table>
                         <tr>
