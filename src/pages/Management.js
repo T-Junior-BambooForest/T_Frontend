@@ -64,7 +64,7 @@ const Management = () => {
             }
         })();
         console.log(`useEffect : ${user.isManage}`)
-    }, [user]);
+    }, []);
 
     console.log(`just : ${user.isManage}`)
 
