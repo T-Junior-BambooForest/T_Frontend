@@ -9,8 +9,16 @@ const Forum = () => {
     useEffect(() => {
         (async () => {
             try {
-                const data = await getAllowPostInfo();
-                setAllowPost([...data.data].reverse())
+                let data = await getAllowPostInfo();
+                data = data.data;
+                data.sort((a, b) => {
+                    a = a.boardCode;
+                    b = b.boardCode;
+                    if (a > b) return -1;
+                    if (a < b) return 1;
+                })
+                console.log(data);
+                setAllowPost([...data])
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
                     setAllowPost((prev) => ({ ...prev, isLogin: false }));
@@ -34,7 +42,7 @@ const Forum = () => {
                 {allowPost && allowPost.map((post, index) => (
                     <PostItem
                         key={post.boardCode}
-                        num={parseInt(index.length) - 1 - index}
+                        num={index}
                         contents={post.contents}
                         name={post.User.name}
                         date={post.createdAt}
