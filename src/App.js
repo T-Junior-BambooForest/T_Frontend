@@ -23,13 +23,12 @@ const userInfo = {
 export const UserContext = createContext(userInfo);
 
 const App = () => {
-  const [data, setData] = React.useState();
   const [user, setUser] = React.useState(userInfo);
 
   useEffect(() => {
     (async () => {
       try {
-        setData(await getUserInfo())
+        const data = await getUserInfo();
         setUser({
           ...data.data,
           isLogin: true,
