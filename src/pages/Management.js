@@ -1,6 +1,7 @@
 import axios, { AxiosError } from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
+import useDidMountEffect from '../../hooks/useDidMountEffect';
 import { UserContext } from '../App';
 import Header from '../Components/Header';
 import '../Style/Management.scss';
@@ -49,9 +50,7 @@ const Management = () => {
     }
 
     useEffect(() => {
-        // if (!user.isManage) {
-        //     navigate('/error')
-        // }
+
         (async () => {
             try {
                 const data = await getPostInfo();
@@ -63,10 +62,15 @@ const Management = () => {
                 }
             }
         })();
-        console.log(`useEffect : ${user.isManage}`)
     }, []);
+    console.log(user)
 
-    console.log(`just : ${user.isManage}`)
+    useDidMountEffect(() => {
+        if (!user.isManage) {
+            navigate('/error')
+        }
+        console.log(user)
+    }, [user])
 
     const getPostInfo = () => {
         return axios.get("http://bsmboo.kro.kr:8000/board/manage", { withCredentials: true });
