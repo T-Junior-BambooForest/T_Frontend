@@ -18,6 +18,7 @@ const userInfo = {
   nickname: "",
   studentNo: "",
   isLogin: false,
+  isManage: false,
 };
 
 export const UserContext = createContext(userInfo);
@@ -32,6 +33,7 @@ const App = () => {
         setUser({
           ...data.data.data,
           isLogin: true,
+          ...data.data.data.code === 45 ? { isManage: true } : { ...data.data.data.code === 66 ? { isManage: true } : { isManage: false } },
         })
 
       } catch (error) {
