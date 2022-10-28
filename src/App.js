@@ -28,14 +28,11 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        let usertest = await getUserInfo();
-        usertest = usertest.data.data;
-        setUser(usertest);
-        console.log(user)
-        // setUser({
-        //   ...(await getUserInfo().data),
-        //   isLogin: true,
-        // });
+        setUser({
+          ...(await getUserInfo()),
+          isLogin: true,
+        })
+
       } catch (error) {
         if (error instanceof AxiosError && error.response?.status >= 400) {
           setUser((prev) => ({ ...prev, isLogin: false }));
