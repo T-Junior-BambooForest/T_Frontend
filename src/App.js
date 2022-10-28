@@ -33,7 +33,7 @@ const App = () => {
         setUser({
           ...data.data.data,
           isLogin: true,
-          isManage: data.data.data.code === 45 || data.data.data.code === 66 ? true : false
+          isManage: data.data.data.code === 45 ? true : false
         })
 
       } catch (error) {
