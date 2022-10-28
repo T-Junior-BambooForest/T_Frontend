@@ -8,7 +8,7 @@ const Management = () => {
     const [post, setPost] = useState();
 
     const test = () => {
-        console.log(post.boardCode)
+        console.log(post)
     }
 
     useEffect(() => {
