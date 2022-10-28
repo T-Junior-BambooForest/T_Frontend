@@ -30,7 +30,9 @@ const Management = () => {
             .delete(
                 'http://bsmboo.kro.kr:8000/board',
                 {
-                    boardCode: code,
+                    data: {
+                        boardCode: code,
+                    },
                 }
             )
             .then(() => {
