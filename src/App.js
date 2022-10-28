@@ -28,9 +28,9 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        console.log(await getUserInfo().data)
+        console.log(await getUserInfo())
         setUser({
-          ...(await getUserInfo()).data,
+          ...(await getUserInfo()),
           isLogin: true,
         });
       } catch (error) {
@@ -42,7 +42,7 @@ const App = () => {
   }, []);
 
   const getUserInfo = () => {
-    return axios.get("http://bsmboo.kro.kr:8000/isLogin", { withCredentials: true });
+    return axios.get("http://bsmboo.kro.kr:8000/isLogin", { withCredentials: true }).data;
   };
 
   return (
