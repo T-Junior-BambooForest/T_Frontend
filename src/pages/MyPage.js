@@ -9,6 +9,7 @@ const MyPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        console.log(user)
         if (!user.isLogin) {
             navigate('/login')
         }
@@ -34,10 +35,10 @@ const MyPage = () => {
                             <span className='user_nickname'>{user.nickname}</span>
                         </div>
                         <div className='user_school_info_box'>
-                            <span className='user_grade'>{1}학년</span>
-                            <span className='user_class'>{4}반</span>
-                            <span className='user_number'>{9}번</span>
-                            <span className='user_name'>{'박우빈'}</span>
+                            <span className='user_grade'>{user.grade}학년</span>
+                            <span className='user_class'>{user.class}반</span>
+                            <span className='user_number'>{user.studentNo}번</span>
+                            <span className='user_name'>{user.name}</span>
                         </div>
                         {user.isManager ?
                             <div className='management_page'>
