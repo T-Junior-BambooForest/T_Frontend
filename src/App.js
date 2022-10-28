@@ -28,7 +28,8 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        console.log(await getUserInfo())
+        let user = await getUserInfo();
+        console.log(user)
         setUser({
           ...(await getUserInfo()),
           isLogin: true,
@@ -42,7 +43,7 @@ const App = () => {
   }, []);
 
   const getUserInfo = () => {
-    return axios.get("http://bsmboo.kro.kr:8000/isLogin", { withCredentials: true }).data;
+    return axios.get("http://bsmboo.kro.kr:8000/isLogin", { withCredentials: true });
   };
 
   return (
