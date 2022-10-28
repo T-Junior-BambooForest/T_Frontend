@@ -28,7 +28,7 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        console.log(await getUserInfo().data.data)
+        console.log(await getUserInfo().data)
         setUser({
           ...(await getUserInfo()).data,
           isLogin: true,
