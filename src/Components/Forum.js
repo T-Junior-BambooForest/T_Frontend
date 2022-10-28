@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../Style/Forum.scss';
 import PostItem from './PostItem';
 
-const Forum = ({ postInfo }) => {
+const Forum = ({ }) => {
 
-    const POSTINFO_DESC = [...postInfo].reverse();
-    console.log(postInfo)
+    // const POSTINFO_DESC = [...postInfo].reverse();
 
     return (
         <div className='forum_wrap'>
@@ -15,14 +14,14 @@ const Forum = ({ postInfo }) => {
                 </h1>
             </div>
             <div>
-                {POSTINFO_DESC && POSTINFO_DESC.map((post) => (
+                {/* {POSTINFO_DESC && POSTINFO_DESC.map((post) => (
                     <PostItem
                         key={post.postId}
                         text={post.text}
                         id={post.postId}
                         date={post.postDate}
                     />
-                ))}
+                ))} */}
             </div>
         </div>
     );

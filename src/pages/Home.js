@@ -1,12 +1,13 @@
 import React from 'react';
-import Header from '../Components/Header';
-import Post from '../Components/Post';
+import Header from '../components/Header';
+import Post from '../components/Post';
 
-const Home = ({ userInfo }) => {
+const Home = () => {
+
     return (
         <div>
-            <Header userInfo={userInfo} />
-            <Post userInfo={userInfo} />
+            <Header />
+            <Post />
         </div>
     );
 };

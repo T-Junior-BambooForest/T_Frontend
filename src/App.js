@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext } from 'react';
+import React, { useEffect, createContext } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios, { AxiosError } from 'axios';
 import Home from './pages/Home';
@@ -10,14 +10,14 @@ import Login from './pages/Login';
 axios.defaults.withCredentials = true;
 
 const userInfo = {
-  isLogin: false,
-  usercode: 0,
-  nickname: '',
-  name: '',
+  class: 0,
+  code: 0,
+  enroled: "",
   grade: 0,
-  classNo: 0,
-  studentNo: 0,
-  isManager: false
+  name: "",
+  nickname: "",
+  studentNo: "",
+  isLogin: false,
 };
 
 export const UserContext = createContext(userInfo);
@@ -28,7 +28,6 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        console.log((await getUserInfo()).data.data)
         setUser({
           ...(await getUserInfo()).data,
           isLogin: true,

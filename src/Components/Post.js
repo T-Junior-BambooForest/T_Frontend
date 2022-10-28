@@ -6,96 +6,51 @@ import { UserContext } from '../App';
 
 const Post = () => {
     const user = useContext(UserContext);
-    const [date] = useState(new Date());
-    const [isAnony, setIsAnony] = useState(true);
-    const [text, setText] = useState('');
-    const [postInfo, setPostInfo] = useState([
-        {
-            postId: 1,
-            postDate: date,
-            text: 'ah deu di oh da hat da!',
-        },
-        {
-            postId: 2,
-            postDate: date,
-            text: 'ㄴ',
-        },
-        {
-            postId: 3,
-            postDate: date,
-            text: 'ㅇㄴ머ㅜ람ㅍnaslkfnklsancaslkckasncsanlkcsanvkndabjndjbnvadlsjkcnjksfbnrwljiefdsfnbvfcjkdsfbhgkvjdhcjkldshklsahjdfldshdjlkdahjcfkashkdhsadksakjdaslkjdfhdasljkfklfjhfaskjcbvjdfslbvfajksbcvkjfsbkjsabvlkjfdsbkjldfnvkjdsancvjkfsbnvkdajvjsdlkbvjkdnvkadnbkjdflfcasjknvbklfahcxaosugvuydsghfiwrefuidlashbl fghgifdahnblfcojdblejrwopejwsoidjbnlerkjnxiadnvdsk;nvkjbfdnbjlkenfgjkdsnfkjvflnsvkjfndkbjfngfldfjc;ioadjofwirhorwiefpi;asjdcklsamvklfdbklsdaldasxlksmckdfjbnfsjklfnlskdnjsa;텀ㄴㄹ가힏버이ㅏ저이ㅏㅈㅂㄷ;ㅈㅂㄷㄴ;나;ㅣㅁ나;ㅏㅇ;낭리;ㅇ나차우파ㅣ뤂ㅇ나ㅓㅜㅁㄴ;ㅏㅜㅏㅓ',
-        },
-        {
-            postId: 4,
-            postDate: date,
-            text: 'ah deu di oh da hat da!',
-        },
-        {
-            postId: 5,
-            postDate: date,
-            text: 'ㄴ',
-        },
-        {
-            postId: 6,
-            postDate: date,
-            text: 'x민석',
-        },
-        {
-            postId: 7,
-            postDate: date,
-            text: 'ah deㅣㅏㅁ나ㅣㅜㅊ',
-        },
-        {
-            postId: 8,
-            postDate: date,
-            text: 'ㄴㅣㅣㅣㅣㅣㅣㅣㅣㅣ',
-        },
-        {
-            postId: 9,
-            postDate: date,
-            text: '안녕',
-        },
-    ])
+    const [content, setContent] = useState("");
+    const [anony, setAnony] = useState(true);
 
-    const onClickIsAnony = useCallback(() => {
-        setIsAnony(!isAnony);
-    }, [isAnony])
+    const onChangeContent = useCallback((e) => {
+        setContent(e.target.value)
+    }, [content, setContent]);
+
+    const onClickAnony = () => {
+        setAnony(anony => !anony)
+    };
 
     const onSubmit = useCallback((e) => {
         e.preventDefault();
-        isAnony ? (
-            axios
-                .post(
-                    '/bsmboo.kro.kr/users/login',
-                    { user, postInfo },
-                    { withCredentials: true, }
-                )
-                .then(() => {
-                    // revalidate();
-                })
-                .catch((error) => {
-                    alert(error);
-                })
-        ) : (
-            axios
-                .post(
-                    '/bsmboo.kro.kr/users/login',
-                    { postInfo },
-                    { withCredentials: true, }
-                )
-                .then(() => {
-                    // revalidate();
-                })
-                .catch((error) => {
-                    alert(error);
-                })
-        )
 
-    }, [postInfo, isAnony]);
-
-    const onChangeText = useCallback((e) => {
-        setText(e.target.value)
-    }, []);
+        if (!content) {
+            alert('내용이 비어있습니다. 다시 확인해주세요.')
+        } else {
+            if (anony) {
+                axios
+                    .post(
+                        '/bsmboo.kro.kr/users/login',
+                        { content, anony },
+                    )
+                    .then(() => {
+                        alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
+                    })
+                    .catch((error) => {
+                        alert(`에러가 발생하였습니다. ${error}`);
+                    })
+            } else {
+                axios
+                    .post(
+                        '/bsmboo.kro.kr/users/login',
+                        { user, content, anony },
+                    )
+                    .then(() => {
+                        alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
+                    })
+                    .catch((error) => {
+                        alert(`에러가 발생하였습니다. ${error}`);
+                    })
+            }
+            window.location.replace("/")
+        }
+    }, [user, content, anony]);
 
     return (
         <form onSubmit={onSubmit}>
@@ -107,8 +62,8 @@ const Post = () => {
                             <div>
                                 <div className='anony-button-wrap'>
                                     <span className='anony_button_span'>익명</span>
-                                    {isAnony ? (<input type='button' className='anony_button' onClick={onClickIsAnony} value='✓' style={{ backgroundColor: '#238636' }} />)
-                                        : (<input type='button' className='anony_button' onClick={onClickIsAnony} value=' ' style={{ backgroundColor: '#21262D' }} />)}
+                                    {anony ? (<input type='button' className='anony_button' onClick={onClickAnony} value='✓' style={{ backgroundColor: '#238636' }} />)
+                                        : (<input type='button' className='anony_button' onClick={onClickAnony} value=' ' style={{ backgroundColor: '#21262D' }} />)}
                                 </div>
                                 <input type='file' className='image-file' accept="image/png, image/jpeg" />
                             </div>
@@ -121,10 +76,9 @@ const Post = () => {
                         </div>
                     </div>
                     <div className='editor_box'>
-                        <textarea className='editor' onChange={onChangeText} value={text} />
+                        <textarea className='editor' onChange={onChangeContent} />
                     </div>
                     <Forum
-                        postInfo={postInfo}
                     />
                 </div>
             </div>

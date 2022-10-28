@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Style/Header.scss';
 
-const Header = ({ userInfo }) => {
-
+const Header = () => {
     return (
         <div>
             <div className='header_wrap'>
