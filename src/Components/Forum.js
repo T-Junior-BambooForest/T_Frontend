@@ -17,7 +17,6 @@ const Forum = () => {
                     if (a > b) return -1;
                     if (a < b) return 1;
                 })
-                console.log(data);
                 setAllowPost([...data])
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
