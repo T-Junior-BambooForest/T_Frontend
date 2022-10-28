@@ -5,7 +5,6 @@ import PostItem from './PostItem';
 
 const Forum = () => {
     const [allowPost, setAllowPost] = useState();
-    // const POSTINFO_DESC = [...postInfo].reverse();
 
     const test = () => {
         console.log(allowPost)
@@ -42,9 +41,9 @@ const Forum = () => {
                     <PostItem
                         key={post.boardCode}
                         num={index}
-                        content={post.contents}
-                        id={post.postId}
-                        date={post.postDate}
+                        contents={post.contents}
+                        name={post.User.name}
+                        date={post.createdAt}
                     />
                 ))}
             </div>
