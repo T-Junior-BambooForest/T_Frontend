@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import useDidMountEffect from '../../hooks/useDidMountEffect';
+import useDidMountEffect from '../hooks/useDidMountEffect';
 import { UserContext } from '../App';
 import Header from '../Components/Header';
 import '../Style/Management.scss';
