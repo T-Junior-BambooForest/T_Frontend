@@ -57,8 +57,8 @@ const Post = () => {
                             <div>
                                 <div className='anony-button-wrap'>
                                     <span className='anony_button_span'>익명</span>
-                                    {anony ? (<input type='button' className='anony_button' onClick={onClickAnony} value='✓' style={{ backgroundColor: '#238636' }} />)
-                                        : (<input type='button' className='anony_button' onClick={onClickAnony} value=' ' style={{ backgroundColor: '#21262D' }} />)}
+                                    {anony ? (<input type='button' className='anony_button' onClick={onClickAnony} value='✓' style={{ backgroundColor: '#238636', marginLeft: '30px' }} />)
+                                        : (<input type='button' className='anony_button' onClick={onClickAnony} value=' ' style={{ backgroundColor: '#21262D', marginLeft: '30px' }} />)}
                                 </div>
                                 {/* <input type='file' className='image-file' accept="image/png, image/jpeg" /> */}
                             </div>
