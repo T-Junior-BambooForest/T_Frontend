@@ -12,8 +12,8 @@ const Forum = () => {
                 let data = await getAllowPostInfo();
                 data = data.data;
                 data.sort((a, b) => {
-                    a = a.boardCode;
-                    b = b.boardCode;
+                    a = a.updatedAt;
+                    b = b.updatedAt;
                     if (a > b) return -1;
                     else if (a < b) return 1;
                     else return 0;
