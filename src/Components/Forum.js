@@ -45,7 +45,7 @@ const Forum = () => {
                         num={allowPost.length - index}
                         contents={post.contents}
                         name={post.User.name}
-                        date={post.createdAt}
+                        date={post.updatedAt}
                     />
                 ))}
             </div>
