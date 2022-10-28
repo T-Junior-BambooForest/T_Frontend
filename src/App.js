@@ -28,10 +28,9 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        let user = await getUserInfo();
-        console.log(user.data.data)
+        console.log(await getUserInfo().data)
         setUser({
-          ...(await getUserInfo()),
+          ...(await getUserInfo().data.data),
           isLogin: true,
         });
       } catch (error) {
