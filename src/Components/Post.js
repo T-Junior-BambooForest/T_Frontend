@@ -9,9 +9,9 @@ const Post = () => {
     const [content, setContent] = useState("");
     const [anony, setAnony] = useState(true);
 
-    const onChangeContent = useCallback((e) => {
+    const onChangeContent = (e) => {
         setContent(e.target.value)
-    }, [content, setContent]);
+    };
 
     const onClickAnony = () => {
         setAnony(anony => !anony)
