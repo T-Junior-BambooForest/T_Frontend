@@ -25,6 +25,24 @@ const Management = () => {
             })
     }
 
+    const onClickDeletePost = (code) => {
+        axios
+            .post(
+                'http://bsmboo.kro.kr:8000/board',
+                {
+                    boardCode: code,
+                }
+            )
+            .then(() => {
+                alert('글이 삭제되었습니다.')
+                window.location.reload('/management');
+            })
+            .catch((error) => {
+                alert(`에러가 발생하였습니다. ${error}`);
+                window.location.reload('/management');
+            })
+    }
+
     useEffect(() => {
         (async () => {
             try {
@@ -72,8 +90,8 @@ const Management = () => {
                                         <td>{post.boardCode}</td>
                                         <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                         <td>{post.isAnonymous ? '익명' : post.User.name}</td>
-                                        <td onClick={() => onClickUpdatePost(post.boardCode)}>수락</td>
-                                        <td>거절</td>
+                                        <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >수락</td>
+                                        <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }}>거절</td>
                                     </tr>
                                 </tbody>
                             )
