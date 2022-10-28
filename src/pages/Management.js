@@ -1,78 +1,44 @@
-import React, { useState } from 'react';
+import axios, { AxiosError } from 'axios';
+import React, { useEffect, useState } from 'react';
 import Header from '../Components/Header';
 import '../Style/Management.scss';
 
+const postInfo = {
+    boardCode: 0,
+    contents: "",
+    allowBoard: null,
+    isAnonyMous: true,
+    createdAt: "",
+    updatedAt: "",
+    Usercode: 0,
+    User: {
+        code: 0,
+        name: "",
+        nickname: "",
+    }
+};
+
 const Management = () => {
 
-    const [testUser] = useState(
-        [
-            {
-                id: '1',
-                text: 'sadnclacnlsacnlskcnlsaasdsklnfkldsvkldvlkdalkfdnalkasdklakdlnclksanclksnakcnsalkcnadlkcnaldkncaslkckadncalkncklascklasnclkanslkcanslkanlvnalkvnaslkvnsalkvnaslknvlkasnvlsanlk',
-                isAnony: true,
-                image: 'https://webisfree.com/static/uploads/2019/9866_images580.jpg'
-            },
-            {
-                id: '2',
-                text: 'saadsgdsagbdadnclacnlsacnlskcnlsaas',
-                isAnony: false,
-                image: ''
-            },
-            {
-                id: '3',
-                text: 'sadnclacnlsacasdvasdbsdabvdavjdabkvjabsjkvbsakjvbaskjvbjkasvn jkasnvkjadnvjkadnkjvadvnlskcnlsaas',
-                isAnony: false,
-            },
-            {
-                id: '4',
-                text: 'sadnclacnlsacnlsk',
-                isAnony: true,
-                image: '/images/picture.png',
-            },
-            {
-                id: '5',
-                text: 'sadnclacnlsacnlskcnlsaasdsklnfkldsvkldvlkdalkfdnalkasdklakdlnclksanclksnakcnsalkcnadlkcnaldkncaslkckadncalkncklascklasnclkanslkcanslkanlvnalkvnaslkvnsalkvnaslknvlkasnvlsanlk',
-                isAnony: true,
-            },
-            {
-                id: '6',
-                text: 'saadsgdsagbdadnclacnlsacnlskcnlsaas',
-                isAnony: false,
-            },
-            {
-                id: '7',
-                text: 'sadnclacnlsacasdvasdbsdabvdavjdabkvjabsjkvbsakjvbaskjvbjkasvn jkasnvkjadnvjkadnkjvadvnlskcnlsaas',
-                isAnony: false,
-            },
-            {
-                id: '8',
-                text: 'sadnclacnlsacnlsk',
-                isAnony: true,
-                image: '/images/picture.png',
-            },
-            {
-                id: '9',
-                text: 'sadnclacnlsacnlskcnlsaasdsklnfkldsvkldvlkdalkfdnalkasdklakdlnclksanclksnakcnsalkcnadlkcnaldkncaslkckadncalkncklascklasnclkanslkcanslkanlvnalkvnaslkvnsalkvnaslknvlkasnvlsanlk',
-                isAnony: true,
-            },
-            {
-                id: '10',
-                text: 'saadsgdsagbdadnclacnlsacnlskcnlsaas',
-                isAnony: false,
-            },
-            {
-                id: '11',
-                text: 'sadnclacnlsacasdvasdbsdabvdavjdabkvjabsjkvbsakjvbaskjvbjkasvn jkasnvkjadnvjkadnkjvadvnlskcnlsaas',
-                isAnony: false,
-            },
-            {
-                id: '12',
-                text: 'sadnclacnlsacnlsk',
-                isAnony: true,
-                image: '/images/picture.png',
-            },
-        ]
-    )
+    const [post, setPost] = useState(postInfo);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const data = await getPostInfo();
+                setPost(data)
+                console.log(post)
+            } catch (error) {
+                if (error instanceof AxiosError && error.response?.status >= 400) {
+                    setPost((prev) => ({ ...prev, isLogin: false }));
+                }
+            }
+        })();
+    }, []);
+
+    const getPostInfo = () => {
+        return axios.get("http://bsmboo.kro.kr:8000/board/manage", { withCredentials: true });
+    };
 
     return (
         <div>
@@ -97,21 +63,22 @@ const Management = () => {
                             <td>요청자</td>
                             <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                         </tr>
-                        {testUser.map((user) => {
+                        {post.map((post) => {
                             return (
                                 <tr>
-                                    <td>{user.id}</td>
+                                    {/* <td>{user.id}</td>
                                     <td style={{ fontSize: '14px' }}>{user.text}</td>
                                     <td>{user.image ? '있음' : ''} </td>
                                     <td>{user.isAnony ? '익명' : `박우빈`}</td>
                                     <td>수락</td>
-                                    <td>거절</td>
+                                    <td>거절</td> */}
+                                    <td>test</td>
                                 </tr>
                             )
                         })
                         }
                     </table>
-                    <table>
+                    {/* <table>
                         <tr>
                             <td>사진 글번호</td>
                             <td>사진</td>
@@ -130,7 +97,7 @@ const Management = () => {
                             )
                         })
                         }
-                    </table>
+                    </table> */}
                 </div>
             </div>
         </div>
