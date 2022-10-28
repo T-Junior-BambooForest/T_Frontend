@@ -39,7 +39,7 @@ const Forum = () => {
                 </h1>
             </div>
             <div>
-                {allowPost && allowPost.map((post, index) => (
+                {allowPost && allowPost?.map((post, index) => (
                     <PostItem
                         key={post.boardCode}
                         num={allowPost.length - index}
