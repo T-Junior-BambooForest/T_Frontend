@@ -27,7 +27,7 @@ const Management = () => {
 
     const onClickDeletePost = (code) => {
         axios
-            .post(
+            .delete(
                 'http://bsmboo.kro.kr:8000/board',
                 {
                     boardCode: code,
