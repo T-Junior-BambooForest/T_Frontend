@@ -7,8 +7,8 @@ const Management = () => {
 
     const [post, setPost] = useState();
 
-    const test = (post) => {
-        console.log(post)
+    const onClickUpdatePost = (e) => {
+        console.log(e)
     }
 
     useEffect(() => {
@@ -58,7 +58,7 @@ const Management = () => {
                                         <td>{post.boardCode}</td>
                                         <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                         <td>{post.isAnonymous ? '익명' : post.User.name}</td>
-                                        <td onClick={test}>수락</td>
+                                        <td onClick={() => onClickUpdatePost(post.boardCode)}>수락</td>
                                         <td>거절</td>
                                     </tr>
                                 </tbody>
