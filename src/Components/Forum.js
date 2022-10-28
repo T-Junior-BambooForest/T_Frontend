@@ -35,7 +35,7 @@ const Forum = () => {
                 {allowPost && allowPost.map((post, index) => (
                     <PostItem
                         key={post.boardCode}
-                        num={index.reverse()}
+                        num={index + 1}
                         contents={post.contents}
                         name={post.User.name}
                         date={post.createdAt}
