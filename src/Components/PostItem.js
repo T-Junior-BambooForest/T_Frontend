@@ -9,7 +9,7 @@ const PostItem = ({ num, contents, name, date }) => {
                 <div className='header_info_box'>
                     <span className='count_text'>대나무숲 #{num}번째 제보</span>
                     <div className='date_text_box'>
-                        <span className='date_text'>{date}</span>
+                        <span className='date_text'>{date.replace('T', ', ').replace('.000Z', '').replace}</span>
                     </div>
                     <div className='author_text_box'>
                         <span className='author_text'>{name}</span>
