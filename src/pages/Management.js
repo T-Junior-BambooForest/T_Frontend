@@ -7,6 +7,10 @@ const Management = () => {
 
     const [post, setPost] = useState();
 
+    const test = () => {
+        console.log(post)
+    }
+
     useEffect(() => {
         (async () => {
             try {
@@ -38,6 +42,7 @@ const Management = () => {
                     게시글
                 </h1>
             </div>
+            <button onClick={test}>히히 테스트버튼</button>
             <div className='management_content_wrap'>
                 <div className='management_content_title'>
                     <table style={{ marginBottom: '50px' }}>
