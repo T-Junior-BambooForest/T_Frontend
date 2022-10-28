@@ -49,9 +49,9 @@ const Management = () => {
     }
 
     useEffect(() => {
-        if (!user.isManage) {
-            navigate('/error')
-        }
+        // if (!user.isManage) {
+        //     navigate('/error')
+        // }
         (async () => {
             try {
                 const data = await getPostInfo();
@@ -63,7 +63,10 @@ const Management = () => {
                 }
             }
         })();
+        console.log(`useEffect : ${user.isManage}`)
     }, [user]);
+
+    console.log(`just : ${user.isManage}`)
 
     const getPostInfo = () => {
         return axios.get("http://bsmboo.kro.kr:8000/board/manage", { withCredentials: true });
