@@ -30,7 +30,7 @@ const App = () => {
       try {
         const data = await getUserInfo();
         setUser({
-          ...data.data,
+          ...data.data.data,
           isLogin: true,
         })
 
