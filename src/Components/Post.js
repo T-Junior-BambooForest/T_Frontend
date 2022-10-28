@@ -23,34 +23,23 @@ const Post = () => {
         if (!content) {
             alert('내용이 비어있습니다. 다시 확인해주세요.')
         } else {
-            if (anony) {
-                axios
-                    .post(
-                        'http://bsmboo.kro.kr:8000/board',
-                        { user, content },
-                        true
-                    )
-                    .then(() => {
-                        alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-                    })
-                    .catch((error) => {
-                        alert(`에러가 발생하였습니다. ${error}`);
-                    })
-            } else {
-                axios
-                    .post(
-                        'http://bsmboo.kro.kr:8000/board',
-                        { user, content },
-                        false
-                    )
-                    .then(() => {
-                        alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-                    })
-                    .catch((error) => {
-                        alert(`에러가 발생하였습니다. ${error}`);
-                    })
-            }
-            window.location.replace("/")
+            axios
+                .post(
+                    'http://bsmboo.kro.kr:8000/board',
+                    {
+                        contents: content,
+                        Usercode: user.code,
+                        isAnonymous: anony
+                    }
+                )
+                .then(() => {
+                    alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
+                    window.location.reload('/');
+                })
+                .catch((error) => {
+                    alert(`에러가 발생하였습니다. ${error}`);
+                    window.location.reload('/');
+                })
         }
     }, [user, content, anony]);
 
