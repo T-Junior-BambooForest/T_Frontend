@@ -28,7 +28,9 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        setUser(await getUserInfo())
+        let usertest = await getUserInfo();
+        usertest = usertest.data.data;
+        setUser(usertest);
         console.log(user)
         // setUser({
         //   ...(await getUserInfo().data),
