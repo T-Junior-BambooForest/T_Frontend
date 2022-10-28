@@ -7,8 +7,22 @@ const Management = () => {
 
     const [post, setPost] = useState();
 
-    const onClickUpdatePost = (e) => {
-        console.log(e)
+    const onClickUpdatePost = (code) => {
+        axios
+            .post(
+                'http://bsmboo.kro.kr:8000/board/update',
+                {
+                    boardCode: code,
+                }
+            )
+            .then(() => {
+                alert('글이 승인되었습니다.')
+                window.location.reload('/management');
+            })
+            .catch((error) => {
+                alert(`에러가 발생하였습니다. ${error}`);
+                window.location.reload('/management');
+            })
     }
 
     useEffect(() => {
