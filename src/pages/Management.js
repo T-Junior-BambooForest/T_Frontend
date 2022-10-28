@@ -7,7 +7,7 @@ const Management = () => {
 
     const [post, setPost] = useState();
 
-    const test = () => {
+    const test = (post) => {
         console.log(post)
     }
 
