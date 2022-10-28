@@ -71,7 +71,7 @@ const Management = () => {
 
     return (
         <div>
-            {!user.isManage ?
+            {user && !user.isManage ?
                 <Navigate to='/error' replace={true} />
                 :
                 <>
@@ -100,7 +100,7 @@ const Management = () => {
                                                     <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                                     <td>{post.isAnonymous ? '익명' : post.User.name}</td>
                                                     <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >수락</td>
-                                                    <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }}>거절</td>
+                                                    <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
                                                 </tr>
                                             </tbody>
                                         }</>
