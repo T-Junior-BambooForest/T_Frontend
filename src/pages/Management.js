@@ -27,7 +27,7 @@ const Management = () => {
             try {
                 const data = await getPostInfo();
                 setPost(data)
-                console.log(post)
+                console.log(data)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
                     setPost((prev) => ({ ...prev, isLogin: false }));
