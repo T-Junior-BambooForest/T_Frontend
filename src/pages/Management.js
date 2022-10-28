@@ -54,7 +54,7 @@ const Management = () => {
                         </tr>
                         {post && post.map((post) => {
                             return (
-                                <tr>
+                                <tr key={post.boardCode}>
                                     <td>{post.boardCode}</td>
                                     <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                     <td>{post.isAnonymous ? '익명' : post.User.name}</td>
