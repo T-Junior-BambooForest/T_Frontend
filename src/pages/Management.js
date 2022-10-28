@@ -53,13 +53,15 @@ const Management = () => {
                         </tr>
                         {post && post.map((post) => {
                             return (
-                                <tr key={post.boardCode}>
-                                    <td>{post.boardCode}</td>
-                                    <td style={{ fontSize: '14px' }}>{post.contents}</td>
-                                    <td>{post.isAnonymous ? '익명' : post.User.name}</td>
-                                    <td>수락</td>
-                                    <td>거절</td>
-                                </tr>
+                                <div key={post.boardCode}>
+                                    <tr>
+                                        <td>{post.boardCode}</td>
+                                        <td style={{ fontSize: '14px' }}>{post.contents}</td>
+                                        <td>{post.isAnonymous ? '익명' : post.User.name}</td>
+                                        <td>수락</td>
+                                        <td>거절</td>
+                                    </tr>
+                                </div>
                             )
                         })
                         }
