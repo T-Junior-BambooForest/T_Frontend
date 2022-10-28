@@ -53,7 +53,7 @@ const Management = () => {
                         </tr>
                         {post && post.map((post) => {
                             return (
-                                <div key={post.boardCode}>
+                                <tbody key={post.boardCode}>
                                     <tr>
                                         <td>{post.boardCode}</td>
                                         <td style={{ fontSize: '14px' }}>{post.contents}</td>
@@ -61,7 +61,7 @@ const Management = () => {
                                         <td>수락</td>
                                         <td>거절</td>
                                     </tr>
-                                </div>
+                                </tbody>
                             )
                         })
                         }
