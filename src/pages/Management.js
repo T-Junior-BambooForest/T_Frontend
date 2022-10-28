@@ -7,7 +7,7 @@ const Management = () => {
 
     const [post, setPost] = useState();
 
-    const onClickUpdatePost = (code) => {
+    const onClickUpdatePost = (code, index) => {
         axios
             .post(
                 'http://bsmboo.kro.kr:8000/board/update',
@@ -16,8 +16,8 @@ const Management = () => {
                 }
             )
             .then(() => {
-                console.log(this.post.boardCode)
                 alert('글이 승인되었습니다.')
+                post.splice(index, 1)
                 window.location.reload('/management');
             })
             .catch((error) => {
@@ -86,7 +86,7 @@ const Management = () => {
                             <td>요청자</td>
                             <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                         </tr>
-                        {post && post.map((post) => {
+                        {post && post.map((post, index) => {
                             return (
                                 <tbody key={post.boardCode}>
                                     <tr>
@@ -94,7 +94,7 @@ const Management = () => {
                                         <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                         <td>{post.isAnonymous ? '익명' : post.User.name}</td>
                                         <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >수락</td>
-                                        <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }}>거절</td>
+                                        <td onClick={() => onClickDeletePost(post.boardCode, index)} style={{ cursor: 'pointer' }}>거절</td>
                                     </tr>
                                 </tbody>
                             )
