@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Header from '../Components/Header';
 import '../Style/MyPage.scss';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
@@ -7,11 +7,16 @@ import useDidMountEffect from '../hooks/useDidMountEffect';
 
 const MyPage = () => {
     const user = useContext(UserContext);
+    const [isLoad, setIsLoad] = useState(false);
     const navigate = useNavigate();
 
     const onDefaultProfile = (e) => {
         e.target.src = "https://bssm.kro.kr/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile_default.99e93808.png&w=128&q=75";
     }
+
+    useEffect(() => {
+        setIsLoad(true)
+    }, []);
 
     useDidMountEffect(() => {
         if (!user.isLogin) {
@@ -21,7 +26,7 @@ const MyPage = () => {
 
     return (
         <>
-            {user.isLogin ?
+            {isLoad ?
                 <div className='mypage_wrap'>
                     <Header />
                     <div className='myprofile_title_box'>
@@ -55,7 +60,7 @@ const MyPage = () => {
                         }
                     </div>
                 </div>
-                : <Navigate to='/login' />}
+                : ''}
         </>
     );
 
