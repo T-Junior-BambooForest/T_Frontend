@@ -4,8 +4,12 @@
 
         .article_title {
             margin-top: 30px;
-            font-size: 1.5vw;
+            font-size: 22px;
             margin-bottom: -10px;
+
+            @media ALL and (max-width:500px) {
+                font-size: 14px;
+            }
         }
     }
 }
