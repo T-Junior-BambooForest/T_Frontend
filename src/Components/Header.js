@@ -22,7 +22,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className='login_btn'>
-                    {user.isLogin ? '' : <><span><a href={'https://auth.bssm.kro.kr/oauth?clientId=4bff670f&redirectURI=http://bsmboo.kro.kr:8000/oauth'}>LOGIN</a></span>&nbsp;&nbsp;|&nbsp;&nbsp;</>}
+                    {user.isLogin ? '' : <><span><a href={process.env.REACT_APP_LOGIN_URL}>LOGIN</a></span>&nbsp;&nbsp;|&nbsp;&nbsp;</>}
 
                     <span><Link to={'/mypage'}>MYPAGE</Link></span>
                 </div>
