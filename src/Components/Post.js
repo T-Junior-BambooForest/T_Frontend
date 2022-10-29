@@ -21,14 +21,14 @@ const Post = () => {
         e.preventDefault();
 
         if (!user.isLogin) {
-            alert('Error : 로그인 상태를 확인할 수 없습니다. 로그인 후에 글을 작성하실 수 있습니다.')
+            alert('로그인 상태를 확인할 수 없습니다. 로그인 후에 글을 작성하실 수 있습니다.')
         } else {
             if (!content) {
                 alert('내용이 비어있습니다. 제보 내용을 다시 한 번 확인해주세요.')
             } else {
                 axios
                     .post(
-                        'http://bsmboo.kro.kr:8000/board',
+                        process.env.REACT_APP_BOARD_URL,
                         {
                             contents: content,
                             Usercode: user.code,
