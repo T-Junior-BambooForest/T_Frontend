@@ -27,8 +27,8 @@ const MyPage = () => {
                     </div>
                     <div className='myprofile_image_box'>
                         <img className='myprofile_image'
-                            src='/images/picture.png'
-                            alt='profile_image' />
+                            src={`https://auth.bssm.kro.kr/_next/image?url=https%3A%2F%2Fauth.bssm.kro.kr%2Fresource%2Fuser%2Fprofile%2F${user.code}.png&w=256&q=75`}
+                            alt='profile' />
                     </div>
                     <div className='user_info_wrap' style={{ marginTop: '30px' }}>
                         <div className='user_nickname_box'>
