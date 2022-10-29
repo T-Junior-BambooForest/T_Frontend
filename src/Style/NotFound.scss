@@ -7,11 +7,20 @@
 
     .not_found_page {
         font-size: 35px;
+
+        @media ALL and (max-width:500px) {
+            margin-top: 30%;
+            font-size: 22px;
+        }
     }
 
     .home_button {
         margin-top: 10px;
         font-size: 18px;
+
+        @media ALL and (max-width:500px) {
+            font-size: 16px;
+        }
     }
 
     h1 {
