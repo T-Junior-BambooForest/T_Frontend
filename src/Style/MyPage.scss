@@ -154,3 +154,14 @@
     }
 
 }
+
+.need-login-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    h1 {
+        margin-top: 200px;
+    }
+}
