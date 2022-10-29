@@ -6,8 +6,7 @@ import { UserContext } from '../App';
 import useDidMountEffect from '../hooks/useDidMountEffect';
 
 const MyPage = () => {
-    let user = useContext(UserContext);
-    const [isLoad, setIsLoad] = useState(false);
+    const user = useContext(UserContext);
     const navigate = useNavigate();
 
     const onDefaultProfile = (e) => {
@@ -15,14 +14,6 @@ const MyPage = () => {
     }
 
     useEffect(() => {
-        try {
-            setIsLoad(true)
-        } catch (error) {
-            console.log(error)
-        }
-    }, []);
-
-    useDidMountEffect(() => {
         if (!user.isLogin) {
             navigate('/login')
         }
@@ -30,7 +21,7 @@ const MyPage = () => {
 
     return (
         <>
-            {isLoad ?
+            {user.isLogin ?
                 <div className='mypage_wrap'>
                     <Header />
                     <div className='myprofile_title_box'>
