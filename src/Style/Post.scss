@@ -23,7 +23,7 @@
             .post_title {
                 margin-top: 30px;
                 margin-bottom: -35px;
-                font-size: 1.5vw;
+                font-size: 22px;
                 color: #E5EDF5;
 
                 @media ALL and (max-width:500px) {
@@ -45,14 +45,19 @@
                 }
 
                 div {
-                    div {
+                    .anony-button-wrap {
                         display: inline;
 
                         .anony_button_span {
-                            font-size: 1vw;
+                            font-size: 14px;
                             font-family: 'main';
                             font-style: normal;
                             font-weight: 700;
+                            cursor: pointer;
+
+                            @media ALL and (max-width:500px) {
+                                font-size: 14px;
+                            }
                         }
 
                         .anony_button {
@@ -66,10 +71,10 @@
                             cursor: pointer;
 
                             @media ALL and (max-width:500px) {
-                                width: 12px;
-                                height: 12px;
-                                border-radius: 3px;
-                                font-size: 8px;
+                                width: 18px;
+                                height: 18px;
+                                border-radius: 6px;
+                                font-size: 10px;
                             }
                         }
                     }
@@ -114,11 +119,9 @@
                     font-weight: 700;
 
                     @media ALL and (max-width:500px) {
-                        width: 35px;
-                        height: 16px;
-                        font-size: 0px;
-                        margin-top: 5px;
-                        margin-left: 100px;
+                        margin-top: 1.5px;
+                        width: 50px;
+                        height: 20px;
                     }
                 }
             }
