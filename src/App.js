@@ -17,6 +17,7 @@ const userInfo = {
   name: "",
   nickname: "",
   studentNo: "",
+  profile: "",
   isLogin: false,
   isManage: false,
 };
