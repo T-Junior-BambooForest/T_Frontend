@@ -56,7 +56,7 @@ a {
 
         @media ALL and (max-width:600px) {
             margin-right: 15px;
-            font-size: 5px;
+            font-size: 14px;
         }
     }
 }
@@ -70,7 +70,7 @@ a {
     border-bottom: 1px solid #30363D;
 
     @media ALL and (max-width:600px) {
-        display: inline;
+        margin-top: -20px;
     }
 
     .team_image_box {
@@ -109,12 +109,14 @@ a {
         flex-direction: column;
 
         @media ALL and (max-width:600px) {
-            margin-top: 5px;
+            margin-top: -5px;
         }
 
         .service_name {
             color: $white-color;
             margin-left: 25px;
+
+
 
             .bamboo_name {
                 font-size: 28px;
@@ -123,7 +125,7 @@ a {
                 font-weight: 700;
 
                 @media ALL and (max-width:600px) {
-                    font-size: 14px;
+                    font-size: 16px;
                 }
             }
         }
@@ -137,10 +139,15 @@ a {
             .image_box {
                 margin-top: 3px;
 
-                .location_box {
+                .location_mark {
                     margin-top: 0px;
                     width: 16px;
                     height: 16px;
+
+                    @media ALL and (max-width:600px) {
+                        width: 14px;
+                        height: 14px;
+                    }
                 }
             }
 
@@ -175,7 +182,7 @@ a {
 
         @media ALL and (max-width:600px) {
             position: absolute;
-            left: 65%;
+            left: 32%;
             top: 20%;
             width: 50px;
             height: 20px;
