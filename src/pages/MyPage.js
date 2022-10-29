@@ -6,7 +6,7 @@ import { UserContext } from '../App';
 import useDidMountEffect from '../hooks/useDidMountEffect';
 
 const MyPage = () => {
-    const user = useContext(UserContext);
+    let user = useContext(UserContext);
     const [isLoad, setIsLoad] = useState(false);
     const navigate = useNavigate();
 
@@ -14,11 +14,18 @@ const MyPage = () => {
         e.target.src = "https://bssm.kro.kr/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile_default.99e93808.png&w=128&q=75";
     }
 
+    useEffect(() => {
+        try {
+            setIsLoad(true)
+        } catch (error) {
+            console.log(error)
+        }
+    }, []);
+
     useDidMountEffect(() => {
         if (!user.isLogin) {
             navigate('/login')
         }
-        setIsLoad(true)
     }, [user]);
 
     return (
