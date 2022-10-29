@@ -23,8 +23,11 @@ a {
     align-items: center;
     width: 100%;
     height: 60px;
-    margin-bottom: 20px;
     background-color: #161b22;
+
+    @media ALL and (max-width:500px) {
+        margin-bottom: 20px;
+    }
 
     .logo_wrap {
         display: flex;
