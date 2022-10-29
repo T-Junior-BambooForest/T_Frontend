@@ -17,7 +17,7 @@ const MyPage = () => {
         if (!user.isLogin) {
             navigate('/login')
         }
-    }, []);
+    }, [user]);
 
     return (
         <>
