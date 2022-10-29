@@ -45,7 +45,7 @@ const App = () => {
   }, []);
 
   const getUserInfo = () => {
-    return axios.get("http://bsmboo.kro.kr:8000/isLogin", { withCredentials: true });
+    return axios.get(process.env.REACT_APP_ISLOGIN_URL, { withCredentials: true });
   };
 
   return (
