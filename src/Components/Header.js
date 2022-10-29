@@ -6,6 +6,11 @@ import '../Style/Header.scss';
 const Header = () => {
     const user = useContext(UserContext)
 
+    function validateURL(url) {
+        const parsed = new URL(url)
+        return ['https:', 'http:'].includes(parsed.protocol)
+    }
+
     return (
         <div>
             <div className='header_wrap'>
@@ -22,7 +27,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className='login_btn'>
-                    {user.isLogin ? '' : <><span><a href={process.env.REACT_APP_LOGIN_URL}>LOGIN</a></span>&nbsp;&nbsp;|&nbsp;&nbsp;</>}
+                    {user.isLogin ? '' : <><span><a href={validateURL(process.env.REACT_APP_LOGIN_URL) ? process.env.REACT_APP_LOGIN_URL : ''}>LOGIN</a></span>&nbsp;&nbsp;|&nbsp;&nbsp;</>}
 
                     <span><Link to={'/mypage'}>MYPAGE</Link></span>
                 </div>
