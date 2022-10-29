@@ -15,7 +15,7 @@ const Management = () => {
     const onClickUpdatePost = (code, index) => {
         axios
             .post(
-                'http://bsmboo.kro.kr:8000/board/update',
+                process.env.REACT_APP_BOARD_UPDATE_URL,
                 {
                     boardCode: code,
                 }
@@ -33,7 +33,7 @@ const Management = () => {
     const onClickDeletePost = (code) => {
         axios
             .delete(
-                'http://bsmboo.kro.kr:8000/board',
+                process.env.REACT_APP_BOARD_URL,
                 {
                     data: {
                         boardCode: code,
@@ -72,7 +72,7 @@ const Management = () => {
     }, [user])
 
     const getPostInfo = () => {
-        return axios.get("http://bsmboo.kro.kr:8000/board/manage", { withCredentials: true });
+        return axios.get(process.env.REACT_APP_BOARD_MANAGE_URL, { withCredentials: true });
     };
 
     return (
