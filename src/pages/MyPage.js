@@ -9,7 +9,6 @@ const MyPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log(user)
         if (!user.isLogin) {
             navigate('/login')
         }
