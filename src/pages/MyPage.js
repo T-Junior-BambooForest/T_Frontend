@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import Header from '../Components/Header';
 import '../Style/MyPage.scss';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../App';
 
 const MyPage = () => {
     const user = useContext(UserContext);
-    const navigate = useNavigate();
 
     const onDefaultProfile = (e) => {
         e.target.src = "https://bssm.kro.kr/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile_default.99e93808.png&w=128&q=75";
