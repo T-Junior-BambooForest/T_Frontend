@@ -56,7 +56,7 @@ const Post = () => {
                         <div className='form_boxs'>
                             <div>
                                 <div className='anony-button-wrap'>
-                                    <span className='anony_button_span'>익명</span>
+                                    <span className='anony_button_span' onClick={onClickAnony}>익명</span>
                                     {anony ? (<input type='button' className='anony_button' onClick={onClickAnony} value='✓' style={{ backgroundColor: '#238636', marginRight: '30px' }} />)
                                         : (<input type='button' className='anony_button' onClick={onClickAnony} value=' ' style={{ backgroundColor: '#21262D', marginRight: '30px' }} />)}
                                 </div>
