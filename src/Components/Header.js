@@ -65,7 +65,7 @@ const Header = () => {
                             </svg>
                         </div>
                         <div className='name_box'>
-                            <span className='school_names'>Busan, Software Meister School</span>
+                            <span className='school_names'>Busan, Software Meister High School</span>
                         </div>
                     </div>
                 </div>
