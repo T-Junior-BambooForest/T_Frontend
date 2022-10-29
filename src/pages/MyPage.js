@@ -3,7 +3,6 @@ import Header from '../Components/Header';
 import '../Style/MyPage.scss';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { UserContext } from '../App';
-import useDidMountEffect from '../hooks/useDidMountEffect';
 
 const MyPage = () => {
     const user = useContext(UserContext);
@@ -12,12 +11,6 @@ const MyPage = () => {
     const onDefaultProfile = (e) => {
         e.target.src = "https://bssm.kro.kr/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile_default.99e93808.png&w=128&q=75";
     }
-
-    useEffect(() => {
-        if (!user.isLogin) {
-            navigate('/login')
-        }
-    }, [user]);
 
     return (
         <>
@@ -55,7 +48,12 @@ const MyPage = () => {
                         }
                     </div>
                 </div>
-                : ''}
+                : (
+                    <>
+                        <Header />
+                        <div className='need-login-wrap'><h1>로그인이 필요합니다.</h1></div>
+                    </>
+                )}
         </>
     );
 
