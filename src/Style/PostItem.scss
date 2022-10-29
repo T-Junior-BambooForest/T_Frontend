@@ -40,12 +40,16 @@
             .date_text_box {
                 margin-top: -2px;
 
+                @media ALL and (max-width:600px) {
+                    margin-top: -6px;
+                }
+
                 .date_text {
                     font-size: 12px;
                     color: #83888E;
 
                     @media ALL and (max-width:600px) {
-                        font-size: 10px;
+                        font-size: 8px;
                     }
                 }
             }
@@ -76,6 +80,10 @@
             .content_text {
                 font-size: 14px;
                 color: #E5EDF5;
+
+                @media ALL and (max-width:600px) {
+                    font-size: 11px;
+                }
             }
         }
     }
