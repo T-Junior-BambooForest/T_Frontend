@@ -34,7 +34,7 @@ const App = () => {
         setUser({
           ...data.data.data,
           isLogin: true,
-          isManage: data.data.data.code === process.env.REACT_APP_MANAGER_1 || data.data.data.code === process.env.REACT_APP_MANAGER_1 || data.data.data.code === process.env.REACT_APP_MANAGER_1 ? true : false
+          isManage: data.data.data.code == process.env.REACT_APP_MANAGER_1 || data.data.data.code == process.env.REACT_APP_MANAGER_1 || data.data.data.code == process.env.REACT_APP_MANAGER_1 ? true : false
         })
 
       } catch (error) {
