@@ -28,7 +28,7 @@ const Forum = () => {
     }, []);
 
     const getAllowPostInfo = () => {
-        return axios.get("http://bsmboo.kro.kr:8000/board", { withCredentials: true });
+        return axios.get(process.env.REACT_APP_BOARD_URL, { withCredentials: true });
     };
 
     return (
