@@ -55,10 +55,13 @@ const Post = () => {
                         <h1 className='post_title'>제보하기</h1>
                         <div className='form_boxs'>
                             <div>
-                                <div className='anony-button-wrap'>
-                                    <span className='anony_button_span' onClick={onClickAnony}>익명</span>
-                                    {anony ? (<input type='button' className='anony_button' onClick={onClickAnony} value='✓' style={{ backgroundColor: '#238636', marginRight: '30px' }} />)
-                                        : (<input type='button' className='anony_button' onClick={onClickAnony} value=' ' style={{ backgroundColor: '#21262D', marginRight: '30px' }} />)}
+                                <div className='anony-button-wrap' style={{ marginRight: '20px' }}>
+                                    <span className='anony_button_span' onClick={onClickAnony} style={{ marginRight: '5px' }}>익명</span>
+                                    {anony ? (<button type='button' onClick={onClickAnony} style={{ backgroundColor: '#238636', border: '1px solid #30363D', width: '20px', height: '20px', borderRadius: '6px' }}><svg width="11" height="9" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.73549 0.219934C9.80374 0.1503 9.88519 0.0949814 9.97508 0.0572166C10.065 0.0194519 10.1615 0 10.259 0C10.3565 0 10.453 0.0194519 10.5429 0.0572166C10.6328 0.0949814 10.7142 0.1503 10.7825 0.219934C11.0685 0.508934 11.0725 0.975934 10.7925 1.26993L4.87949 8.25993C4.81236 8.33366 4.73089 8.3929 4.64007 8.43406C4.54925 8.47521 4.45099 8.4974 4.3513 8.49927C4.25161 8.50115 4.15258 8.48266 4.06028 8.44495C3.96798 8.40723 3.88435 8.35108 3.81449 8.27993L0.216492 4.63393C0.077729 4.49242 0 4.30213 0 4.10393C0 3.90574 0.077729 3.71545 0.216492 3.57393C0.284738 3.5043 0.36619 3.44898 0.45608 3.41122C0.54597 3.37345 0.642491 3.354 0.739992 3.354C0.837493 3.354 0.934014 3.37345 1.0239 3.41122C1.11379 3.44898 1.19525 3.5043 1.26349 3.57393L4.31549 6.66693L9.71549 0.241934C9.72171 0.234206 9.72839 0.226859 9.73549 0.219934Z" fill="white" />
+                                    </svg>
+                                    </button>)
+                                        : (<button type='button' onClick={onClickAnony} style={{ backgroundColor: 'transparent', border: '1px solid #30363D', width: '20px', height: '20px', borderRadius: '6px' }}>as</button>)}
                                 </div>
                                 {/* <input type='file' className='image-file' accept="image/png, image/jpeg" /> */}
                             </div>
@@ -77,7 +80,7 @@ const Post = () => {
                     />
                 </div>
             </div>
-        </form>
+        </form >
     );
 };
 
