@@ -25,10 +25,6 @@ a {
     height: 60px;
     background-color: #161b22;
 
-    @media ALL and (max-width:500px) {
-        margin-bottom: 20px;
-    }
-
     .logo_wrap {
         display: flex;
         align-items: center;
@@ -50,6 +46,22 @@ a {
         color: white;
         font-size: 16px;
         margin-left: 22px;
+
+        .team_name_text {
+            @media ALL and (max-width:600px) {
+                font-weight: 800;
+
+                &::after {
+                    content: "부산소마고 대나무숲";
+                }
+            }
+
+            @media ALL and (min-width:601px) {
+                &::after {
+                    content: "T-Shape-Junior"
+                }
+            }
+        }
     }
 
     .login_btn {
@@ -75,7 +87,8 @@ a {
     border-bottom: 1px solid #30363D;
 
     @media ALL and (max-width:600px) {
-        margin-top: -20px;
+        display: none;
+        height: 0px;
     }
 
     .team_image_box {
@@ -90,10 +103,7 @@ a {
         height: 95px;
 
         @media ALL and (max-width:600px) {
-            width: 75px;
-            height: 75px;
-            margin-top: 12.5px;
-            margin-left: 30px;
+            display: none;
         }
 
         .logo_image {
@@ -114,7 +124,7 @@ a {
         flex-direction: column;
 
         @media ALL and (max-width:600px) {
-            margin-top: -5px;
+            display: none;
         }
 
         .service_name {
@@ -141,18 +151,15 @@ a {
             margin-top: 0px;
             margin-left: 25px;
 
+            @media ALL and (max-width:600px) {
+                display: none;
+            }
+
             .image_box {
                 margin-top: 3px;
 
                 .location_mark {
                     margin-top: 0px;
-                    width: 16px;
-                    height: 16px;
-
-                    @media ALL and (max-width:600px) {
-                        width: 14px;
-                        height: 14px;
-                    }
                 }
             }
 
@@ -170,6 +177,12 @@ a {
         }
     }
 
+    @media ALL and (max-width:600px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .follow_btn_box_link {
         margin-top: -20px;
         border-radius: 6px;
@@ -185,12 +198,8 @@ a {
         background-color: $element-color;
 
         @media ALL and (max-width:600px) {
-            position: absolute;
-            left: 32%;
-            top: 23%;
-            width: 50px;
-            height: 20px;
-            border-radius: 3px;
+            width: 0;
+            height: 0;
         }
 
         .a_link_button {
@@ -201,8 +210,23 @@ a {
             margin-top: -2px;
 
             @media ALL and (max-width:500px) {
-                font-size: 10px;
+                font-size: 0;
             }
         }
     }
+}
+
+.desktop {
+    @media ALL and (max-width:600px) {
+        display: none;
+    }
+}
+
+.phone {
+    @media ALL and (min-width:601px) {
+        display: none;
+    }
+
+    margin-top:2px;
+    margin-right:-10px;
 }
