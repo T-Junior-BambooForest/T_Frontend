@@ -124,7 +124,7 @@ const Management = () => {
                                     <td>글번호</td>
                                     <td>글내용</td>
                                     <td>요청자</td>
-                                    <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
+                                    <td style={{ textAlign: 'center' }}>조정</td>
                                 </tr>
                                 {post && post.map((post) => {
                                     return (
@@ -134,7 +134,6 @@ const Management = () => {
                                                     <td>{post.boardCode}</td>
                                                     <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                                     <td>{post.isAnonymous ? '익명' : post.User.name}</td>
-                                                    <td>&nbsp;&nbsp;</td>
                                                     <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
                                                 </tr>
                                             </tbody>
