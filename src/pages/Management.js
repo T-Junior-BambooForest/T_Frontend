@@ -114,7 +114,11 @@ const Management = () => {
                                 })
                                 }
                             </table><br /><br /><br /><br />
-                            <h1>받았던 제보</h1>
+                            <div className='management_title_box'>
+                                <h1 className='management_title'>
+                                    게시글
+                                </h1>
+                            </div>
                             <table style={{ marginBottom: '50px' }}>
                                 <tr>
                                     <td>글번호</td>
