@@ -99,7 +99,15 @@ const Management = () => {
                                 {post && post.map((post) => {
                                     return (
                                         <>{post.allowBoard ?
-                                            ''
+                                            <tbody key={post.boardCode}>
+                                                <tr>
+                                                    <td>{post.boardCode}</td>
+                                                    <td style={{ fontSize: '14px' }}>{post.contents}</td>
+                                                    <td>{post.isAnonymous ? '익명' : post.User.name}</td>
+                                                    <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >&nbsp;</td>
+                                                    <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
+                                                </tr>
+                                            </tbody>
                                             : <tbody key={post.boardCode}>
                                                 <tr>
                                                     <td>{post.boardCode}</td>
