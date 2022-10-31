@@ -104,7 +104,7 @@ const Management = () => {
                                                     <td>{post.boardCode}</td>
                                                     <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                                     <td>{post.isAnonymous ? '익명' : post.User.name}</td>
-                                                    <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >&nbsp;</td>
+                                                    <td style={{ cursor: 'pointer' }} >&nbsp;&nbsp;</td>
                                                     <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
                                                 </tr>
                                             </tbody>
