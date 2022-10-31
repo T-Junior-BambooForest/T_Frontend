@@ -99,15 +99,7 @@ const Management = () => {
                                 {post && post.map((post) => {
                                     return (
                                         <>{post.allowBoard ?
-                                            <tbody key={post.boardCode + 99999}>
-                                                <tr>
-                                                    <td>{post.boardCode}</td>
-                                                    <td style={{ fontSize: '14px' }}>{post.contents}</td>
-                                                    <td>{post.isAnonymous ? '익명' : post.User.name}</td>
-                                                    <td>&nbsp;&nbsp;</td>
-                                                    <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
-                                                </tr>
-                                            </tbody>
+                                            ''
                                             : <tbody key={post.boardCode}>
                                                 <tr>
                                                     <td>{post.boardCode}</td>
@@ -117,6 +109,32 @@ const Management = () => {
                                                     <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
                                                 </tr>
                                             </tbody>
+                                        }</>
+                                    )
+                                })
+                                }
+                            </table><br /><br /><br /><br />
+                            <h1>받았던 제보</h1>
+                            <table style={{ marginBottom: '50px' }}>
+                                <tr>
+                                    <td>글번호</td>
+                                    <td>글내용</td>
+                                    <td>요청자</td>
+                                    <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
+                                </tr>
+                                {post && post.map((post) => {
+                                    return (
+                                        <>{post.allowBoard ?
+                                            <tbody key={post.boardCode}>
+                                                <tr>
+                                                    <td>{post.boardCode}</td>
+                                                    <td style={{ fontSize: '14px' }}>{post.contents}</td>
+                                                    <td>{post.isAnonymous ? '익명' : post.User.name}</td>
+                                                    <td>&nbsp;&nbsp;</td>
+                                                    <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
+                                                </tr>
+                                            </tbody>
+                                            : ''
                                         }</>
                                     )
                                 })
