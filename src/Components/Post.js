@@ -74,7 +74,11 @@ const Post = () => {
                         </div>
                     </div>
                     <div className='editor_box'>
-                        <textarea className='editor' onChange={onChangeContent} />
+                        <textarea
+                            className='editor'
+                            onChange={onChangeContent}
+                            disabled={!user.isLogin ? true : false}
+                            placeholder={!user.isLogin ? '로그인 후 글을 작성하실 수 있습니다.' : ''} />
                     </div>
                     <Forum
                     />
