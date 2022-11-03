@@ -34,7 +34,7 @@ const Forum = () => {
     return (
         <div className='forum_wrap'>
             <div className='article_title_box'>
-                <h1 className='article_title' style={{ color: '#E5EDF5' }}>
+                <h1 className='article_title'>
                     모든 제보
                 </h1>
             </div>
