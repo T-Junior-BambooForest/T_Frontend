@@ -26,7 +26,7 @@ const Management = () => {
             })
             .catch((error) => {
                 alert(`에러가 발생하였습니다. ${error}`);
-                window.location.reload('/management');
+                return;
             })
     }
 
@@ -46,12 +46,11 @@ const Management = () => {
             })
             .catch((error) => {
                 alert(`에러가 발생하였습니다. ${error}`);
-                window.location.reload('/management');
+                return;
             })
     }
 
     useEffect(() => {
-
         (async () => {
             try {
                 const data = await getPostInfo();
@@ -77,8 +76,7 @@ const Management = () => {
 
     return (
         <div>
-            {!isLoad ?
-                ''
+            {!isLoad ? ''
                 :
                 <>
                     <Header />
@@ -140,13 +138,11 @@ const Management = () => {
                                             : ''
                                         }</>
                                     )
-                                })
-                                }
+                                })}
                             </table>
                         </div>
                     </div>
-                </>
-            }
+                </>}
         </div >
     );
 };
