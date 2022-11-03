@@ -29,10 +29,6 @@ const App = () => {
   const [user, setUser] = React.useState(userInfo);
 
   useEffect(() => {
-    if (document.body.offsetWidth <= 280) {
-      alert('죄송합니다. 갤럭시 폴드 기종은 대나무숲 서비스를 이용할 수 없습니다.')
-      return 0;
-    }
     (async () => {
       try {
         const data = await getUserInfo();
