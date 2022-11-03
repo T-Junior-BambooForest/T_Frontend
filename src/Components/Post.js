@@ -51,25 +51,31 @@ const Post = () => {
 
     return (
         <form onSubmit={onSubmit}>
-            <div className='article_wrap'>
+            <div className='article_wrap' style={localStorage.getItem('theme') === 'dark' ? null : { backgroundColor: 'white' }}>
                 <div className='article_box'>
                     <div className='post_title_box'>
-                        <h1 className='post_title'>제보하기</h1>
+                        <h1 className='post_title' style={localStorage.getItem('theme') === 'dark' ? null : { color: 'black' }}>제보하기</h1>
                         <div className='form_boxs'>
                             <div className='posts-wrap'>
                                 <div className='anony-button-wrap'>
-                                    <span className='anony_button_span' onClick={onClickAnony}>익명</span>
+                                    <span className='anony_button_span' onClick={onClickAnony} style={localStorage.getItem('theme') === 'dark' ? null : { color: 'black' }}>익명</span>
                                     {isAnonymous ?
-                                        (<button type='button' className='anony-button' onClick={onClickAnony} style={{ backgroundColor: '#238636' }}>
+                                        (<button type='button' className='anony-button' onClick={onClickAnony}
+                                            style={localStorage.getItem('theme') === 'dark' ? { backgroundColor: '#238636' } : { backgroundColor: '#238636', border: 'none' }}
+                                        >
                                             <img src={checkLogo} alt='check' />
                                         </button>)
                                         :
-                                        (<button type='button' className='anony-button' onClick={onClickAnony} style={{ backgroundColor: 'transparent' }}>
+                                        (<button type='button' className='anony-button' onClick={onClickAnony}
+                                            style={localStorage.getItem('theme') === 'dark' ? { backgroundColor: 'transparent' } : { backgroundColor: 'transparent', border: 'none' }}
+                                        >
                                             &nbsp;
                                         </button>)}
                                 </div>
                                 <div className='post-button-wrap'>
-                                    <button type='submit' id='post' className='post_button' >
+                                    <button type='submit' id='post' className='post_button'
+                                        style={localStorage.getItem('theme') === 'dark' ? null : { border: 'none' }}
+                                    >
                                         <img src={postLogo} alt='' />
                                         <span>게시</span>
                                     </button>
@@ -79,6 +85,7 @@ const Post = () => {
                     </div>
                     <div className='editor_box'>
                         <textarea
+                            style={localStorage.getItem('theme') === 'dark' ? null : { backgroundColor: 'white', border: '2px solid rgba(27,31,36,0.15)' }}
                             className='editor'
                             onChange={onChangeContent}
                             disabled={!user.isLogin}
