@@ -44,9 +44,19 @@
                     float: left;
                 }
 
-                div {
+                .posts-wrap {
+                    display: flex;
+                    align-items: center;
+
+                    .post-button-wrap {
+                        display: flex;
+                    }
+
                     .anony-button-wrap {
-                        display: inline;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 20px;
 
                         .anony_button_span {
                             font-size: 14px;
@@ -60,7 +70,7 @@
                             }
                         }
 
-                        .anony_button {
+                        .anony-button {
                             margin-left: 5px;
                             width: 18px;
                             height: 18px;
@@ -117,11 +127,18 @@
                     font-family: 'main';
                     font-style: normal;
                     font-weight: 700;
+                    cursor: pointer;
 
                     @media ALL and (max-width:500px) {
                         margin-top: 1.5px;
                         width: 50px;
                         height: 20px;
+                    }
+
+                    span {
+                        margin-left: 4px;
+                        cursor: pointer;
+                        font-size: 13px;
                     }
                 }
             }
