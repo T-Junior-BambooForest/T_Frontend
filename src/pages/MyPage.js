@@ -26,7 +26,7 @@ const MyPage = () => {
                             src={`https://auth.bssm.kro.kr/_next/image?url=https%3A%2F%2Fauth.bssm.kro.kr%2Fresource%2Fuser%2Fprofile%2F${user.code}.png&w=256&q=75`}
                             onError={onDefaultProfile} alt={'profile'} />
                     </div>
-                    <div className='user_info_wrap' style={{ marginTop: '30px' }}>
+                    <div className='user_info_wrap'>
                         <div className='user_nickname_box'>
                             <span className='user_nickname'>{user.nickname}</span>
                         </div>
