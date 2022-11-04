@@ -43,6 +43,7 @@ const Post = () => {
             );
 
             alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
+            window.location.reload('/')
         } catch (err) {
             alert('오류가 발생하였습니다.');
         }
