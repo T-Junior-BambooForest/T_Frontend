@@ -88,11 +88,11 @@ const Management = () => {
                     <div className='management_content_wrap'>
                         <div className='management_content_title'>
                             <table style={{ marginBottom: '50px' }}>
-                                <tr className='table-title'>
+                                <tr>
                                     <td>글번호</td>
                                     <td>글내용</td>
                                     <td>요청자</td>
-                                    <td colSpan={2}>승인 여부</td>
+                                    <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                                 </tr>
                                 {post && post.map((post) => {
                                     return (
@@ -118,11 +118,11 @@ const Management = () => {
                                 </h1>
                             </div>
                             <table style={{ marginBottom: '50px' }}>
-                                <tr className='table-title'>
+                                <tr>
                                     <td>글번호</td>
                                     <td>글내용</td>
                                     <td>요청자</td>
-                                    <td>수정</td>
+                                    <td style={{ textAlign: 'center' }}>조정</td>
                                 </tr>
                                 {post && post.map((post) => {
                                     return (
