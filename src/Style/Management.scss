@@ -26,14 +26,15 @@
 }
 
 table {
-    border: 1.5px solid rgb(149, 149, 149);
-    border-spacing: 2px;
-    border-collapse: separate;
 
-    tr,
+    .table-title {
+        border-top: 1.5px solid rgb(162, 162, 162);
+    }
+
     td {
-        padding: 5px 10px 5px 10px;
-        border: 1.5px solid rgb(149, 149, 149);
+        width: 100vw;
+        border-bottom: 1.5px solid rgba(171, 171, 171, 0.5);
+        padding: 20px 10px 20px 10px;
         border-collapse: collapse;
     }
 }
