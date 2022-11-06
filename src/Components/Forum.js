@@ -33,7 +33,7 @@ const Forum = () => {
             <div>
                 {allowPost && allowPost?.map((post, index) => (
                     <PostItem
-                        key={post.boardCode}
+                        key={post.AllowBoard.AllowBoardCode}
                         num={post.AllowBoard.AllowBoardCode}
                         contents={post.contents}
                         name={post.User.name}
