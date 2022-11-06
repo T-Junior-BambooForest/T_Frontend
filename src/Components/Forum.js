@@ -10,15 +10,7 @@ const Forum = () => {
         (async () => {
             try {
                 let data = await getAllowPostInfo();
-                data = data.data;
-                data.sort((a, b) => {
-                    a = a.updatedAt;
-                    b = b.updatedAt;
-                    if (a > b) return -1;
-                    else if (a < b) return 1;
-                    else return 0;
-                })
-                setAllowPost([...data])
+                setAllowPost(...data.data)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
                     setAllowPost((prev) => ({ ...prev, isLogin: false }));
@@ -42,7 +34,7 @@ const Forum = () => {
                 {allowPost && allowPost?.map((post, index) => (
                     <PostItem
                         key={post.boardCode}
-                        num={allowPost.length - index}
+                        num={post.AllowBoard.AllowBoardCode}
                         contents={post.contents}
                         name={post.User.name}
                         date={post.createdAt}
