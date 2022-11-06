@@ -5,10 +5,19 @@ import Post from '../Components/Post';
 const Home = () => {
 
     return (
-        <div>
-            <Header />
-            <Post />
-        </div>
+        <>
+            {localStorage.getItem('theme') === 'dark' ?
+                <div>
+                    <Header />
+                    <Post />
+                </div>
+                :
+                <div style={{ backgroundColor: 'white', height: '100%' }}>
+                    <Header />
+                    <Post />
+                </div>
+            }
+        </>
     );
 };
 
