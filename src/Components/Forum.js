@@ -10,7 +10,7 @@ const Forum = () => {
         (async () => {
             try {
                 let data = await getAllowPostInfo();
-                setAllowPost(...data.data)
+                setAllowPost(data.data.data)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
                     setAllowPost((prev) => ({ ...prev, isLogin: false }));
