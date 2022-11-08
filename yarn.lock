@@ -3930,11 +3930,6 @@ domhandler@^4.0.0, domhandler@^4.2.0, domhandler@^4.3.1:
   dependencies:
     domelementtype "^2.2.0"
 
-dompurify@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.4.0.tgz#c9c88390f024c2823332615c9e20a453cf3825dd"
-  integrity sha512-Be9tbQMZds4a3C6xTmz68NlMfeONA//4dOavl/1rNw50E+/QO0KVpbcU0PcaW0nsQxurXls9ZocqFxk8R2mWEA==
-
 domutils@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/domutils/-/domutils-1.7.0.tgz#56ea341e834e06e6748af7a1cb25da67ea9f8c2a"
@@ -6612,11 +6607,6 @@ once@^1.3.0:
   dependencies:
     wrappy "1"
 
-one-validation@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/one-validation/-/one-validation-2.0.0.tgz#250ba582f5f182f699d85a5f6a5078cc99a198a6"
-  integrity sha512-2/4r2sZiz39jlCQ3yTMS+STzGi9mIkb1J+6Lc/zEmuaEojRUULcdF880+P2VBfOoPX6CRpaJXnGbKRlref8T1w==
-
 onetime@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/onetime/-/onetime-5.1.2.tgz#d0e96ebb56b07476df1dd9c4806e5237985ca45e"
@@ -7472,24 +7462,10 @@ psl@^1.1.33:
   resolved "https://registry.yarnpkg.com/psl/-/psl-1.9.0.tgz#d0df2a137f00794565fcaf3b2c00cd09f8d5a5a7"
   integrity sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==
 
-punycode@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.3.0.tgz#7f5009ef539b9444be5c7a19abd2c3ca49e1731c"
-  integrity sha512-dQN3nR/bArA9w2a4MdkxuRtnIL5nmKh5YDnD2FAN9tc5OSTMZImoS42dI4CneIJmKECLpAriSojg5nZlqbygoQ==
-
 punycode@^2.1.0, punycode@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
-
-purify@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/purify/-/purify-3.4.0.tgz#8917872fb698c797f7c8811de5da8ae6693e617f"
-  integrity sha512-yydO0EnYrNDlML0cyvUc/XJhi/sQe8AqRCxLib5AHz1WgykD98EahyZWZhGG2rw5yYF59LQ8KPBdVMPQpf/Fbw==
-  dependencies:
-    one-validation "2.0.0"
-    punycode "1.3.0"
-    unicoderegexp "0.3.0"
 
 q@^1.1.2:
   version "1.5.1"
@@ -8815,11 +8791,6 @@ unicode-property-aliases-ecmascript@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-2.1.0.tgz#43d41e3be698bd493ef911077c9b131f827e8ccd"
   integrity sha512-6t3foTQI9qne+OZoVQB/8x8rk2k1eVy1gRXhV3oFQ5T6R1dqQ1xtin3XqSlx3+ATBkliTaR/hHyJBm+LVPNM8w==
-
-unicoderegexp@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/unicoderegexp/-/unicoderegexp-0.3.0.tgz#955aa57166d960eec338f6c415ed0190cd53b0ca"
-  integrity sha512-3Duh920PftIO5SxFSCOuEnbekoMf+O31i8vSOuut0bKcQfkI2pXp6HD92Tb05oJfGa9Wq4v4BHUPyEUnnaHkXA==
 
 unique-string@^2.0.0:
   version "2.0.0"
