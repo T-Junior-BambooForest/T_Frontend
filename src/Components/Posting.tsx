@@ -10,6 +10,7 @@ const Post = () => {
     const user = useContext(UserContext);
     const [contents, setContents] = useState("");
     const [isAnonymous, setIsAnonyMous] = useState(true);
+    const [preventMultipleClick, setPreventMultipleClick] = useState(false);
 
     const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setContents(e.target.value)
@@ -21,14 +22,17 @@ const Post = () => {
 
     const onSubmit = useCallback(async (e: React.FormEvent) => {
         e.preventDefault();
+        setPreventMultipleClick(true);
 
         if (!user.isLogin) {
             alert('로그인 상태를 확인할 수 없습니다. 로그인 후에 글을 작성하실 수 있습니다.')
+            setPreventMultipleClick(false);
             return;
         }
 
         if (!contents) {
             alert('내용이 비어있습니다. 제보 내용을 다시 한 번 확인해주세요.')
+            setPreventMultipleClick(false);
             return;
         }
 
@@ -41,11 +45,12 @@ const Post = () => {
                     isAnonymous: isAnonymous
                 }
             );
-
             alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
+            setPreventMultipleClick(false);
             window.location.reload()
         } catch (err) {
             alert('오류가 발생하였습니다.');
+            setPreventMultipleClick(false);
         }
 
     }, [user, contents, isAnonymous]);
@@ -74,11 +79,11 @@ const Post = () => {
                                         </button>)}
                                 </div>
                                 <div className='post-button-wrap'>
-                                    <button type='submit' id='post' className='post_button'
+                                    <button type='submit' id='post' className='post_button' disabled={preventMultipleClick}
                                         style={localStorage.getItem('theme') === 'dark' ? null : { border: 'none' }}
                                     >
                                         <img src={`${postLogo}`} alt='' />
-                                        <span>게시</span>
+                                        <span>제보</span>
                                     </button>
                                 </div>
                             </div>
