@@ -40,9 +40,9 @@ const Post = () => {
             await axios.post(
                 '/board',
                 {
-                    contents: contents,
+                    contents,
                     Usercode: user.code,
-                    isAnonymous: isAnonymous
+                    isAnonymous
                 }
             );
             alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
@@ -91,7 +91,7 @@ const Post = () => {
                     </div>
                     <div className='editor_box'>
                         <textarea
-                            style={localStorage.getItem('theme') === 'dark' ? null : { backgroundColor: 'white', border: '2px solid rgba(27,31,36,0.15)' }}
+                            style={localStorage.getItem('theme') === 'dark' ? null : { backgroundColor: 'white', border: '2px solid rgba(27,31,36,0.15)', color: 'black' }}
                             className='editor'
                             onChange={onChangeContent}
                             disabled={!user.isLogin}
