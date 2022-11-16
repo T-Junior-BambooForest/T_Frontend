@@ -3,14 +3,28 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios, { AxiosError } from 'axios';
 import Home from './pages/Home';
 import MyPage from './pages/MyPage';
-import Management from './pages/Management';
+import Manage from './pages/Manage';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import './App.scss';
 
 axios.defaults.withCredentials = true;
+axios.defaults.baseURL = 'https://bsmboo.kro.kr:8000'
 
-const userInfo = {
+interface User {
+  class: number,
+  code: number,
+  enroled: string,
+  grade: number,
+  name: string,
+  nickname: string,
+  studentNo: string,
+  profile: string,
+  isLogin: boolean,
+  isManage: boolean
+}
+
+const userInfo: User = {
   class: 0,
   code: 0,
   enroled: "",
@@ -31,34 +45,35 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        const data = await getUserInfo();
+        const user = await getUserInfo();
         setUser({
-          ...data.data.data,
+          ...user.data.data,
           isLogin: true,
-          isManage: data.data.data.code === 43 || data.data.data.code === 45 || data.data.data.code === 66 ? true : false
+          isManage: user.data.data.code === 43 || user.data.data.code === 45 || user.data.data.code === 66 ? true : false
         })
 
       } catch (error) {
-        if (error instanceof AxiosError && error.response?.status >= 400) {
-          setUser((prev) => ({ ...prev, isLogin: false }));
+        if (error instanceof AxiosError && error.response?.data?.code >= 400) {
+          console.log(error)
         }
       }
     })();
   }, []);
 
   const getUserInfo = () => {
-    return axios.get(process.env.REACT_APP_ISLOGIN_URL, { withCredentials: true });
+    return axios.get('/isLogin', { withCredentials: true });
+
   };
 
   return (
     <Router>
       <UserContext.Provider value={user}>
         <Routes>
-          <Route path={'/'} element={<Home userInfo={userInfo} />} />
-          <Route path={'/mypage'} element={<MyPage userInfo={userInfo} />} />
-          <Route path={'/management'} element={<Management userInfo={userInfo} />} />
-          <Route path={'/login'} element={<Login userInfo={userInfo} />} />
-          <Route path={'*'} element={<NotFound userInfo={userInfo} />} />
+          <Route path={'/'} element={<Home />} />
+          <Route path={'/mypage'} element={<MyPage />} />
+          <Route path={'/management'} element={<Manage />} />
+          <Route path={'/login'} element={<Login />} />
+          <Route path={'*'} element={<NotFound />} />
         </Routes>
       </UserContext.Provider>
     </Router>

@@ -3,24 +3,39 @@ import React, { useEffect, useState } from 'react';
 import '../Style/Forum.scss';
 import PostItem from './PostItem';
 
+type AllowBoard = {
+    AllowBoardCode: number,
+}
+
+type UserType = {
+    name: string,
+}
+
+interface PostType {
+    AllowBoard: AllowBoard,
+    contents: string,
+    User: UserType,
+    createdAt: any
+}
+
 const Forum = () => {
-    const [allowPost, setAllowPost] = useState();
+    const [allowPost, setAllowPost]: any = useState();
 
     useEffect(() => {
         (async () => {
             try {
-                let data = await getAllowPostInfo();
-                setAllowPost(data.data)
+                const post = await getAllowPostInfo();
+                setAllowPost(post.data)
             } catch (error) {
-                if (error instanceof AxiosError && error.response?.status >= 400) {
-                    setAllowPost((prev) => ({ ...prev, isLogin: false }));
+                if (error instanceof AxiosError && error.response?.data?.code >= 400) {
+                    console.log(error)
                 }
             }
         })();
     }, []);
 
     const getAllowPostInfo = () => {
-        return axios.get(process.env.REACT_APP_BOARD_URL, { withCredentials: true });
+        return axios.get('/board', { withCredentials: true });
     };
 
     return (
@@ -31,7 +46,7 @@ const Forum = () => {
                 </h1>
             </div>
             <div>
-                {allowPost && allowPost?.map((post, index) => (
+                {allowPost && allowPost?.map((post: PostType) => (
                     <PostItem
                         key={post.AllowBoard.AllowBoardCode}
                         num={post.AllowBoard.AllowBoardCode}

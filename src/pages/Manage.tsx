@@ -9,20 +9,20 @@ import '../Style/Management.scss';
 const Management = () => {
     const user = useContext(UserContext);
     const navigate = useNavigate();
-    const [post, setPost] = useState();
+    const [post, setPost]: any = useState();
     const [isLoad, setIsLoad] = useState(false);
 
-    const onClickUpdatePost = (code, index) => {
+    const onClickUpdatePost = (code: number) => {
         axios
             .post(
-                process.env.REACT_APP_BOARD_UPDATE_URL,
+                '/board/update',
                 {
                     boardCode: code,
                 }
             )
             .then(() => {
                 alert('글이 수락되었습니다.')
-                window.location.reload('/management');
+                window.location.reload();
             })
             .catch((error) => {
                 alert(`에러가 발생하였습니다. ${error}`);
@@ -30,10 +30,10 @@ const Management = () => {
             })
     }
 
-    const onClickDeletePost = (code) => {
+    const onClickDeletePost = (code: number) => {
         axios
             .delete(
-                process.env.REACT_APP_BOARD_URL,
+                '/board',
                 {
                     data: {
                         boardCode: code,
@@ -42,7 +42,7 @@ const Management = () => {
             )
             .then(() => {
                 alert('글이 삭제되었습니다.')
-                window.location.reload('/management');
+                window.location.reload();
             })
             .catch((error) => {
                 alert(`에러가 발생하였습니다. ${error}`);
@@ -58,7 +58,7 @@ const Management = () => {
                 setIsLoad(true)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
-                    setPost((prev) => ({ ...prev, isLogin: false }));
+                    console.log(error)
                 }
             }
         })();
@@ -71,7 +71,7 @@ const Management = () => {
     }, [user])
 
     const getPostInfo = () => {
-        return axios.get(process.env.REACT_APP_BOARD_MANAGE_URL, { withCredentials: true });
+        return axios.get('/board/manage', { withCredentials: true });
     };
 
     return (
@@ -94,7 +94,7 @@ const Management = () => {
                                     <td>요청자</td>
                                     <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                                 </tr>
-                                {post && post.map((post) => {
+                                {post && post.map((post: any) => {
                                     return (
                                         <>{post.allowBoard ?
                                             ''
@@ -124,7 +124,7 @@ const Management = () => {
                                     <td>요청자</td>
                                     <td style={{ textAlign: 'center' }}>조정</td>
                                 </tr>
-                                {post && post.map((post) => {
+                                {post && post.map((post: any) => {
                                     return (
                                         <>{post.allowBoard ?
                                             <tbody key={post.boardCode}>

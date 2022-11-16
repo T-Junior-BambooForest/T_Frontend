@@ -7,7 +7,7 @@ import { UserContext } from '../App';
 const MyPage = () => {
     const user = useContext(UserContext);
 
-    const onDefaultProfile = (e) => {
+    const onDefaultProfile = (e: any) => {
         e.target.src = "https://bssm.kro.kr/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile_default.99e93808.png&w=128&q=75";
     }
 

@@ -1,17 +1,18 @@
 import React, { useCallback, useContext, useState } from 'react';
 import '../Style/Post.scss';
 import axios from 'axios';
-import Forum from './Forum';
+import AllPost from './AllPost';
 import { UserContext } from '../App';
-import checkLogo from '../svgs/checkImg.svg';
-import postLogo from '../svgs/postImg.svg';
+import checkLogo from '../Image/checkImg.svg';
+import postLogo from '../Image/postImg.svg';
 
 const Post = () => {
     const user = useContext(UserContext);
     const [contents, setContents] = useState("");
     const [isAnonymous, setIsAnonyMous] = useState(true);
+    const [preventMultipleClick, setPreventMultipleClick] = useState(false);
 
-    const onChangeContent = (e) => {
+    const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setContents(e.target.value)
     };
 
@@ -19,33 +20,37 @@ const Post = () => {
         setIsAnonyMous(isAnonymous => !isAnonymous)
     };
 
-    const onSubmit = useCallback(async (e) => {
+    const onSubmit = useCallback(async (e: React.FormEvent) => {
         e.preventDefault();
+        setPreventMultipleClick(true);
 
         if (!user.isLogin) {
             alert('로그인 상태를 확인할 수 없습니다. 로그인 후에 글을 작성하실 수 있습니다.')
+            setPreventMultipleClick(false);
             return;
         }
 
         if (!contents) {
             alert('내용이 비어있습니다. 제보 내용을 다시 한 번 확인해주세요.')
+            setPreventMultipleClick(false);
             return;
         }
 
         try {
             await axios.post(
-                process.env.REACT_APP_BOARD_URL,
+                '/board',
                 {
-                    contents: contents,
+                    contents,
                     Usercode: user.code,
-                    isAnonymous: isAnonymous
+                    isAnonymous
                 }
             );
-
             alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-            window.location.reload('/')
+            setPreventMultipleClick(false);
+            window.location.reload()
         } catch (err) {
             alert('오류가 발생하였습니다.');
+            setPreventMultipleClick(false);
         }
 
     }, [user, contents, isAnonymous]);
@@ -64,7 +69,7 @@ const Post = () => {
                                         (<button type='button' className='anony-button' onClick={onClickAnony}
                                             style={localStorage.getItem('theme') === 'dark' ? { backgroundColor: '#238636' } : { backgroundColor: '#238636', border: 'none' }}
                                         >
-                                            <img src={checkLogo} alt='check' />
+                                            <img src={`${checkLogo}`} alt='check' />
                                         </button>)
                                         :
                                         (<button type='button' className='anony-button' onClick={onClickAnony}
@@ -74,11 +79,11 @@ const Post = () => {
                                         </button>)}
                                 </div>
                                 <div className='post-button-wrap'>
-                                    <button type='submit' id='post' className='post_button'
+                                    <button type='submit' id='post' className='post_button' disabled={preventMultipleClick}
                                         style={localStorage.getItem('theme') === 'dark' ? null : { border: 'none' }}
                                     >
-                                        <img src={postLogo} alt='' />
-                                        <span>게시</span>
+                                        <img src={`${postLogo}`} alt='' />
+                                        <span>제보</span>
                                     </button>
                                 </div>
                             </div>
@@ -86,13 +91,13 @@ const Post = () => {
                     </div>
                     <div className='editor_box'>
                         <textarea
-                            style={localStorage.getItem('theme') === 'dark' ? null : { backgroundColor: 'white', border: '2px solid rgba(27,31,36,0.15)' }}
+                            style={localStorage.getItem('theme') === 'dark' ? null : { backgroundColor: 'white', border: '2px solid rgba(27,31,36,0.15)', color: 'black' }}
                             className='editor'
                             onChange={onChangeContent}
                             disabled={!user.isLogin}
                             placeholder={!user.isLogin ? '로그인 후 글을 작성하실 수 있습니다.' : ''} />
                     </div>
-                    <Forum />
+                    <AllPost />
                 </div>
             </div>
         </form >

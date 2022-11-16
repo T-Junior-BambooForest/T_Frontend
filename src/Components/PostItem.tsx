@@ -1,7 +1,14 @@
 import React from 'react';
 import '../Style/PostItem.scss';
 
-const PostItem = ({ num, contents, name, date }) => {
+type PostItemType = {
+    num: number,
+    contents: string,
+    name: string,
+    date: string,
+}
+
+const PostItem = ({ num, contents, name, date }: PostItemType) => {
 
     return (
         <div className='content_box_wrap'>
@@ -11,7 +18,7 @@ const PostItem = ({ num, contents, name, date }) => {
                     <div className='date_text_box'>
                         <span className='date_text'>
                             {parseInt(date.slice(11, 13)) > 12 ?
-                                `${date.slice(0, 4)}년 ${date.slice(5, 7)}월 ${date.slice(8, 10)}일 PM ${parseInt(date.slice(11, 13) - 12)}${date.slice(13, 16)}`
+                                `${date.slice(0, 4)}년 ${date.slice(5, 7)}월 ${date.slice(8, 10)}일 PM ${parseInt(date.slice(11, 13)) - 12}${date.slice(13, 16)}`
                                 :
                                 `${date.slice(0, 4)}년 ${date.slice(5, 7)}월 ${date.slice(8, 10)}일 AM ${parseInt(date.slice(11, 13))}${date.slice(13, 16)}`
                             }</span>
