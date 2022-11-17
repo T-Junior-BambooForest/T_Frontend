@@ -9,7 +9,7 @@ import Login from './pages/Login';
 import './App.scss';
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'https://bsmboo.kro.kr:8000'
+axios.defaults.baseURL = 'https://api.bsmboo.kro.kr:8000'
 
 interface User {
   class: number,

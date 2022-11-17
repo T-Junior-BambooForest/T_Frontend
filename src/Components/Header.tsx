@@ -44,7 +44,7 @@ const Header = () => {
                 </div>
                 <div className='login_btn'>
                     {user.isLogin ? '' :
-                        <><span><a className='login_sub_btn' href={validateURL('https://auth.bssm.kro.kr/oauth?clientId=4af3d91f&redirectURI=https://bsmboo.kro.kr:8000/oauth') ? 'https://auth.bssm.kro.kr/oauth?clientId=4af3d91f&redirectURI=https://bsmboo.kro.kr:8000/oauth' : ''}>LOGIN</a></span>&nbsp;&nbsp;|&nbsp;&nbsp;</>}
+                        <><span><a className='login_sub_btn' href={validateURL('https://auth.bssm.kro.kr/oauth?clientId=4f6a1b29&redirectURI=https://api.bsmboo.kro.kr:8000/oauth') ? 'https://auth.bssm.kro.kr/oauth?clientId=4f6a1b29&redirectURI=https://api.bsmboo.kro.kr:8000/oauth' : ''}>LOGIN</a></span>&nbsp;&nbsp;|&nbsp;&nbsp;</>}
                     <span><Link className='mypage_btn' to={'/mypage'}>MYPAGE</Link></span>
                     {localStorage.getItem('theme') === 'dark' ?
                         <img src={`${moon}`} alt='' className='mode-button' onClick={onClickMode} />
