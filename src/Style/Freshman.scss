@@ -1,0 +1,97 @@
+.new-stud-wrap {
+    color: white;
+    width: 100vw;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .new-stud-title {
+        font-size: 30px;
+        font-weight: 800;
+    }
+
+    .new-stud-subtitle {
+        font-size: 18px;
+        font-weight: 500;
+        margin-top: 8px;
+    }
+}
+
+.new-stud-login-wrap {
+    display: flex;
+    width: 100vw;
+    height: 250px;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+        border: none;
+        border-bottom: 2px solid #ccc;
+        width: 350px;
+        height: 40px;
+        outline: none;
+        background-color: transparent;
+        padding-left: 10px;
+        color: white;
+        margin: 8px 0 8px 0;
+        font-weight: 600;
+    }
+
+    .new-stud-login-btn {
+        width: 350px;
+        height: 45px;
+        border: none;
+        background-color: white;
+        margin-top: 20px;
+        border-radius: 2px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+}
+
+.how-new-stud {
+    width: 100vw;
+    height: 400px;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    line-height: 35px;
+
+    span {
+        text-align: center;
+    }
+
+    .exam-wrap {
+        width: 100vw;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+
+        .img-one {
+            width: 200px;
+            height: auto;
+        }
+
+        .img-two {
+            width: 500px;
+            height: 400px;
+            margin-left: 20px;
+        }
+
+        .img-three {
+            width: 200px;
+            height: 400px;
+        }
+
+        .img-four {
+            width: 320px;
+            height: 400px;
+            margin-left: 20px;
+            margin-bottom: 70px;
+        }
+    }
+}
