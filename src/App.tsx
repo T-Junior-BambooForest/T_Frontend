@@ -7,6 +7,7 @@ import Manage from './pages/Manage';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import './App.scss';
+import Freshman from './pages/Freshman';
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = 'https://api.bsmboo.kro.kr:8000'
@@ -73,6 +74,7 @@ const App = () => {
           <Route path={'/mypage'} element={<MyPage />} />
           <Route path={'/management'} element={<Manage />} />
           <Route path={'/login'} element={<Login />} />
+          <Route path={'/new'} element={<Freshman />} />
           <Route path={'*'} element={<NotFound />} />
         </Routes>
       </UserContext.Provider>
