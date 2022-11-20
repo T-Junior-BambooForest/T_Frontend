@@ -28,8 +28,8 @@ const Freshman = () => {
                 </span>
                 <span style={{ marginTop: '20px' }}>* 예시사진 *</span>
                 <div className='exam-wrap'>
-                    <img src='/exam1.jpeg' alt='예시사진1' className='img-one' />
-                    <img src='/exam2.jpeg' alt='예시사진2' className='img-two' />
+                    <img src='https://media.discordapp.net/attachments/1036162758875549761/1043737989521625118/exam1.jpeg?width=467&height=935' alt='예시사진1' className='img-one' />
+                    <img src='https://media.discordapp.net/attachments/1036162758875549761/1043738013861150801/exam2.jpeg' alt='예시사진2' className='img-two' />
                 </div>
                 <span>두 번째로, BSMBOO 인스타그램 공식 계정이나 지메일로 아래의 내용을 보내주세요.
                     <br />
@@ -39,14 +39,14 @@ const Freshman = () => {
                     <br />
                     위 형식 중 하나 이상이 빠져있거나, 사용할 수 없을 경우 아이디를 발급할 수 없습니다.
                     <br />
-                    <a href='https://instagram.com/bssm.forest'><b>@bssm.forest</b> 혹은 <b>tshapejunior@gmail.com</b>으로 보내실 수 있습니다.</a>
+                    <a href='https://instagram.com/bssm.forest'><b>@bssm.forest</b></a> 혹은 <b>tshapejunior@gmail.com</b>으로 보내실 수 있습니다.
                     <br />
                     관리자가 확인 후 임시 아이디 발급이 완료되었을 경우, 확인 메일 혹은 DM이 전송됩니다.
                 </span>
                 <span style={{ marginTop: '20px' }}>* 예시사진 *</span>
                 <div className='exam-wrap'>
-                    <img src='/exam3.jpeg' alt='예시사진1' className='img-three' />
-                    <img src='/exam4.jpeg' alt='예시사진2' className='img-four' />
+                    <img src='https://media.discordapp.net/attachments/1036162758875549761/1043738036757856287/exam3.jpeg?width=498&height=936' alt='예시사진3' className='img-three' />
+                    <img src='https://media.discordapp.net/attachments/1036162758875549761/1043738154466816050/exam4.jpeg?width=746&height=937' alt='예시사진4' className='img-four' />
                 </div>
             </div>
         </div>
