@@ -11,6 +11,7 @@ const Post = () => {
     const [contents, setContents] = useState("");
     const [isAnonymous, setIsAnonyMous] = useState(true);
     const [preventMultipleClick, setPreventMultipleClick] = useState(false);
+    const [imgSrc, setImgSrc]: any = useState(null);
 
     const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setContents(e.target.value)
@@ -18,6 +19,18 @@ const Post = () => {
 
     const onClickAnony = () => {
         setIsAnonyMous(isAnonymous => !isAnonymous)
+    };
+
+    const encodeFileToBase64 = (fileBlob: any) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(fileBlob);
+        return new Promise((resolve) => {
+            reader.onload = () => {
+                setImgSrc(reader.result);
+                console.log(reader.result)
+                resolve('');
+            };
+        });
     };
 
     const onSubmit = useCallback(async (e: React.FormEvent) => {
@@ -42,7 +55,8 @@ const Post = () => {
                 {
                     contents,
                     Usercode: user.code,
-                    isAnonymous
+                    isAnonymous,
+                    imgSrc
                 }
             );
             alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
@@ -53,7 +67,7 @@ const Post = () => {
             setPreventMultipleClick(false);
         }
 
-    }, [user, contents, isAnonymous]);
+    }, [user, contents, isAnonymous, imgSrc]);
 
     return (
         <form onSubmit={onSubmit}>
@@ -64,6 +78,9 @@ const Post = () => {
                         <div className='form_boxs'>
                             <div className='posts-wrap'>
                                 <div className='anony-button-wrap'>
+                                    <input type="file" onChange={(e) => { encodeFileToBase64(e.target.files[0]); }} accept="image/png, image/gif, image/jpeg" disabled={user.isLogin} />
+                                    {imgSrc ? <img src={imgSrc} alt='미리보기' className='preview-img' />
+                                        : ''}
                                     <span className='anony_button_span' onClick={onClickAnony} style={localStorage.getItem('theme') === 'dark' ? null : { color: 'black' }}>익명</span>
                                     {isAnonymous ?
                                         (<button type='button' className='anony-button' onClick={onClickAnony}
