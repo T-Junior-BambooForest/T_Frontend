@@ -1,8 +1,25 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../Components/Header';
 import '../Style/Freshman.scss';
 
 const Freshman = () => {
+    const [id, setID] = useState('');
+    const [pw, setPW] = useState('');
+    const navigate = useNavigate();
+
+    const onClickCheckLogin = () => {
+        axios.get('')
+            .then((res) => {
+                alert('로그인에 성공했습니다!');
+                navigate('/');
+            })
+            .catch((err) => {
+                alert('로그인에 실패했습니다. 아이디를 다시 확인해주세요.')
+            })
+    }
+
     return (
         <div>
             <Header mode={false} />
@@ -11,9 +28,9 @@ const Freshman = () => {
                 <span className='new-stud-subtitle'>BSMBOO는 신입생도 절차를 통해 서비스를 이용할 수 있습니다.</span>
             </div>
             <div className='new-stud-login-wrap'>
-                <input type='text' className='new-stud-id' placeholder='임시 아이디를 입력해주세요.' />
-                <input type='password' className='new-stud-pw' placeholder='임시 비밀번호를 입력해주세요.' />
-                <button className='new-stud-login-btn'>신입생으로 로그인하기</button>
+                <input type='text' onChange={e => { setID(e.target.value) }} value={id} className='new-stud-id' placeholder='임시 아이디를 입력해주세요.' />
+                <input type='password' onChange={e => { setPW(e.target.value) }} value={pw} className='new-stud-pw' placeholder='임시 비밀번호를 입력해주세요.' />
+                <button onClick={onClickCheckLogin} className='new-stud-login-btn'>신입생으로 로그인하기</button>
             </div>
             <div className='new-stud-wrap'>
                 <span className='new-stud-title'>신입생 계정은 어떻게 발급받나요?</span>
