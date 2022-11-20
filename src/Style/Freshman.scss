@@ -10,12 +10,20 @@
     .new-stud-title {
         font-size: 30px;
         font-weight: 800;
+
+        @media ALL and (max-width:600px) {
+            font-size: 22px;
+        }
     }
 
     .new-stud-subtitle {
         font-size: 18px;
         font-weight: 500;
         margin-top: 8px;
+
+        @media ALL and (max-width:500px) {
+            font-size: 10px;
+        }
     }
 }
 
@@ -37,6 +45,12 @@
         color: white;
         margin: 8px 0 8px 0;
         font-weight: 600;
+
+        @media ALL and (max-width:500px) {
+            width: 250px;
+            height: 30px;
+            font-size: 11px;
+        }
     }
 
     .new-stud-login-btn {
@@ -49,6 +63,12 @@
         font-weight: 700;
         font-size: 14px;
         cursor: pointer;
+
+        @media ALL and (max-width:500px) {
+            width: 250px;
+            height: 35px;
+            font-size: 12px;
+        }
     }
 }
 
@@ -63,6 +83,10 @@
 
     span {
         text-align: center;
+
+        @media ALL and (max-width:500px) {
+            font-size: 10px;
+        }
     }
 
     .exam-wrap {
@@ -75,17 +99,32 @@
         .img-one {
             width: 200px;
             height: auto;
+
+            @media ALL and (max-width:600px) {
+                width: 100px;
+                height: 200px;
+            }
         }
 
         .img-two {
             width: 500px;
             height: 400px;
             margin-left: 20px;
+
+            @media ALL and (max-width:600px) {
+                width: 240px;
+                height: 200px;
+            }
         }
 
         .img-three {
             width: 200px;
             height: 400px;
+
+            @media ALL and (max-width:500px) {
+                width: 120px;
+                height: 200px;
+            }
         }
 
         .img-four {
@@ -93,6 +132,11 @@
             height: 400px;
             margin-left: 20px;
             margin-bottom: 70px;
+
+            @media ALL and (max-width:500px) {
+                width: 170px;
+                height: 200px;
+            }
         }
     }
 }
