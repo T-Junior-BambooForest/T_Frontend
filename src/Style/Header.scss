@@ -65,6 +65,8 @@ a {
         margin-right: 30px;
         color: white;
         font-family: 'main';
+        font-weight: 700;
+        cursor: pointer;
 
         @media ALL and (max-width:600px) {
             margin-right: 15px;
