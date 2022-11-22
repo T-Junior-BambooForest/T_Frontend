@@ -22,7 +22,7 @@ const Freshman = () => {
 
     return (
         <div>
-            <Header mode={false} />
+            <Header mode={true} />
             <div className='new-stud-wrap'>
                 <span className='new-stud-title'>신입생이신가요?</span>
                 <span className='new-stud-subtitle'>BSMBOO는 신입생도 절차를 통해 서비스를 이용할 수 있습니다.</span>
