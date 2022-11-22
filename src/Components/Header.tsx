@@ -59,13 +59,13 @@ const Header = ({ mode }: any) => {
                             &nbsp;&nbsp;|&nbsp;&nbsp;
                         </>}
                     <span><Link className='mypage_btn' to={'/mypage'}>MYPAGE</Link></span>
-                    {mode ? '' :
+                    {/* {mode ? '' :
                         <>
                             {localStorage.getItem('theme') === 'dark' ?
                                 <img src={`${moon}`} alt='' className='mode-button' onClick={onClickMode} />
                                 :
                                 <img src={`${sun}`} alt='' className='mode-button' onClick={onClickMode} />
-                            }</>}
+                            }</>} */}
                 </div>
             </div>
             <div className='title_box_wrap' style={localStorage.getItem('theme') === 'dark' ? null : { backgroundColor: '#f6f8fa', border: '1px solid rgba(27,31,36,0.15)' }}>

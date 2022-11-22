@@ -26,6 +26,7 @@ const Forum = () => {
             try {
                 const post = await getAllowPostInfo();
                 setAllowPost(post.data)
+                console.log(post.data)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.data?.code >= 400) {
                     console.log(error)
