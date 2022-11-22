@@ -27,7 +27,7 @@ const Post = () => {
         return new Promise((resolve) => {
             reader.onload = () => {
                 setImgSrc(reader.result);
-                console.log(reader.result)
+                console.log('update')
                 resolve('');
             };
         });
@@ -56,7 +56,7 @@ const Post = () => {
                     contents,
                     Usercode: user.code,
                     isAnonymous,
-                    imgSrc
+                    Image: imgSrc
                 }
             );
             alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
