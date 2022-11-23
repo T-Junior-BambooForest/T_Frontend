@@ -41,7 +41,7 @@ const Forum = () => {
     return (
         <div className='forum_wrap'>
             <div className='article_title_box'>
-                <h1 className='article_title' style={localStorage.getItem('theme') === 'dark' ? { color: 'white' } : { color: 'black' }}>
+                <h1 className='article_title'>
                     모든 제보
                 </h1>
             </div>

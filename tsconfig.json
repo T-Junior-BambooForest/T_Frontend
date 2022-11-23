@@ -25,7 +25,7 @@
         "**/*.ts",
         "**/*.tsx",
         "svg.d.ts"
-    ],
+, "src/Components/AllPost.js", "src/Components/AllPost.js"    ],
     "exclude": [
         "node_modules"
     ]

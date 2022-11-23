@@ -16,7 +16,7 @@ const PostItem = ({ num, contents, name, date, blobImg }: PostItemType) => {
 
     return (
         <div className='content_box_wrap'>
-            <div className='content_box' style={localStorage.getItem('theme') === 'dark' ? null : { border: '2px solid rgba(27,31,36,0.15)', color: 'black' }}>
+            <div className='content_box'>
                 <div className='header_info_box'>
                     <span className='count_text'>대나무숲 #{num}번째 제보</span>
                     <div className='date_text_box'>
@@ -32,7 +32,7 @@ const PostItem = ({ num, contents, name, date, blobImg }: PostItemType) => {
                     </div>
                 </div>
                 <div className='text_box'>
-                    <span className='content_text' style={localStorage.getItem('theme') === 'dark' ? null : { color: 'black' }}>{contents}</span>
+                    <span className='content_text'>{contents}</span>
                     {imgSrc ?
                         <img src={imgSrc} alt='img' className='img' />
                         : ''}

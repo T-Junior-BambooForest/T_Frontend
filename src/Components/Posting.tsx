@@ -70,34 +70,28 @@ const Post = () => {
 
     return (
         <form onSubmit={onSubmit}>
-            <div className='article_wrap' style={localStorage.getItem('theme') === 'dark' ? null : { backgroundColor: 'white' }}>
+            <div className='article_wrap'>
                 <div className='article_box'>
                     <div className='post_title_box'>
-                        <h1 className='post_title' style={localStorage.getItem('theme') === 'dark' ? null : { color: 'black' }}>제보하기</h1>
+                        <h1 className='post_title'>제보하기</h1>
                         <div className='form_boxs'>
                             <div className='posts-wrap'>
                                 <div className='anony-button-wrap'>
                                     <input type="file" onChange={(e) => { encodeFileToBase64(e.target.files[0]); }} accept="image/png, image/gif, image/jpeg" disabled={!user.isLogin} />
                                     {imgSrc ? <img src={imgSrc} alt='미리보기' className='preview-img' />
                                         : ''}
-                                    <span className='anony_button_span' onClick={onClickAnony} style={localStorage.getItem('theme') === 'dark' ? null : { color: 'black' }}>익명</span>
+                                    <span className='anony_button_span' onClick={onClickAnony}>익명</span>
                                     {isAnonymous ?
-                                        (<button type='button' className='anony-button' onClick={onClickAnony}
-                                            style={localStorage.getItem('theme') === 'dark' ? { backgroundColor: '#238636' } : { backgroundColor: '#238636', border: 'none' }}
-                                        >
+                                        (<button type='button' className='anony-button' onClick={onClickAnony}>
                                             <img src={`${checkLogo}`} alt='check' />
                                         </button>)
                                         :
-                                        (<button type='button' className='anony-button' onClick={onClickAnony}
-                                            style={localStorage.getItem('theme') === 'dark' ? { backgroundColor: 'transparent' } : { backgroundColor: 'transparent', border: 'none' }}
-                                        >
+                                        (<button type='button' className='anony-button' onClick={onClickAnony}>
                                             &nbsp;
                                         </button>)}
                                 </div>
                                 <div className='post-button-wrap'>
-                                    <button type='submit' id='post' className='post_button' disabled={preventMultipleClick}
-                                        style={localStorage.getItem('theme') === 'dark' ? null : { border: 'none' }}
-                                    >
+                                    <button type='submit' id='post' className='post_button' disabled={preventMultipleClick}>
                                         <img src={`${postLogo}`} alt='' />
                                         <span>제보</span>
                                     </button>
@@ -107,7 +101,6 @@ const Post = () => {
                     </div>
                     <div className='editor_box'>
                         <textarea
-                            style={localStorage.getItem('theme') === 'dark' ? null : { backgroundColor: 'white', border: '2px solid rgba(27,31,36,0.15)', color: 'black' }}
                             className='editor'
                             onChange={onChangeContent}
                             disabled={!user.isLogin}
