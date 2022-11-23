@@ -47,6 +47,7 @@
                 .posts-wrap {
                     display: flex;
                     align-items: center;
+                    margin-bottom: 5px;
 
                     .post-button-wrap {
                         display: flex;
@@ -111,7 +112,7 @@
                         font-style: normal;
                         font-weight: 700;
                         height: 20px;
-                        background-color: #0D1117;
+                        background-color: transparent;
                         color: #E5EDF5;
                         border: none;
                         cursor: pointer;
