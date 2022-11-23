@@ -57,7 +57,7 @@ const Management = () => {
                 setPost(data.data)
                 console.log(data.data)
                 // console.log(data.data[8].Image.data.toString('base64'))
-                console.log(JSON.parse(data.data[8].Image.data.toString('base64').toString('base64')))
+                console.log(JSON.parse(data.data[8].Image.data.toString('base64')))
                 setIsLoad(true)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
