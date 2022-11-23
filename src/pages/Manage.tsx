@@ -97,7 +97,7 @@ const Management = () => {
                                 </tr>
                                 {post && post.map((post: any) => {
                                     const blob = new TextDecoder("utf-8");
-                                    const Uint8 = new Uint8Array(post.Image.data);
+                                    const Uint8 = new Uint8Array(post?.Image?.data);
                                     const imgSrc = blob.decode(Uint8);
                                     return (
                                         <>{post.allowBoard ?
