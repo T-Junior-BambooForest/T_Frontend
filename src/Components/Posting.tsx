@@ -62,7 +62,7 @@ const Post = () => {
             setPreventMultipleClick(false);
             window.location.reload()
         } catch (err) {
-            console.log(err)
+            alert('이미지 용량이 너무 큽니다.')
             setPreventMultipleClick(false);
         }
 
@@ -77,7 +77,7 @@ const Post = () => {
                         <div className='form_boxs'>
                             <div className='posts-wrap'>
                                 <div className='anony-button-wrap'>
-                                    <input type="file" onChange={(e) => { encodeFileToBase64(e.target.files[0]); }} accept="image/png, image/gif, image/jpeg" disabled={!user.isLogin} />
+                                    <input type="file" onChange={(e) => { encodeFileToBase64(e.target.files[0]); }} accept="image/png, image/gif, image/jpg" disabled={!user.isLogin} />
                                     {imgSrc ? <img src={imgSrc} alt='미리보기' className='preview-img' />
                                         : ''}
                                     <span className='anony_button_span' onClick={onClickAnony}>익명</span>
