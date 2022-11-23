@@ -92,6 +92,7 @@ const Management = () => {
                                     <td>글번호</td>
                                     <td>글내용</td>
                                     <td>요청자</td>
+                                    <td>사진</td>
                                     <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                                 </tr>
                                 {post && post.map((post: any) => {
@@ -103,6 +104,7 @@ const Management = () => {
                                                     <td>{post.boardCode}</td>
                                                     <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                                     <td>{post.isAnonymous ? '익명' : post.User.name}</td>
+                                                    <td><img src={post.Image} alt='이미지' style={{ width: '50px', height: '50px' }} /></td>
                                                     <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >수락</td>
                                                     <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
                                                 </tr>

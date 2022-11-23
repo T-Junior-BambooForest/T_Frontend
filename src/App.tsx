@@ -44,6 +44,7 @@ const App = () => {
   const [user, setUser] = React.useState(userInfo);
 
   useEffect(() => {
+
     (async () => {
       try {
         const user = await getUserInfo();
@@ -72,7 +73,7 @@ const App = () => {
         <Routes>
           <Route path={'/'} element={<Home />} />
           <Route path={'/mypage'} element={<MyPage />} />
-          <Route path={'/management'} element={<Manage />} />
+          <Route path={'/manage'} element={<Manage />} />
           <Route path={'/login'} element={<Login />} />
           <Route path={'/new'} element={<Freshman />} />
           <Route path={'*'} element={<NotFound />} />
