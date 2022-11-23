@@ -82,7 +82,9 @@ const Post = () => {
                                         : ''}
                                     <span className='anony_button_span' onClick={onClickAnony}>익명</span>
                                     {isAnonymous ?
-                                        (<button type='button' className='anony-button' onClick={onClickAnony}>
+                                        (<button type='button' className='anony-button' onClick={onClickAnony}
+                                            style={{ backgroundColor: 'green' }}
+                                        >
                                             <img src={`${checkLogo}`} alt='check' />
                                         </button>)
                                         :
