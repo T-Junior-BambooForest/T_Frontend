@@ -56,7 +56,10 @@ const Management = () => {
                 const data = await getPostInfo();
                 setPost(data.data)
                 console.log(data.data)
-                console.log(data.data[8].Image.data.toString('base64').toString('base64'))
+                // console.log(data.data[8].Image.data.toString('base64'));
+                const buff = new Buffer(data.data[8].Image.data, 'base64');
+                const text = buff.toString('ascii');
+                console.log(text);
                 setIsLoad(true)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
