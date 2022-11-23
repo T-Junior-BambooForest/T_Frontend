@@ -15,7 +15,7 @@ interface PostType {
     AllowBoard: AllowBoard,
     contents: string,
     User: UserType,
-    createdAt: any
+    createdAt: any,
 }
 
 const Forum = () => {
@@ -26,7 +26,6 @@ const Forum = () => {
             try {
                 const post = await getAllowPostInfo();
                 setAllowPost(post.data)
-                console.log(post.data)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.data?.code >= 400) {
                     console.log(error)
@@ -47,13 +46,14 @@ const Forum = () => {
                 </h1>
             </div>
             <div>
-                {allowPost && allowPost?.map((post: PostType) => (
+                {allowPost && allowPost?.map((post: any) => (
                     <PostItem
                         key={post.AllowBoard.AllowBoardCode}
                         num={post.AllowBoard.AllowBoardCode}
                         contents={post.contents}
                         name={post.User.name}
                         date={post.createdAt}
+                        blobImg={post?.Image?.data}
                     />
                 ))}
             </div>

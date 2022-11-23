@@ -55,11 +55,6 @@ const Management = () => {
             try {
                 const data = await getPostInfo();
                 setPost(data.data)
-                console.log(data.data)
-                console.log(data.data[8].Image.data.toString('base64').toString('ascii'));
-                // const buff = new Buffer(data.data[8].Image.data, 'base64');
-                // const text = buff.toString('ascii');
-                // console.log(text);
                 setIsLoad(true)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
@@ -101,6 +96,9 @@ const Management = () => {
                                     <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                                 </tr>
                                 {post && post.map((post: any) => {
+                                    const blob = new TextDecoder("utf-8");
+                                    const Uint8 = new Uint8Array(post.Image.data);
+                                    const imgSrc = blob.decode(Uint8);
                                     return (
                                         <>{post.allowBoard ?
                                             ''
@@ -109,7 +107,7 @@ const Management = () => {
                                                     <td>{post.boardCode}</td>
                                                     <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                                     <td>{post.isAnonymous ? '익명' : post.User.name}</td>
-                                                    <td><img src={post.Image} alt='이미지' style={{ width: '50px', height: '50px' }} /></td>
+                                                    <td><img src={imgSrc} alt='이미지' style={{ width: '50px', height: '50px' }} /></td>
                                                     <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >수락</td>
                                                     <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
                                                 </tr>

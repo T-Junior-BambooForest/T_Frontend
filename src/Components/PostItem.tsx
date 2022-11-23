@@ -6,9 +6,13 @@ type PostItemType = {
     contents: string,
     name: string,
     date: string,
+    blobImg: any,
 }
 
-const PostItem = ({ num, contents, name, date }: PostItemType) => {
+const PostItem = ({ num, contents, name, date, blobImg }: PostItemType) => {
+    const blob = new TextDecoder("utf-8");
+    const Uint8 = new Uint8Array(blobImg)
+    const imgSrc = blob.decode(Uint8)
 
     return (
         <div className='content_box_wrap'>
@@ -29,6 +33,9 @@ const PostItem = ({ num, contents, name, date }: PostItemType) => {
                 </div>
                 <div className='text_box'>
                     <span className='content_text' style={localStorage.getItem('theme') === 'dark' ? null : { color: 'black' }}>{contents}</span>
+                    {imgSrc ?
+                        <img src={imgSrc} alt='img' className='img' />
+                        : ''}
                 </div>
             </div>
         </div >
