@@ -62,7 +62,7 @@ const Post = () => {
             setPreventMultipleClick(false);
             window.location.reload()
         } catch (err) {
-            alert('오류가 발생하였습니다.');
+            console.log(err)
             setPreventMultipleClick(false);
         }
 
