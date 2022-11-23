@@ -38,7 +38,7 @@ const MyPage = () => {
                         </div>
                         {user.isManage ?
                             <div className='management_page'>
-                                <Link to='/management' className='management_button'>
+                                <Link to='/manage' className='management_button'>
                                     관리자 페이지
                                 </Link>
                             </div>

@@ -55,6 +55,7 @@ const Management = () => {
             try {
                 const data = await getPostInfo();
                 setPost(data.data)
+                console.log(data.data)
                 setIsLoad(true)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.status >= 400) {
