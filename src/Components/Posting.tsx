@@ -77,7 +77,7 @@ const Post = () => {
                         <div className='form_boxs'>
                             <div className='posts-wrap'>
                                 <div className='anony-button-wrap'>
-                                    <input type="file" onChange={(e) => { encodeFileToBase64(e.target.files[0]); }} accept="image/png, image/gif, image/jpeg" disabled={user.isLogin} />
+                                    <input type="file" onChange={(e) => { encodeFileToBase64(e.target.files[0]); }} accept="image/png, image/gif, image/jpeg" disabled={!user.isLogin} />
                                     {imgSrc ? <img src={imgSrc} alt='미리보기' className='preview-img' />
                                         : ''}
                                     <span className='anony_button_span' onClick={onClickAnony} style={localStorage.getItem('theme') === 'dark' ? null : { color: 'black' }}>익명</span>

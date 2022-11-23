@@ -107,7 +107,7 @@ const Management = () => {
                                                     <td>{post.boardCode}</td>
                                                     <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                                     <td>{post.isAnonymous ? '익명' : post.User.name}</td>
-                                                    <td><img src={imgSrc} alt='이미지' style={{ width: '50px', height: '50px' }} /></td>
+                                                    <td><img src={imgSrc} alt='없음' style={{ width: '50px', height: '50px' }} /></td>
                                                     <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >수락</td>
                                                     <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
                                                 </tr>
