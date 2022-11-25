@@ -39,9 +39,10 @@ const userInfo: User = {
 };
 
 export const UserContext = createContext(userInfo);
+export const SetUserContext = createContext((...props: any) => { });
 
 const App = () => {
-  const [user, setUser] = React.useState(userInfo);
+  const [user, setUser]: any = React.useState(userInfo);
 
   useEffect(() => {
 
@@ -51,7 +52,6 @@ const App = () => {
         setUser({
           ...user.data.data,
           isLogin: true,
-          isManage: user.data.data.code === 43 || user.data.data.code === 45 || user.data.data.code === 66 ? true : false
         })
 
       } catch (error) {
@@ -69,16 +69,18 @@ const App = () => {
 
   return (
     <Router>
-      <UserContext.Provider value={user}>
-        <Routes>
-          <Route path={'/'} element={<Home />} />
-          <Route path={'/mypage'} element={<MyPage />} />
-          <Route path={'/manage'} element={<Manage />} />
-          <Route path={'/login'} element={<Login />} />
-          <Route path={'/new'} element={<Freshman />} />
-          <Route path={'*'} element={<NotFound />} />
-        </Routes>
-      </UserContext.Provider>
+      <SetUserContext.Provider value={setUser}>
+        <UserContext.Provider value={user}>
+          <Routes>
+            <Route path={'/'} element={<Home />} />
+            <Route path={'/mypage'} element={<MyPage />} />
+            <Route path={'/manage'} element={<Manage />} />
+            <Route path={'/login'} element={<Login />} />
+            <Route path={'/new'} element={<Freshman />} />
+            <Route path={'*'} element={<NotFound />} />
+          </Routes>
+        </UserContext.Provider>
+      </SetUserContext.Provider>
     </Router>
   );
 };
