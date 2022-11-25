@@ -3,21 +3,6 @@ import React, { useEffect, useState } from 'react';
 import '../Style/Forum.scss';
 import PostItem from './PostItem';
 
-type AllowBoard = {
-    AllowBoardCode: number,
-}
-
-type UserType = {
-    name: string,
-}
-
-interface PostType {
-    AllowBoard: AllowBoard,
-    contents: string,
-    User: UserType,
-    createdAt: any,
-}
-
 const Forum = () => {
     const [allowPost, setAllowPost]: any = useState();
 

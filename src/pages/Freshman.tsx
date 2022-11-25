@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SetUserContext, UserContext } from '../App';
 import Header from '../Components/Header';
@@ -13,25 +13,23 @@ const Freshman = () => {
     const navigate = useNavigate();
 
     const onClickCheckLogin = () => {
-        axios.get('')
-            .then((res) => {
-                alert('로그인에 성공했습니다!');
-                navigate('/');
+        axios.post('', {
+            id,
+            pw
+        }).then((res) => {
+            alert('로그인에 성공했습니다!');
+            setUser({
+                ...user,
+                name: '신입생',
+                code: 10000,
+                isLogin: true,
+                isManage: false
             })
-            .catch((err) => {
-                alert('로그인에 실패했습니다. 아이디를 다시 확인해주세요.')
-            })
-    }
-
-    useEffect(() => {
-        setUser({
-            ...user,
-            name: '신입생',
-            code: 10000,
-            isLogin: true,
-            isManage: false
+            navigate('/');
+        }).catch((err) => {
+            alert('로그인에 실패했습니다. 아이디를 다시 확인해주세요.')
         })
-    }, [])
+    }
 
     return (
         <div>

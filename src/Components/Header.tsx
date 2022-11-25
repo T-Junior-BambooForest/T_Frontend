@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../App';
 import '../Style/Header.scss';
-import BambooLogo from '../Image/bambooLogo.svg';
 import BambooDark from '../Image/bambooDark.svg';
 import locationLogo from '../Image/location.svg';
 
@@ -19,7 +18,7 @@ const Header = ({ mode }: any) => {
             <div className='header_wrap' >
                 <div className='team_name'>
                     <Link to={'/'}>
-                        <span className='team_name_text' style={{ cursor: 'pointer' }}></span>
+                        <span className='team_name_text'></span>
                     </Link>
                 </div>
                 <div className='login_btn'>
@@ -32,20 +31,16 @@ const Header = ({ mode }: any) => {
                             </span>
                             &nbsp;&nbsp;|&nbsp;&nbsp;
                             <span>
-                                <a className='login_sub_btn' href={validateURL('https://auth.bssm.kro.kr/oauth?clientId=4f6a1b29&redirectURI=https://api.bsmboo.kro.kr:8000/oauth') ? 'https://auth.bssm.kro.kr/oauth?clientId=4f6a1b29&redirectURI=https://api.bsmboo.kro.kr:8000/oauth' : ''}>
+                                <a className='login_sub_btn'
+                                    href={validateURL('https://auth.bssm.kro.kr/oauth?clientId=4f6a1b29&redirectURI=https://api.bsmboo.kro.kr:8000/oauth')
+                                        ? 'https://auth.bssm.kro.kr/oauth?clientId=4f6a1b29&redirectURI=https://api.bsmboo.kro.kr:8000/oauth'
+                                        : ''}>
                                     LOGIN
                                 </a>
                             </span>
                             &nbsp;&nbsp;|&nbsp;&nbsp;
                         </>}
                     <span><Link className='mypage_btn' to={'/mypage'}>MYPAGE</Link></span>
-                    {/* {mode ? '' :
-                        <>
-                            {localStorage.getItem('theme') === 'dark' ?
-                                <img src={`${moon}`} alt='' className='mode-button' onClick={onClickMode} />
-                                :
-                                <img src={`${sun}`} alt='' className='mode-button' onClick={onClickMode} />
-                            }</>} */}
                 </div>
             </div>
             <div className='title_box_wrap'>
@@ -66,7 +61,12 @@ const Header = ({ mode }: any) => {
                     </div>
                 </div>
                 <div className='follow_btn_box_link'>
-                    <a className='a_link_button' href='https://www.instagram.com/bssm.forest/' target={'_blank'} rel={'noreferrer'}>instagram</a>
+                    <a className='a_link_button'
+                        href='https://www.instagram.com/bssm.forest/'
+                        target={'_blank'}
+                        rel={'noreferrer'}>
+                        instagram
+                    </a>
                 </div>
             </div>
         </div >
