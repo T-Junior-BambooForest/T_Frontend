@@ -65,7 +65,7 @@ const Management = () => {
     }, []);
 
     useDidMountEffect(() => {
-        if (!user.isManage) {
+        if (!user.isManager) {
             navigate('/error')
         }
     }, [user])

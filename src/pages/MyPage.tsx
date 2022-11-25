@@ -36,7 +36,7 @@ const MyPage = () => {
                             <span className='user_number'>{user.studentNo}번</span>
                             <span className='user_name'>{user.name}</span>
                         </div>
-                        {user.isManage ?
+                        {user.isManager ?
                             <div className='management_page'>
                                 <Link to='/manage' className='management_button'>
                                     관리자 페이지

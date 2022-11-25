@@ -22,7 +22,7 @@ interface User {
   studentNo: string,
   profile: string,
   isLogin: boolean,
-  isManage: boolean
+  isManager: boolean
 }
 
 const userInfo: User = {
@@ -35,7 +35,7 @@ const userInfo: User = {
   studentNo: "",
   profile: "",
   isLogin: false,
-  isManage: false,
+  isManager: false,
 };
 
 export const UserContext = createContext(userInfo);
