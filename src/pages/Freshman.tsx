@@ -1,10 +1,13 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SetUserContext, UserContext } from '../App';
 import Header from '../Components/Header';
 import '../Style/Freshman.scss';
 
 const Freshman = () => {
+    const user = useContext(UserContext);
+    const setUser = useContext(SetUserContext);
     const [id, setID] = useState('');
     const [pw, setPW] = useState('');
     const navigate = useNavigate();
@@ -20,13 +23,25 @@ const Freshman = () => {
             })
     }
 
+    useEffect(() => {
+        setUser({
+            ...user,
+            name: '신입생',
+            code: 10000,
+            isLogin: true,
+            isManage: false
+        })
+    }, [])
+
     return (
         <div>
             <Header mode={true} />
             <div className='new-stud-wrap'>
                 <span className='new-stud-title'>신입생이신가요?</span>
-                <span className='new-stud-subtitle'>BSMBOO는 신입생도 절차를 통해 서비스를 이용할 수 있습니다.</span>
+                <span className='new-stud-
+                '>BSMBOO는 신입생도 절차를 통해 서비스를 이용할 수 있습니다.</span>
             </div>
+            <button onClick={() => { console.log(user) }}>asc</button>
             <div className='new-stud-login-wrap'>
                 <input type='text' onChange={e => { setID(e.target.value) }} value={id} className='new-stud-id' placeholder='임시 아이디를 입력해주세요.' />
                 <input type='password' onChange={e => { setPW(e.target.value) }} value={pw} className='new-stud-pw' placeholder='임시 비밀번호를 입력해주세요.' />
