@@ -56,7 +56,7 @@ const App = () => {
 
       } catch (error) {
         if (error instanceof AxiosError && error.response?.data?.code >= 400) {
-          console.log(`현재 비로그인 상태입니다. 로그인 후 서비스를 이용하실 수 있습니다.\n${error}`)
+          console.log(`현재 비로그인 상태입니다. 로그인 후 서비스를 이용하실 수 있습니다.`)
         }
       }
     })();

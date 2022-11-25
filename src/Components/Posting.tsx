@@ -76,10 +76,10 @@ const Post = () => {
                         <h1 className='post_title'>제보하기</h1>
                         <div className='form_boxs'>
                             <div className='posts-wrap'>
+                                <input type="file" onChange={(e) => { encodeFileToBase64(e.target.files[0]); }} accept="image/png, image/gif, image/jpg" disabled={!user.isLogin} />
+                                {imgSrc ? <img src={imgSrc} alt='미리보기' className='preview-img' />
+                                    : ''}
                                 <div className='anony-button-wrap'>
-                                    <input type="file" onChange={(e) => { encodeFileToBase64(e.target.files[0]); }} accept="image/png, image/gif, image/jpg" disabled={!user.isLogin} />
-                                    {imgSrc ? <img src={imgSrc} alt='미리보기' className='preview-img' />
-                                        : ''}
                                     <span className='anony_button_span' onClick={onClickAnony}>익명</span>
                                     {isAnonymous ?
                                         (<button type='button' className='anony-button' onClick={onClickAnony}
