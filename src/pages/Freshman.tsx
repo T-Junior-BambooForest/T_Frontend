@@ -25,6 +25,7 @@ const Freshman = () => {
             if (err.code === "ERR_NETWORK") {
                 alert('로그인에 성공했습니다!')
                 navigate('/')
+                window.location.reload();
             } else {
                 alert('로그인에 실패했습니다. 아이디를 다시 확인해주세요.')
             }
