@@ -23,6 +23,7 @@ const Freshman = () => {
         }).then((res) => {
             alert('로그인에 성공했습니다!')
             navigate('/')
+            window.location.reload();
         }).catch((err) => {
             if (err.code === "ERR_NETWORK") {
                 alert('로그인에 성공했습니다!')
