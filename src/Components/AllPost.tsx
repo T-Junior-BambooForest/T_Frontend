@@ -36,7 +36,7 @@ const Forum = () => {
                         key={post.AllowBoard.AllowBoardCode}
                         num={post.AllowBoard.AllowBoardCode}
                         contents={post.contents}
-                        name={post.code >= 9000 ? `${post.User.name}(신입생)` : post.User.name}
+                        name={post.User.name}
                         date={post.createdAt}
                         blobImg={post?.Image?.data}
                     />
