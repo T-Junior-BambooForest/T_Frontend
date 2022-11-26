@@ -25,11 +25,11 @@ const Freshman = () => {
             navigate('/')
         }).catch((err) => {
             console.log(err)
-            if (err instanceof AxiosError) {
-                alert('로그인에 실패했습니다. 아이디를 다시 확인해주세요.')
-            } else {
+            if (err.code === "ERR_NETWORK") {
                 alert('로그인에 성공했습니다!')
                 navigate('/')
+            } else {
+                alert('로그인에 실패했습니다. 아이디를 다시 확인해주세요.')
             }
         })
     }
@@ -67,13 +67,16 @@ const Freshman = () => {
                 </div>
                 <span>두 번째로, BSMBOO 인스타그램 공식 계정이나 지메일로 아래의 내용을 보내주세요.
                     <br />
-                    내용은 인증 사진과 함께 사용할 아이디, 이름, 비밀번호를 같이 보내주셔야합니다.
+                    내용은 인증 사진과 함께 사용할 아이디, 이름을 같이 보내주셔야합니다.
                     <br />
-                    보안을 위해 아이디와 비밀번호는 영문이어야 하며, 비밀번호는 8자리를 넘어야합니다.
+                    본명은 실명, 아이디는 영문이어야 하며, 5자 이하의 아이디는 사용이 불가능합니다.
                     <br />
                     위 형식 중 하나 이상이 빠져있거나, 사용할 수 없을 경우 아이디를 발급할 수 없습니다.
                     <br />
-                    <a href='https://instagram.com/bssm.forest'><b>@bssm.forest</b></a> 혹은 <b>tshapejunior@gmail.com</b>으로 보내실 수 있습니다.
+                    <a href='https://instagram.com/bssm.forest'
+                        target={'_blank'}
+                        rel='noreferrer'
+                    ><b>@bssm.forest</b></a> 혹은 <b>tshapejunior@gmail.com</b>으로 보내실 수 있습니다.
                     <br />
                     관리자가 확인 후 임시 아이디 발급이 완료되었을 경우, 확인 메일 혹은 DM이 전송됩니다.
                 </span>
