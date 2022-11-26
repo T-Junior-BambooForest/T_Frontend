@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SetUserContext, UserContext } from '../App';
@@ -15,14 +15,21 @@ const Freshman = () => {
 
     const onClickCheckLogin = (e: any) => {
         e.preventDefault();
+        console.log(id, password, name)
         axios.post('/localLogin', {
             id,
             password,
             name
         }).then((res) => {
-            console.log(res)
+            alert('로그인에 성공했습니다!')
+            navigate('/')
         }).catch((err) => {
-            alert('로그인에 실패했습니다. 아이디를 다시 확인해주세요.')
+            if (err instanceof AxiosError) {
+                alert('로그인에 실패했습니다. 아이디를 다시 확인해주세요.')
+            } else {
+                alert('로그인에 성공했습니다!')
+                navigate('/')
+            }
         })
     }
 
