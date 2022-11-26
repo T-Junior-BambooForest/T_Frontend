@@ -24,7 +24,6 @@ const Freshman = () => {
             alert('로그인에 성공했습니다!')
             navigate('/')
         }).catch((err) => {
-            console.log(err)
             if (err.code === "ERR_NETWORK") {
                 alert('로그인에 성공했습니다!')
                 navigate('/')
@@ -42,7 +41,6 @@ const Freshman = () => {
                 <span className='new-stud-
                 '>BSMBOO는 신입생도 절차를 통해 서비스를 이용할 수 있습니다.</span>
             </div>
-            <button onClick={() => { console.log(user) }}>asc</button>
             <form className='new-stud-login-wrap'>
                 <input type='text' onChange={e => { setName(e.target.value) }} value={name} className='new-stud' placeholder='이름을 입력해주세요.' />
                 <input type='text' onChange={e => { setID(e.target.value) }} value={id} className='new-stud' placeholder='임시 아이디를 입력해주세요.' />

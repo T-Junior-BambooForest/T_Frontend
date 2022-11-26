@@ -31,10 +31,16 @@ const MyPage = () => {
                             <span className='user_nickname'>{user.nickname}</span>
                         </div>
                         <div className='user_school_info_box'>
-                            <span className='user_grade'>{user.grade}학년</span>
-                            <span className='user_class'>{user.class}반</span>
-                            <span className='user_number'>{user.studentNo}번</span>
-                            <span className='user_name'>{user.name}</span>
+                            {user.grade === 99 ?
+                                <span className='user_name'>신입생 {user.name}</span>
+                                :
+                                <>
+                                    <span className='user_grade'>{user.grade}학년</span>
+                                    <span className='user_class'>{user.class}반</span>
+                                    <span className='user_number'>{user.studentNo}번</span>
+                                    <span className='user_name'>{user.name}</span>
+                                </>
+                            }
                         </div>
                         {user.isManager ?
                             <div className='management_page'>
