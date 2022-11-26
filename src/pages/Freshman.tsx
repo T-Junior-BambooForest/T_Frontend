@@ -6,8 +6,6 @@ import Header from '../Components/Header';
 import '../Style/Freshman.scss';
 
 const Freshman = () => {
-    const user = useContext(UserContext);
-    const setUser = useContext(SetUserContext);
     const [id, setID] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -15,15 +13,14 @@ const Freshman = () => {
 
     const onClickCheckLogin = (e: any) => {
         e.preventDefault();
-        console.log(id, password, name)
         axios.post('/localLogin', {
             id,
             password,
             name
         }).then((res) => {
             alert('로그인에 성공했습니다!')
-            navigate('/')
             window.location.reload();
+            navigate('/')
         }).catch((err) => {
             if (err.code === "ERR_NETWORK") {
                 alert('로그인에 성공했습니다!')
@@ -36,7 +33,7 @@ const Freshman = () => {
 
     return (
         <div>
-            <Header mode={true} />
+            <Header />
             <div className='new-stud-wrap'>
                 <span className='new-stud-title'>신입생이신가요?</span>
                 <span className='new-stud-

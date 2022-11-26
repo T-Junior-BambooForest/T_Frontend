@@ -5,7 +5,7 @@ import '../Style/Header.scss';
 import BambooDark from '../Image/bambooDark.svg';
 import locationLogo from '../Image/location.svg';
 
-const Header = ({ mode }: any) => {
+const Header = () => {
     let user = useContext(UserContext)
 
     function validateURL(url: string) {
