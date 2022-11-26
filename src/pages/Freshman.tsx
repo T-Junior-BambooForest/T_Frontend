@@ -9,23 +9,18 @@ const Freshman = () => {
     const user = useContext(UserContext);
     const setUser = useContext(SetUserContext);
     const [id, setID] = useState('');
-    const [pw, setPW] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
     const navigate = useNavigate();
 
-    const onClickCheckLogin = () => {
-        axios.post('', {
+    const onClickCheckLogin = (e: any) => {
+        e.preventDefault();
+        axios.post('/localLogin', {
             id,
-            pw
+            password,
+            name
         }).then((res) => {
-            alert('로그인에 성공했습니다!');
-            setUser({
-                ...user,
-                name: '신입생',
-                code: 10000,
-                isLogin: true,
-                isManage: false
-            })
-            navigate('/');
+            console.log(res)
         }).catch((err) => {
             alert('로그인에 실패했습니다. 아이디를 다시 확인해주세요.')
         })
@@ -40,11 +35,12 @@ const Freshman = () => {
                 '>BSMBOO는 신입생도 절차를 통해 서비스를 이용할 수 있습니다.</span>
             </div>
             <button onClick={() => { console.log(user) }}>asc</button>
-            <div className='new-stud-login-wrap'>
-                <input type='text' onChange={e => { setID(e.target.value) }} value={id} className='new-stud-id' placeholder='임시 아이디를 입력해주세요.' />
-                <input type='password' onChange={e => { setPW(e.target.value) }} value={pw} className='new-stud-pw' placeholder='임시 비밀번호를 입력해주세요.' />
+            <form className='new-stud-login-wrap'>
+                <input type='text' onChange={e => { setName(e.target.value) }} value={name} className='new-stud' placeholder='이름을 입력해주세요.' />
+                <input type='text' onChange={e => { setID(e.target.value) }} value={id} className='new-stud' placeholder='임시 아이디를 입력해주세요.' />
+                <input type='password' onChange={e => { setPassword(e.target.value) }} value={password} className='new-stud' placeholder='임시 비밀번호를 입력해주세요.' />
                 <button onClick={onClickCheckLogin} className='new-stud-login-btn'>신입생으로 로그인하기</button>
-            </div>
+            </form>
             <div className='new-stud-wrap'>
                 <span className='new-stud-title'>신입생 계정은 어떻게 발급받나요?</span>
                 <span className='new-stud-subtitle'>아래와 같은 절차를 통해 발급받으실 수 있습니다.</span>
