@@ -5,6 +5,7 @@ import AllPost from './AllPost';
 import { UserContext } from '../App';
 import checkLogo from '../Image/checkImg.svg';
 import postLogo from '../Image/postImg.svg';
+import { Textarea } from './Textarea';
 
 const Post = () => {
     const user = useContext(UserContext);
@@ -12,6 +13,36 @@ const Post = () => {
     const [isAnonymous, setIsAnonyMous] = useState(true);
     const [preventMultipleClick, setPreventMultipleClick] = useState(false);
     const [imgSrc, setImgSrc]: any = useState(null);
+    const [textareaHeight, setTextareaHeight] = useState({
+        row: 1,
+        lineBreak: [],
+    });
+
+    const resizeTextarea = (e: any) => {
+        const { scrollHeight, clientHeight, value } = e.target;
+
+        if (scrollHeight > clientHeight) {
+            setTextareaHeight(prev => ({
+                row: prev.row + 1,
+                lineBreak: { ...prev.lineBreak, [value.length - 1]: true },
+            }));
+        }
+        if (textareaHeight.lineBreak[value.length]) {
+            setTextareaHeight(prev => ({
+                row: prev.row - 1,
+                lineBreak: { ...prev.lineBreak, [value.length]: false },
+            }));
+        }
+    };
+
+    const onKeyEnter = (e: any) => {
+        if (e.code === 'Enter') {
+            setTextareaHeight(prev => ({
+                row: prev.row + 1,
+                lineBreak: { ...prev.lineBreak, [e.target.value.length]: true },
+            }));
+        }
+    };
 
     const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setContents(e.target.value)
@@ -103,11 +134,21 @@ const Post = () => {
                         </div>
                     </div>
                     <div className='editor_box'>
-                        <textarea
+                        <Textarea
                             className='editor'
+                            autoComplete="off"
+                            onInput={resizeTextarea}
+                            onKeyDown={onKeyEnter}
+                            rows={textareaHeight.row}
                             onChange={onChangeContent}
-                            disabled={!user.isLogin}
-                            placeholder={!user.isLogin ? '로그인 후 글을 작성하실 수 있습니다.' : ''} />
+                            disabled={user.isLogin}
+                            placeholder={!user.isLogin ?
+                                '로그인 후 글을 작성하실 수 있습니다.'
+                                : ''}
+                        />
+                        <div>
+                            <span>{contents.length}/5000</span>
+                        </div>
                     </div>
                     <AllPost />
                 </div>

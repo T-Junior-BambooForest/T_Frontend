@@ -163,8 +163,21 @@
                 background-color: #0D1117;
                 color: #E5EDF5;
                 width: 65vw;
-                height: 110px;
+                height: fit-content;
                 padding: 15px;
+                font-size: 14px;
+            }
+
+            div {
+                display: flex;
+
+                span {
+                    color: #30363D;
+                    font-weight: 600;
+                    font-size: 12px;
+                    margin-left: auto;
+                    margin-right: 5px;
+                }
             }
         }
 
