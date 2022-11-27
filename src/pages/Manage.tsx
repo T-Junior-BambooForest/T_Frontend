@@ -95,27 +95,20 @@ const Management = () => {
                                     <td>사진</td>
                                     <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                                 </tr>
-                                {post && post.map((post: any) => {
-                                    const blob = new TextDecoder("utf-8");
-                                    const Uint8 = new Uint8Array(post?.Image?.data);
-                                    const imgSrc = blob.decode(Uint8);
-                                    return (
-                                        <>{post.allowBoard ?
-                                            ''
-                                            : <tbody key={post.boardCode}>
-                                                <tr>
-                                                    <td>{post.boardCode}</td>
-                                                    <td style={{ fontSize: '14px' }}>{post.contents}</td>
-                                                    <td>{post.isAnonymous ? '익명' : post.User.name}</td>
-                                                    <td><img src={imgSrc} alt='없음' style={{ width: '50px', height: '50px' }} /></td>
-                                                    <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >수락</td>
-                                                    <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
-                                                </tr>
-                                            </tbody>
-                                        }</>
-                                    )
-                                })
-                                }
+                                {post && post.map((post: any) => (
+                                    <>{post.allowBoard ?
+                                        ''
+                                        : <tbody key={post.boardCode}>
+                                            <tr>
+                                                <td>{post.boardCode}</td>
+                                                <td style={{ fontSize: '14px' }}>{post.contents}</td>
+                                                <td>{post.isAnonymous ? '익명' : post.User.name}</td>
+                                                <td><img src={post.Image} alt='없음' style={{ width: '50px', height: '50px' }} /></td>
+                                                <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >수락</td>
+                                                <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
+                                            </tr>
+                                        </tbody>
+                                    }</>))}
                             </table><br /><br /><br /><br />
                             <div className='management_title_box' style={{ marginBottom: '10px' }}>
                                 <h1 className='management_title'>

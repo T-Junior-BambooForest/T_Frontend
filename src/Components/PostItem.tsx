@@ -10,9 +10,6 @@ type PostItemType = {
 }
 
 const PostItem = ({ num, contents, name, date, blobImg }: PostItemType) => {
-    const blob = new TextDecoder("utf-8");
-    const Uint8 = new Uint8Array(blobImg)
-    const imgSrc = blob.decode(Uint8)
 
     return (
         <div className='content_box_wrap'>
@@ -33,8 +30,8 @@ const PostItem = ({ num, contents, name, date, blobImg }: PostItemType) => {
                 </div>
                 <div className='text_box'>
                     <span className='content_text'>{contents.replace(/<br>/gi, '\n')}</span>
-                    {imgSrc ?
-                        <img src={imgSrc} alt='img' className='img' />
+                    {blobImg ?
+                        <img src={blobImg} alt='img' className='img' />
                         : ''}
                 </div>
             </div>
