@@ -79,6 +79,10 @@ const Post = () => {
             return;
         }
 
+        if (contents.length > 5000) {
+            alert('내용이 제한을 초과했습니다. 5000자 이내로 작성해주세요.')
+        }
+
         try {
             await axios.post(
                 '/board',
