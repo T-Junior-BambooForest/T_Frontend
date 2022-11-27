@@ -32,7 +32,7 @@ const PostItem = ({ num, contents, name, date, blobImg }: PostItemType) => {
                     </div>
                 </div>
                 <div className='text_box'>
-                    <span className='content_text'>{contents}</span>
+                    <span className='content_text'>{contents.replace(/<br>/gi, '\n')}</span>
                     {imgSrc ?
                         <img src={imgSrc} alt='img' className='img' />
                         : ''}
