@@ -6,6 +6,7 @@ import MyPage from './pages/MyPage';
 import Manage from './pages/Manage';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
+import NewSignup from './pages/NewSignup';
 import './App.scss';
 import Freshman from './pages/Freshman';
 
@@ -77,6 +78,7 @@ const App = () => {
             <Route path={'/manage'} element={<Manage />} />
             <Route path={'/login'} element={<Login />} />
             <Route path={'/new'} element={<Freshman />} />
+            <Route path={'/newsignup'} element={<NewSignup />} />
             <Route path={'*'} element={<NotFound />} />
           </Routes>
         </UserContext.Provider>

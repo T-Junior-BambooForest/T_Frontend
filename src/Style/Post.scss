@@ -64,13 +64,6 @@
                         justify-content: center;
                         margin-right: 20px;
 
-                        .preview-img {
-                            width: 25px;
-                            height: 25px;
-                            margin-right: 20px;
-                            margin-left: 10px;
-                        }
-
                         .anony_button_span {
                             font-size: 14px;
                             font-family: 'main';
@@ -176,4 +169,11 @@
         }
 
     }
+}
+
+.preview-img {
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+    margin-left: 10px;
 }

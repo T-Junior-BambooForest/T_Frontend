@@ -56,7 +56,7 @@
 
     .new-stud-login-btn {
         width: 350px;
-        height: 45px;
+        height: 80px;
         border: none;
         background-color: white;
         margin-top: 20px;
@@ -98,7 +98,7 @@
         margin-bottom: 40px;
 
         .img-one {
-            width: 200px;
+            width: 800px;
             height: auto;
 
             @media ALL and (max-width:600px) {
@@ -121,6 +121,7 @@
         .img-three {
             width: 200px;
             height: 400px;
+            margin: 0 5px 0 5px;
 
             @media ALL and (max-width:500px) {
                 width: 120px;
@@ -140,4 +141,22 @@
             }
         }
     }
+}
+
+.error-pw {
+    color: rgb(241, 50, 50);
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.new-signup-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsignup {
+    color: rgb(66, 66, 244);
+    font-weight: 800;
+    margin-top: 15px;
 }
