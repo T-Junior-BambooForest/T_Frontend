@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SetUserContext, UserContext } from '../App';
 import Header from '../Components/Header';
+import useDidMountEffect from '../hooks/useDidMountEffect';
 import '../Style/Freshman.scss';
 
 const Freshman = () => {
@@ -10,6 +11,7 @@ const Freshman = () => {
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const navigate = useNavigate();
+    const user = useContext(UserContext);
 
     const onClickCheckLogin = (e: any) => {
         e.preventDefault();
@@ -31,6 +33,12 @@ const Freshman = () => {
             }
         })
     }
+
+    useDidMountEffect(() => {
+        if (user.isLogin) {
+            navigate('/')
+        }
+    }, [user])
 
     return (
         <div>
