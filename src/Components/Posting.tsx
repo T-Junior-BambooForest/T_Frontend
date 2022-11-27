@@ -145,7 +145,7 @@ const Post = () => {
                             onKeyDown={onKeyEnter}
                             rows={textareaHeight.row}
                             onChange={onChangeContent}
-                            disabled={user.isLogin}
+                            disabled={!user.isLogin}
                             placeholder={!user.isLogin ?
                                 '로그인 후 글을 작성하실 수 있습니다.'
                                 : ''}
