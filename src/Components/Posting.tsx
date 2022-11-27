@@ -62,6 +62,7 @@ const Post = () => {
             setPreventMultipleClick(false);
             window.location.reload()
         } catch (err) {
+            console.log(err)
             alert('이미지 용량이 너무 큽니다.')
             setPreventMultipleClick(false);
         }
