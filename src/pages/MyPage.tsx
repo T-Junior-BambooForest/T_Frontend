@@ -32,7 +32,7 @@ const MyPage = () => {
                         </div>
                         <div className='user_school_info_box'>
                             {user.grade === 99 ?
-                                <span className='user_name'>신입생 {user.name}</span>
+                                ''
                                 :
                                 <>
                                     <span className='user_grade'>{user.grade}학년</span>
