@@ -38,7 +38,7 @@ const Forum = () => {
                         contents={post.contents}
                         name={post.User.name}
                         date={post.createdAt}
-                        blobImg={post?.Image?.data}
+                        blobImg={post?.Image}
                     />
                 ))}
             </div>
