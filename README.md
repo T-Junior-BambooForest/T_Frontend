@@ -2,6 +2,7 @@
 
 #### <a href="https://bsmboo.kro.kr" target="_blank">웹사이트 바로가기 : bsmboo.kro.kr</a>
 #### <a href="https://instagram.com/bssm.forest" target="_blank">인스타그램 바로가기 : @bssm.forest</a>
+#### <a href="https://url.kr/inoeml" target="_blank">페이스북 페이지 바로가기 : www.facebook.com/profile</a>
 #### <a href="https://github.com/BSSM-BSM" target="_blank">BSM OAuth 바로가기 : github.com/BSSM-BSM</a>
 
 ## BSMBOO
@@ -23,13 +24,13 @@
 <img src="https://img.shields.io/badge/mysql-275f85?style=for-the-badge&logo=mysql&logoColor=white"/>
 <img src="https://img.shields.io/badge/React JS-73c4f3?style=for-the-badge&logo=react&logoColor=white"/>
 <img src="https://img.shields.io/badge/TypeScript-4376c1?style=for-the-badge&logo=typescript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Sass-hotpink?style=for-the-badge&logo=sass&logoColor=white"/>
+<img src="https://img.shields.io/badge/Sass-hotpink?style=for-the-badge&logo=sass&logoColor=white"/>
 </div>
 
 ## Made By
 
 #### 김호현 - 서버 구현 및 유지 보수
-#### 이채우 - 인스타그램 자동 업로드 구현
+#### 이채우 - 인스타그램 및 페이스북 자동 업로드 구현
 #### 왕현빈 - 데이터베이스 설계 및 유지 보수
 #### 박우빈 - 디자인 설계 및 기능 구현
 #### 권강빈 - 레이아웃, 반응형 디자인 구현
