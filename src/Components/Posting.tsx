@@ -53,11 +53,13 @@ const Post = () => {
     };
 
     const encodeFileToBase64 = (fileBlob: any) => {
-        if (fileBlob.name.substring(fileBlob.name.length - 3, fileBlob.name.length) !== 'jpg'
-            || fileBlob.name.substring(fileBlob.name.length - 3, fileBlob.name.length) !== 'png'
-            || fileBlob.name.substring(fileBlob.name.length - 4, fileBlob.name.length) !== 'jpeg'
-            || fileBlob.name.substring(fileBlob.name.length - 4, fileBlob.name.length) !== 'webp') {
+        console.log(fileBlob.type)
+        if (fileBlob.type !== 'image/png' &&
+            fileBlob.type !== 'image/jpg' &&
+            fileBlob.type !== 'image/jpeg' &&
+            fileBlob.type !== 'image/webp') {
             alert('올바른 사진 형식이 아닙니다. 파일을 다시 확인해주세요.')
+            window.location.reload();
             return;
         } else {
             const reader = new FileReader();
@@ -120,7 +122,9 @@ const Post = () => {
                         <h1 className='post_title'>제보하기</h1>
                         <div className='form_boxs'>
                             <div className='posts-wrap'>
-                                <input type="file" onChange={(e) => { encodeFileToBase64(e.target.files[0]); }} accept="image/png, image/gif, image/jpg" disabled={!user.isLogin} />
+                                <input type="file" onChange={(e) => { encodeFileToBase64(e.target.files[0]); }}
+                                    accept="image/png, image/gif, image/jpg"
+                                    disabled={!user.isLogin} />
                                 {imgSrc ? <img src={imgSrc} alt='미리보기' className='preview-img' />
                                     : ''}
                                 <div className='anony-button-wrap'>
