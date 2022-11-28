@@ -53,11 +53,11 @@ const Post = () => {
     };
 
     const encodeFileToBase64 = (fileBlob: any) => {
-        console.log(fileBlob.type)
         if (fileBlob.type !== 'image/png' &&
             fileBlob.type !== 'image/jpg' &&
             fileBlob.type !== 'image/jpeg' &&
-            fileBlob.type !== 'image/webp') {
+            fileBlob.type !== 'image/webp' &&
+            fileBlob.type !== 'image/gif') {
             alert('올바른 사진 형식이 아닙니다. 파일을 다시 확인해주세요.')
             window.location.reload();
             return;
