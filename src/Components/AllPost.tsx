@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import React, { useEffect, useState } from 'react';
+import {WindowScroller, CellMeasurer, CellMeasurerCache, AutoSizer, List, ListRowProps} from 'react-virtualized';
 import '../Style/Forum.scss';
 import PostItem from './PostItem';
 
@@ -31,16 +32,18 @@ const Forum = () => {
                 </h1>
             </div>
             <div>
-                {allowPost && allowPost?.map((post: any) => (
-                    <PostItem
-                        key={post.AllowBoard.AllowBoardCode}
-                        num={post.AllowBoard.AllowBoardCode}
-                        contents={post.contents}
-                        name={post.User.name}
-                        date={post.createdAt}
-                        blobImg={post?.Image}
-                    />
-                ))}
+                {/* <List 
+                    {allowPost && allowPost?.map((post: any) => (
+                        <PostItem
+                            key={post.AllowBoard.AllowBoardCode}
+                            num={post.AllowBoard.AllowBoardCode}
+                            contents={post.contents}
+                            name={post.User.name}
+                            date={post.createdAt}
+                            blobImg={post?.Image}
+                        />
+                    ))}
+                /> */}
             </div>
         </div>
     );
