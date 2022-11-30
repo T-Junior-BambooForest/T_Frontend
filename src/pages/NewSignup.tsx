@@ -31,7 +31,7 @@ const NewSignup = () => {
                 navigate('/')
                 window.location.reload();
             } else {
-                alert('로그인에 실패했습니다. 아이디를 다시 확인해주세요.')
+                alert('회원가입에 실패했습니다. 자세한 사항은 관리자에게 문의 바랍니다..')
             }
         })
     }
