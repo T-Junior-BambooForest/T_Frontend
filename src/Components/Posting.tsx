@@ -93,23 +93,44 @@ const Post = () => {
             alert('내용이 제한을 초과했습니다. 5000자 이내로 작성해주세요.')
         }
 
-        try {
-            await axios.post(
-                '/board',
-                {
-                    contents,
-                    Usercode: user.code,
-                    isAnonymous,
-                    Image: imgSrc
-                }
-            );
-            alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-            setPreventMultipleClick(false);
-            window.location.reload()
-        } catch (err) {
-            console.log(err)
-            alert('이미지 용량이 너무 큽니다.')
-            setPreventMultipleClick(false);
+        if (isAnonymous) {
+            try {
+                await axios.post(
+                    '/board',
+                    {
+                        contents,
+                        Usercode: user.code,
+                        isAnonymous: '익명',
+                        Image: imgSrc
+                    }
+                );
+                alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
+                setPreventMultipleClick(false);
+                window.location.reload()
+            } catch (err) {
+                console.log(err)
+                alert('이미지 용량이 너무 큽니다.')
+                setPreventMultipleClick(false);
+            }
+        } else {
+            try {
+                await axios.post(
+                    '/board',
+                    {
+                        contents,
+                        Usercode: user.code,
+                        isAnonymous,
+                        Image: imgSrc
+                    }
+                );
+                alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
+                setPreventMultipleClick(false);
+                window.location.reload()
+            } catch (err) {
+                console.log(err)
+                alert('이미지 용량이 너무 큽니다.')
+                setPreventMultipleClick(false);
+            }
         }
 
     }, [user, contents, isAnonymous, imgSrc]);
