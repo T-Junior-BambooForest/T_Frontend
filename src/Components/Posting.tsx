@@ -99,7 +99,7 @@ const Post = () => {
                     '/board',
                     {
                         contents,
-                        Usercode: user.code,
+                        Usercode: -1,
                         isAnonymous: true,
                         Image: imgSrc
                     }
