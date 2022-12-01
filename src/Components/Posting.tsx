@@ -100,7 +100,7 @@ const Post = () => {
                     {
                         contents,
                         Usercode: user.code,
-                        isAnonymous: '익명',
+                        isAnonymous: true,
                         Image: imgSrc
                     }
                 );
