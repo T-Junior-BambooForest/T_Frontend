@@ -1,5 +1,5 @@
-import React from 'react';
-import '../Style/PostItem.scss';
+import React from 'react'
+import '../Style/PostItem.scss'
 
 type PostItemType = {
     num: number,
@@ -36,7 +36,7 @@ const PostItem = ({ num, contents, name, date, blobImg }: PostItemType) => {
                 </div>
             </div>
         </div >
-    );
-};
+    )
+}
 
-export default React.memo(PostItem);
+export default React.memo(PostItem)

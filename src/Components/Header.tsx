@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { UserContext } from '../App';
-import '../Style/Header.scss';
-import BambooDark from '../Image/bambooDark.svg';
-import locationLogo from '../Image/location.svg';
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { UserContext } from '../App'
+import '../Style/Header.scss'
+import BambooDark from '../Image/bambooDark.svg'
+import locationLogo from '../Image/location.svg'
 
 const Header = () => {
-    let user = useContext(UserContext)
+    const user = useContext(UserContext)
 
-    function validateURL(url: string) {
+    const validateURL = (url: string) => {
         const parsed = new URL(url)
         return ['https:', 'http:'].includes(parsed.protocol)
     }
@@ -17,18 +17,12 @@ const Header = () => {
         <div>
             <div className='header_wrap' >
                 <div className='team_name'>
-                    <Link to={'/'}>
-                        <span className='team_name_text'></span>
-                    </Link>
+                    <Link to={'/'}><span className='team_name_text'></span></Link> {/* header title text */}
                 </div>
                 <div className='login_btn'>
                     {user.isLogin ? '' :
                         <>
-                            <span>
-                                <Link to={'/new'} className='login_sub_btn'>
-                                    신입생로그인
-                                </Link>
-                            </span>
+                            <span><Link to={'/new'} className='login_sub_btn'>신입생로그인</Link></span>
                             &nbsp;&nbsp;|&nbsp;&nbsp;
                             <span>
                                 <a className='login_sub_btn'
@@ -44,18 +38,14 @@ const Header = () => {
                 </div>
             </div>
             <div className='title_box_wrap'>
-                <div className='team_image_box'>
-                    <img src={`${BambooDark}`} alt='' />
-                </div>
+                <div className='team_image_box'><img src={`${BambooDark}`} alt='' /></div>
                 <div className='align_box'>
                     <div className='service_name'>
                         <span className='bamboo_name'>부산소마고 대나무숲</span>
                     </div>
-                    <div className='align_boxs' >
-                        <div className='image_box' >
-                            <img src={`${locationLogo}`} alt='' />
-                        </div>
-                        <div className='name_box' >
+                    <div className='align_boxs'>
+                        <div className='image_box' ><img src={`${locationLogo}`} alt='' /></div>
+                        <div className='name_box'>
                             <span className='school_names'>Busan, Software Meister High School</span>
                         </div>
                     </div>
@@ -69,8 +59,8 @@ const Header = () => {
                     </a>
                 </div>
             </div>
-        </div >
-    );
-};
+        </div>
+    )
+}
 
-export default Header;
+export default Header

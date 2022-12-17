@@ -1,37 +1,53 @@
-import axios, { AxiosError } from 'axios';
-import React, { useEffect, useState } from 'react';
-import '../Style/Forum.scss';
-import PostItem from './PostItem';
+import axios, { AxiosError } from 'axios'
+import React, { useEffect, useState } from 'react'
+import '../Style/Forum.scss'
+import PostItem from './PostItem'
 
-const Forum = () => {
-    const [allowPost, setAllowPost]: any = useState();
+interface AllowPostType {
+    AllowBoard: AllowBoard
+    contents: string,
+    User: User,
+    createdAt: string,
+    Image: any,
+    map: any
+}
+
+type User = {
+    name: string,
+}
+
+type AllowBoard = {
+    AllowBoardCode: number
+}
+
+const AllPost = () => {
+    const [allowPost, setAllowPost] = useState<AllowPostType>()
 
     useEffect(() => {
         (async () => {
             try {
-                const post = await getAllowPostInfo();
+                const post = await getAllowPostInfo()
                 setAllowPost(post.data)
             } catch (error) {
                 if (error instanceof AxiosError && error.response?.data?.code >= 400) {
+                    alert('에러가 발생했습니다.')
                     console.log(error)
                 }
             }
-        })();
-    }, []);
+        })()
+    }, [])
 
     const getAllowPostInfo = () => {
-        return axios.get('/board', { withCredentials: true });
+        return axios.get('/board', { withCredentials: true })
     };
 
     return (
         <div className='forum_wrap'>
             <div className='article_title_box'>
-                <h1 className='article_title'>
-                    모든 제보
-                </h1>
+                <h1 className='article_title'>모든 제보</h1>
             </div>
             <div>
-                {allowPost && allowPost?.map((post: any) => (
+                {allowPost && allowPost?.map((post: AllowPostType) => (
                     <PostItem
                         key={post.AllowBoard.AllowBoardCode}
                         num={post.AllowBoard.AllowBoardCode}
@@ -46,4 +62,4 @@ const Forum = () => {
     );
 };
 
-export default Forum;
+export default AllPost;

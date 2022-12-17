@@ -1,139 +1,134 @@
-import React, { useCallback, useContext, useState } from 'react';
-import '../Style/Post.scss';
-import axios from 'axios';
-import AllPost from './AllPost';
-import { UserContext } from '../App';
-import checkLogo from '../Image/checkImg.svg';
-import postLogo from '../Image/postImg.svg';
-import { Textarea } from './Textarea';
+import React, { useCallback, useContext, useState } from 'react'
+import '../Style/Post.scss'
+import axios from 'axios'
+import AllPost from './AllPost'
+import { UserContext } from '../App'
+import checkLogo from '../Image/checkImg.svg'
+import postLogo from '../Image/postImg.svg'
+import { Textarea } from './Textarea'
 
 const Post = () => {
-    const user = useContext(UserContext);
-    const [contents, setContents] = useState("");
-    const [isAnonymous, setIsAnonyMous] = useState(true);
-    const [preventMultipleClick, setPreventMultipleClick] = useState(false);
-    const [imgSrc, setImgSrc]: any = useState(null);
+    const user = useContext(UserContext)
+    const [contents, setContents] = useState("")
+    const [isAnonymous, setIsAnonyMous] = useState(true)
+    const [preventMultipleClick, setPreventMultipleClick] = useState(false)
+    const [Image, setImage] = useState<any>(null)
     const [textareaHeight, setTextareaHeight] = useState({
         row: 1,
         lineBreak: [],
-    });
+    })
 
     const resizeTextarea = (e: any) => {
-        const { scrollHeight, clientHeight, value } = e.target;
+        const { scrollHeight, clientHeight, value } = e.target
 
         if (scrollHeight > clientHeight) {
             setTextareaHeight(prev => ({
                 row: prev.row + 1,
                 lineBreak: { ...prev.lineBreak, [value.length - 1]: true },
-            }));
+            }))
         }
         if (textareaHeight.lineBreak[value.length]) {
             setTextareaHeight(prev => ({
                 row: prev.row - 1,
                 lineBreak: { ...prev.lineBreak, [value.length]: false },
-            }));
+            }))
         }
-    };
+    }
 
     const onKeyEnter = (e: any) => {
         if (e.code === 'Enter') {
-            setTextareaHeight(prev => ({
+            setTextareaHeight((prev) => ({
                 row: prev.row + 1,
                 lineBreak: { ...prev.lineBreak, [e.target.value.length]: true },
-            }));
+            }))
         }
-    };
+    }
 
     const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setContents(e.target.value)
-    };
+    }
 
     const onClickAnony = () => {
         setIsAnonyMous(isAnonymous => !isAnonymous)
-    };
+    }
 
-    const encodeFileToBase64 = (fileBlob: any) => {
+    const encodeFileToBase64 = (fileBlob: File) => {
         if (fileBlob.type !== 'image/png' &&
             fileBlob.type !== 'image/jpg' &&
             fileBlob.type !== 'image/jpeg' &&
             fileBlob.type !== 'image/webp' &&
             fileBlob.type !== 'image/gif') {
             alert('올바른 사진 형식이 아닙니다. 파일을 다시 확인해주세요.')
-            window.location.reload();
-            return;
+            window.location.reload()
+            return
         } else {
-            const reader = new FileReader();
-            reader.readAsDataURL(fileBlob);
+            const reader = new FileReader()
+            reader.readAsDataURL(fileBlob)
             return new Promise((resolve) => {
                 reader.onload = () => {
-                    setImgSrc(reader.result);
-                    resolve('');
-                };
-            });
+                    setImage(reader.result)
+                    resolve('')
+                }
+            })
         }
-    };
+    }
 
     const onSubmit = useCallback(async (e: React.FormEvent) => {
-        e.preventDefault();
-        setPreventMultipleClick(true);
+        e.preventDefault()
+        setPreventMultipleClick(true)
 
         if (!user.isLogin) {
             alert('로그인 상태를 확인할 수 없습니다. 로그인 후에 글을 작성하실 수 있습니다.')
-            setPreventMultipleClick(false);
-            return;
-        }
-
-        if (!contents) {
+            setPreventMultipleClick(false)
+            return
+        } else if (!contents) {
             alert('내용이 비어있습니다. 제보 내용을 다시 한 번 확인해주세요.')
-            setPreventMultipleClick(false);
-            return;
-        }
-
-        if (contents.length > 5000) {
+            setPreventMultipleClick(false)
+            return
+        } else if (contents.length > 5000) {
             alert('내용이 제한을 초과했습니다. 5000자 이내로 작성해주세요.')
+            return
         }
 
         if (isAnonymous) {
             try {
-                await axios.post(
-                    '/board',
+                await axios.post('/board',
                     {
                         contents,
                         Usercode: -1,
-                        isAnonymous: true,
-                        Image: imgSrc
+                        isAnonymous,
+                        Image
                     }
-                );
+                )
                 alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-                setPreventMultipleClick(false);
+                setPreventMultipleClick(false)
                 window.location.reload()
             } catch (err) {
                 console.log(err)
                 alert('이미지 용량이 너무 큽니다.')
-                setPreventMultipleClick(false);
+                setPreventMultipleClick(false)
             }
         } else {
             try {
-                await axios.post(
-                    '/board',
+                await axios.post('/board',
                     {
                         contents,
                         Usercode: user.code,
                         isAnonymous,
-                        Image: imgSrc
+                        Image
                     }
-                );
+                )
                 alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-                setPreventMultipleClick(false);
+                setPreventMultipleClick(false)
                 window.location.reload()
             } catch (err) {
                 console.log(err)
                 alert('이미지 용량이 너무 큽니다.')
-                setPreventMultipleClick(false);
+                setPreventMultipleClick(false)
             }
         }
 
-    }, [user, contents, isAnonymous, imgSrc]);
+    }, [user, contents, isAnonymous, Image])
 
     return (
         <form onSubmit={onSubmit}>
@@ -143,17 +138,15 @@ const Post = () => {
                         <h1 className='post_title'>제보하기</h1>
                         <div className='form_boxs'>
                             <div className='posts-wrap'>
-                                <input type="file" onChange={(e) => { encodeFileToBase64(e.target.files[0]); }}
+                                <input type="file" onChange={(e) => { encodeFileToBase64(e.target.files[0]) }}
                                     accept="image/png, image/gif, image/jpg"
                                     disabled={!user.isLogin} />
-                                {imgSrc ? <img src={imgSrc} alt='미리보기' className='preview-img' />
+                                {Image ? <img src={Image} alt='미리보기' className='preview-img' />
                                     : ''}
                                 <div className='anony-button-wrap'>
                                     <span className='anony_button_span' onClick={onClickAnony}>익명</span>
                                     {isAnonymous ?
-                                        (<button type='button' className='anony-button' onClick={onClickAnony}
-                                            style={{ backgroundColor: 'green' }}
-                                        >
+                                        (<button type='button' className='anony-button' onClick={onClickAnony} style={{ backgroundColor: 'green' }}>
                                             <img src={`${checkLogo}`} alt='check' />
                                         </button>)
                                         :
@@ -191,7 +184,7 @@ const Post = () => {
                 </div>
             </div>
         </form >
-    );
-};
+    )
+}
 
-export default Post;
+export default Post
