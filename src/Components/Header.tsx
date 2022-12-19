@@ -38,13 +38,13 @@ const Header = () => {
                 </div>
             </div>
             <div className='title_box_wrap'>
-                <div className='team_image_box'><img src={`${BambooDark}`} alt='' /></div>
+                <div className='team_image_box'><img src={`${BambooDark}`} alt='bamboo' /></div>
                 <div className='align_box'>
                     <div className='service_name'>
                         <span className='bamboo_name'>부산소마고 대나무숲</span>
                     </div>
                     <div className='align_boxs'>
-                        <div className='image_box' ><img src={`${locationLogo}`} alt='' /></div>
+                        <div className='image_box' ><img src={`${locationLogo}`} alt='bamboo' /></div>
                         <div className='name_box'>
                             <span className='school_names'>Busan, Software Meister High School</span>
                         </div>

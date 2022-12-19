@@ -1,33 +1,33 @@
-import axios, { AxiosError } from 'axios';
-import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { SetUserContext, UserContext } from '../App';
-import Header from '../Components/Header';
-import useDidMountEffect from '../hooks/useDidMountEffect';
-import '../Style/Freshman.scss';
+import axios from 'axios'
+import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { UserContext } from '../App'
+import Header from '../Components/Header'
+import useDidMountEffect from '../hooks/useDidMountEffect'
+import '../Style/Freshman.scss'
 
 const Freshman = () => {
-    const [id, setID] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
-    const navigate = useNavigate();
-    const user = useContext(UserContext);
+    const [id, setID] = useState('')
+    const [password, setPassword] = useState('')
+    const [name, setName] = useState('')
+    const navigate = useNavigate()
+    const user = useContext(UserContext)
 
     const onClickCheckLogin = (e: any) => {
-        e.preventDefault();
+        e.preventDefault()
         axios.post('/localLogin', {
             id,
             password,
             name
-        }).then((res) => {
+        }).then(() => {
             alert('로그인에 성공했습니다!')
-            window.location.reload();
+            window.location.reload()
             navigate('/')
         }).catch((err) => {
             if (err.code === "ERR_NETWORK") {
                 alert('로그인에 성공했습니다!')
                 navigate('/')
-                window.location.reload();
+                window.location.reload()
             } else {
                 alert('로그인에 실패했습니다. 아이디를 다시 확인해주세요.')
             }
@@ -97,7 +97,7 @@ const Freshman = () => {
                 </div>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default Freshman;
+export default Freshman

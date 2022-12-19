@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../App';
@@ -15,7 +15,7 @@ const NewSignup = () => {
     const navigate = useNavigate();
     const user = useContext(UserContext);
 
-    const onClickCheckLogin = (e: any) => {
+    const onClickCheckLogin = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault();
         axios.post('/localLogin/register', {
             id,

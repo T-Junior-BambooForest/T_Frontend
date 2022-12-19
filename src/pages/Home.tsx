@@ -1,6 +1,6 @@
-import React from 'react';
-import Header from '../Components/Header';
-import Posting from '../Components/Posting';
+import React from 'react'
+import Header from '../Components/Header'
+import Posting from '../Components/Posting'
 
 const Home = () => {
     return (
@@ -8,7 +8,7 @@ const Home = () => {
             <Header />
             <Posting />
         </div>
-    );
-};
+    )
+}
 
-export default Home;
+export default Home

@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
-import Header from '../Components/Header';
-import '../Style/MyPage.scss';
-import { Link } from 'react-router-dom';
-import { UserContext } from '../App';
+import React, { useContext } from 'react'
+import Header from '../Components/Header'
+import '../Style/MyPage.scss'
+import { Link } from 'react-router-dom'
+import { UserContext } from '../App'
 
 const MyPage = () => {
-    const user = useContext(UserContext);
+    const user = useContext(UserContext)
 
     const onDefaultProfile = (e: any) => {
-        e.target.src = "https://bssm.kro.kr/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile_default.99e93808.png&w=128&q=75";
+        e.target.src = "https://bssm.kro.kr/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile_default.99e93808.png&w=128&q=75"
     }
 
     return (
@@ -60,8 +60,8 @@ const MyPage = () => {
                     </>
                 )}
         </>
-    );
+    )
 
-};
+}
 
-export default MyPage;
+export default MyPage

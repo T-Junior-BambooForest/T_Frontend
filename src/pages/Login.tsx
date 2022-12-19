@@ -1,9 +1,9 @@
-import React from 'react';
-import '../Style/NotFound.scss';
-import Header from '../Components/Header';
+import React from 'react'
+import '../Style/NotFound.scss'
+import Header from '../Components/Header'
 
 const Login = () => {
-    function validateURL(url: string) {
+    const validateURL = (url: string) => {
         const parsed = new URL(url)
         return ['https:', 'http:'].includes(parsed.protocol)
     }
@@ -16,7 +16,7 @@ const Login = () => {
                 <a href={validateURL('https://auth.bssm.kro.kr/oauth?clientId=4bff670f&redirectURI=https://bsmboo.kro.kr:8000/oauth') ? 'https://auth.bssm.kro.kr/oauth?clientId=4bff670f&redirectURI=https://bsmboo.kro.kr:8000/oauth' : ''}>로그인하기</a>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Login;
+export default Login

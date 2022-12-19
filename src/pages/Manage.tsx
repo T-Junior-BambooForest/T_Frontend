@@ -1,16 +1,20 @@
-import axios, { AxiosError } from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import useDidMountEffect from '../hooks/useDidMountEffect';
-import { UserContext } from '../App';
-import Header from '../Components/Header';
-import '../Style/Management.scss';
+import axios, { AxiosError } from 'axios'
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import useDidMountEffect from '../hooks/useDidMountEffect'
+import { UserContext } from '../App'
+import Header from '../Components/Header'
+import '../Style/Management.scss'
+
+interface PostType {
+    map: any
+}
 
 const Management = () => {
-    const user = useContext(UserContext);
-    const navigate = useNavigate();
-    const [post, setPost]: any = useState();
-    const [isLoad, setIsLoad] = useState(false);
+    const user = useContext(UserContext)
+    const navigate = useNavigate()
+    const [post, setPost] = useState<PostType>()
+    const [isLoad, setIsLoad] = useState(false)
 
     const onClickUpdatePost = (code: number) => {
         axios
@@ -22,11 +26,11 @@ const Management = () => {
             )
             .then(() => {
                 alert('글이 수락되었습니다.')
-                window.location.reload();
+                window.location.reload()
             })
             .catch((error) => {
-                alert(`에러가 발생하였습니다. ${error}`);
-                return;
+                alert(`에러가 발생하였습니다. ${error}`)
+                return
             })
     }
 
@@ -42,18 +46,18 @@ const Management = () => {
             )
             .then(() => {
                 alert('글이 삭제되었습니다.')
-                window.location.reload();
+                window.location.reload()
             })
             .catch((error) => {
-                alert(`에러가 발생하였습니다. ${error}`);
-                return;
+                alert(`에러가 발생하였습니다. ${error}`)
+                return
             })
     }
 
     useEffect(() => {
         (async () => {
             try {
-                const data = await getPostInfo();
+                const data = await getPostInfo()
                 setPost(data.data)
                 setIsLoad(true)
             } catch (error) {
@@ -61,8 +65,8 @@ const Management = () => {
                     console.log(error)
                 }
             }
-        })();
-    }, []);
+        })()
+    }, [])
 
     useDidMountEffect(() => {
         if (!user.isManager) {
@@ -71,8 +75,8 @@ const Management = () => {
     }, [user])
 
     const getPostInfo = () => {
-        return axios.get('/board/manage', { withCredentials: true });
-    };
+        return axios.get('/board/manage', { withCredentials: true })
+    }
 
     return (
         <div>
@@ -124,9 +128,9 @@ const Management = () => {
                                     <td style={{ textAlign: 'center' }}>조정</td>
                                 </tr>
                                 {post && post.map((post: any) => {
-                                    const blob = new TextDecoder("utf-8");
-                                    const Uint8 = new Uint8Array(post?.Image?.data);
-                                    const imgSrc = blob.decode(Uint8);
+                                    const blob = new TextDecoder("utf-8")
+                                    const Uint8 = new Uint8Array(post?.Image?.data)
+                                    const imgSrc = blob.decode(Uint8)
                                     return (
                                         <>{post.allowBoard ?
                                             <tbody key={post.boardCode}>
@@ -147,7 +151,7 @@ const Management = () => {
                     </div>
                 </>}
         </div >
-    );
-};
+    )
+}
 
-export default Management;
+export default Management
