@@ -13,6 +13,7 @@ const Post = () => {
     const [isAnonymous, setIsAnonyMous] = useState(true)
     const [preventMultipleClick, setPreventMultipleClick] = useState(false)
     const [Image, setImage] = useState<any>(null)
+    const [option, setOption] = useState('')
     const [textareaHeight, setTextareaHeight] = useState({
         row: 1,
         lineBreak: [],
@@ -97,7 +98,8 @@ const Post = () => {
                         contents,
                         Usercode: -1,
                         isAnonymous,
-                        Image
+                        Image,
+                        category: option
                     }
                 )
                 alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
@@ -115,7 +117,8 @@ const Post = () => {
                         contents,
                         Usercode: user.code,
                         isAnonymous,
-                        Image
+                        Image,
+                        category: option
                     }
                 )
                 alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
@@ -128,7 +131,7 @@ const Post = () => {
             }
         }
 
-    }, [user, contents, isAnonymous, Image])
+    }, [user, contents, isAnonymous, Image, option])
 
     return (
         <form onSubmit={onSubmit}>
@@ -153,6 +156,15 @@ const Post = () => {
                                         (<button type='button' className='anony-button' onClick={onClickAnony}>
                                             &nbsp;
                                         </button>)}
+                                </div>
+                                <div className='post-select-wrap'>
+                                    <select onChange={(e) => { setOption(e.target.value) }}>
+                                        <option>자유</option>
+                                        <option>고민</option>
+                                        <option>질문</option>
+                                        <option>불만</option>
+                                        <option>건의</option> {/* 답변 달 수 있게 */}
+                                    </select>
                                 </div>
                                 <div className='post-button-wrap'>
                                     <button type='submit' id='post' className='post_button' disabled={preventMultipleClick}>
