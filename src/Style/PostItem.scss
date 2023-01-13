@@ -1,20 +1,3 @@
-/*
-.contents {
-            word-break: break-all;
-            width: 96%;
-            height: fit-content;
-            margin: 10px auto 10px 2%;
-
-            .content {
-                font-size: 14px;
-                font-weight: 400;
-            }
-        }
-*/
-* {
-    white-space: pre-wrap;
-}
-
 .content_box_wrap {
     color: #E5EDF5;
 
@@ -97,6 +80,7 @@
                 font-size: 15px;
                 line-height: 28px;
                 color: #E5EDF5;
+                white-space: pre-wrap;
 
                 @media ALL and (max-width:600px) {
                     font-size: 11px;

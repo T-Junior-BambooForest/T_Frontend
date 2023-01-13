@@ -53,6 +53,23 @@
                         width: 60vw;
                     }
 
+                    .post-select-wrap {
+                        display: flex;
+                        margin-right: 14px;
+
+                        select {
+                            outline: none;
+                            background-color: #0d1117;
+                            border: 2px solid #30363D;
+                            color: white;
+                            width: 70px;
+                            height: 24px;
+                            border-radius: 2px;
+                            padding-left: 4px;
+                            font-size: 12px;
+                        }
+                    }
+
                     .post-button-wrap {
                         display: flex;
                     }
