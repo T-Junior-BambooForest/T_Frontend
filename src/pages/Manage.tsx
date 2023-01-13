@@ -97,6 +97,7 @@ const Management = () => {
                                     <td>글내용</td>
                                     <td>요청자</td>
                                     <td>사진</td>
+                                    <td>글 타입</td>
                                     <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                                 </tr>
                                 {post && post.map((post: any) => (
@@ -108,6 +109,7 @@ const Management = () => {
                                                 <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                                 <td>{post.isAnonymous ? '익명' : post.User.name}</td>
                                                 <td><img src={post.Image} alt='없음' style={{ width: '50px', height: '50px' }} /></td>
+                                                <td>{post.category}</td>
                                                 <td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }} >수락</td>
                                                 <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
                                             </tr>
@@ -125,6 +127,7 @@ const Management = () => {
                                     <td>글내용</td>
                                     <td>요청자</td>
                                     <td>사진</td>
+                                    <td>글 타입</td>
                                     <td style={{ textAlign: 'center' }}>조정</td>
                                 </tr>
                                 {post && post.map((post: any) => {
@@ -139,7 +142,8 @@ const Management = () => {
                                                     <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                                     <td>{post.isAnonymous ? '익명' : post.User.name}</td>
                                                     <td><img src={imgSrc} alt='없음' style={{ width: '50px', height: '50px' }} /></td>
-                                                    <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >거절</td>
+                                                    <td>{post.category}</td>
+                                                    <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >삭제</td>
                                                 </tr>
                                             </tbody>
                                             : ''
