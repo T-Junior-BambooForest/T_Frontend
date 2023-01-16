@@ -7,13 +7,21 @@ import Header from '../Components/Header'
 import '../Style/Management.scss'
 
 interface PostType {
-    map: any
+    allowBoard: boolean,
+    boardCode: number,
+    contents: string,
+    isAnonymous: boolean,
+    Image: string,
+    category: string,
+    User: {
+        name: string,
+    }
 }
 
 const Management = () => {
     const user = useContext(UserContext)
     const navigate = useNavigate()
-    const [post, setPost] = useState<PostType>()
+    const [post, setPost] = useState([])
     const [isLoad, setIsLoad] = useState(false)
 
     const onClickUpdatePost = (code: number) => {
@@ -100,7 +108,7 @@ const Management = () => {
                                     <td>글 타입</td>
                                     <td colSpan={2} style={{ textAlign: 'center' }}>승인 여부</td>
                                 </tr>
-                                {post && post.map((post: any) => (
+                                {post && post.map((post: PostType) => (
                                     <>{post.allowBoard ?
                                         ''
                                         : <tbody key={post.boardCode}>
@@ -130,10 +138,7 @@ const Management = () => {
                                     <td>글 타입</td>
                                     <td style={{ textAlign: 'center' }}>조정</td>
                                 </tr>
-                                {post && post.map((post: any) => {
-                                    const blob = new TextDecoder("utf-8")
-                                    const Uint8 = new Uint8Array(post?.Image?.data)
-                                    const imgSrc = blob.decode(Uint8)
+                                {post && post.map((post: PostType) => {
                                     return (
                                         <>{post.allowBoard ?
                                             <tbody key={post.boardCode}>
@@ -141,7 +146,7 @@ const Management = () => {
                                                     <td>{post.boardCode}</td>
                                                     <td style={{ fontSize: '14px' }}>{post.contents}</td>
                                                     <td>{post.isAnonymous ? '익명' : post.User.name}</td>
-                                                    <td><img src={imgSrc} alt='없음' style={{ width: '50px', height: '50px' }} /></td>
+                                                    <td><img src={post.Image} alt='없음' style={{ width: '50px', height: '50px' }} /></td>
                                                     <td>{post.category}</td>
                                                     <td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }} >삭제</td>
                                                 </tr>
