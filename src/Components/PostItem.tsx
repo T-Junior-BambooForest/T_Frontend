@@ -6,7 +6,7 @@ type PostItemType = {
     contents: string,
     name: string,
     date: string,
-    blobImg: any,
+    blobImg: string,
 }
 
 const PostItem = ({ num, contents, name, date, blobImg }: PostItemType) => {
