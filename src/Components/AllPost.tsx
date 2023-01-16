@@ -8,8 +8,7 @@ interface AllowPostType {
     contents: string,
     User: User,
     createdAt: string,
-    Image: any,
-    map: any
+    Image: string,
 }
 
 type User = {
@@ -21,7 +20,7 @@ type AllowBoard = {
 }
 
 const AllPost = () => {
-    const [allowPost, setAllowPost] = useState<AllowPostType>()
+    const [allowPost, setAllowPost] = useState([])
 
     useEffect(() => {
         (async () => {
