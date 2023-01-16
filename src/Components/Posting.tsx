@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from 'react'
+import React, { ChangeEvent, KeyboardEventHandler, useCallback, useContext, useState } from 'react'
 import '../Style/Post.scss'
 import axios from 'axios'
 import AllPost from './AllPost'
@@ -12,14 +12,14 @@ const Post = () => {
     const [contents, setContents] = useState("")
     const [isAnonymous, setIsAnonyMous] = useState(true)
     const [preventMultipleClick, setPreventMultipleClick] = useState(false)
-    const [Image, setImage] = useState<any>(null)
+    const [Image, setImage] = useState(null)
     const [option, setOption] = useState('')
     const [textareaHeight, setTextareaHeight] = useState({
         row: 1,
         lineBreak: [],
     })
 
-    const resizeTextarea = (e: any) => {
+    const resizeTextarea = (e: ChangeEvent<HTMLTextAreaElement>) => {
         const { scrollHeight, clientHeight, value } = e.target
 
         if (scrollHeight > clientHeight) {
@@ -36,7 +36,7 @@ const Post = () => {
         }
     }
 
-    const onKeyEnter = (e: any) => {
+    const onKeyEnter = (e:KeyboardEvent & ChangeEvent<HTMLTextAreaElement>) => {
         if (e.code === 'Enter') {
             setTextareaHeight((prev) => ({
                 row: prev.row + 1,
@@ -180,7 +180,7 @@ const Post = () => {
                             className='editor'
                             autoComplete="off"
                             onInput={resizeTextarea}
-                            onKeyDown={onKeyEnter}
+                            onKeyDown={onKeyEnter as unknown as KeyboardEventHandler<HTMLTextAreaElement>}
                             rows={textareaHeight.row}
                             onChange={onChangeContent}
                             disabled={!user.isLogin}
