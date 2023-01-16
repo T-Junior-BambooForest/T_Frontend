@@ -40,10 +40,10 @@ const userInfo: User = {
 };
 
 export const UserContext = createContext(userInfo);
-export const SetUserContext = createContext((...props: any) => { });
+export const SetUserContext = createContext((...props:any) => { });
 
 const App = () => {
-  const [user, setUser]: any = React.useState(userInfo);
+  const [user, setUser] = React.useState(userInfo);
 
   useEffect(() => {
 
