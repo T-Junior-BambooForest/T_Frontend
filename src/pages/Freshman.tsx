@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useContext, useState } from 'react'
+import React, { MouseEvent, useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../App'
 import Header from '../Components/Header'
@@ -13,8 +13,7 @@ const Freshman = () => {
     const navigate = useNavigate()
     const user = useContext(UserContext)
 
-    const onClickCheckLogin = (e: any) => {
-        e.preventDefault()
+    const onClickCheckLogin = (e: MouseEvent<HTMLButtonElement>) => {
         axios.post('/localLogin', {
             id,
             password,
@@ -49,7 +48,7 @@ const Freshman = () => {
                     <span className='new-stud-
                 '>BSMBOO는 신입생도 절차를 통해 서비스를 이용할 수 있습니다.</span>
                 </div>
-                <form className='new-stud-login-wrap'>
+                <form className='new-stud-login-wrap' onSubmit={(e)=>{e.preventDefault()}}>
                     <input type='text' onChange={e => { setName(e.target.value) }} value={name} className='new-stud' placeholder='이름을 입력해주세요.' />
                     <input type='text' onChange={e => { setID(e.target.value) }} value={id} className='new-stud' placeholder='임시 아이디를 입력해주세요.' />
                     <input type='password' onChange={e => { setPassword(e.target.value) }} value={password} className='new-stud' placeholder='임시 비밀번호를 입력해주세요.' />
