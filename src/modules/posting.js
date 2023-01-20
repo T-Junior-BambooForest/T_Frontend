@@ -11,7 +11,6 @@ export const setPreventOFF = (preventClick) => ({ type: PREVENT_OFF, preventClic
 const init = {
 	isAnonymous: true,
 	contents: '',
-	preventClick: false,
 }
 
 const posting = (state = init, action) => {

@@ -124,7 +124,7 @@ const Post = () => {
 				}
 			}
 		},
-		[user, contents, isAnonymous, Image, option]
+		[user, contents, isAnonymous, Image, option, dispatch]
 	)
 
 	return (
@@ -181,13 +181,13 @@ const Post = () => {
 							onInput={resizeTextarea}
 							onKeyDown={onKeyEnter as unknown as KeyboardEventHandler<HTMLTextAreaElement>}
 							rows={textareaHeight.row}
-							onChange={(e) => dispatch(setContents(e.target.value))}
+							onChange={() => dispatch(setContents())}
 							value={contents}
 							// disabled={!user.isLogin}
 							placeholder={!user.isLogin ? '로그인 후 글을 작성하실 수 있습니다.' : ''}
 						/>
 						<div>
-							<span>{contents.length}/5000</span>
+							<span>{contents?.length || 0}/5000</span>
 						</div>
 					</div>
 					<AllPost />
