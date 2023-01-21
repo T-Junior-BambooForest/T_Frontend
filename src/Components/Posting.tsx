@@ -134,7 +134,6 @@ const Post = () => {
 			<div className="article_wrap">
 				<div className="article_box">
 					<div className="post_title_box">
-						<h1 className="post_title">제보하기</h1>
 						<div className="form_boxs">
 							<div className="posts-wrap">
 								<input
