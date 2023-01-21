@@ -92,13 +92,12 @@ const Post = () => {
 
 			if (isAnonymous) {
 				try {
-					await axios.post('/board', {
-						contents,
-						Usercode: -1,
+					await axios.post('/post/create', {
+						category: option,
 						isAnonymous,
+						contents,
 						Image,
 						imageType,
-						category: option,
 					})
 					alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
 					dispatch(setPreventOFF())
@@ -127,7 +126,7 @@ const Post = () => {
 				}
 			}
 		},
-		[user, contents, isAnonymous, Image, option, dispatch]
+		[user, contents, isAnonymous, Image, option, dispatch, imageType]
 	)
 
 	return (
