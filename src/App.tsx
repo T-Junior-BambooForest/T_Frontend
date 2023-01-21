@@ -1,11 +1,10 @@
 import React, { useEffect, createContext } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import axios, { AxiosError } from 'axios'
+import axios from 'axios'
 import Home from './pages/Home'
 import MyPage from './pages/MyPage'
 import Manage from './pages/Manage'
 import NotFound from './pages/NotFound'
-import Login from './pages/Login'
 import './App.scss'
 import Signup from './pages/Signup'
 
@@ -66,7 +65,6 @@ const App = () => {
 						<Route path={'/'} element={<Home />} />
 						<Route path={'/mypage'} element={<MyPage />} />
 						<Route path={'/manage'} element={<Manage />} />
-						<Route path={'/login'} element={<Login />} />
 						<Route path={'/oauth'} element={<Signup />} />
 						<Route path={'*'} element={<NotFound />} />
 					</Routes>
