@@ -1,90 +1,79 @@
-import React, { useEffect, createContext } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import axios, { AxiosError } from 'axios';
-import Home from './pages/Home';
-import MyPage from './pages/MyPage';
-import Manage from './pages/Manage';
-import NotFound from './pages/NotFound';
-import Login from './pages/Login';
-import NewSignup from './pages/NewSignup';
-import './App.scss';
-import Freshman from './pages/Freshman';
+import React, { useEffect, createContext } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import axios, { AxiosError } from 'axios'
+import Home from './pages/Home'
+import MyPage from './pages/MyPage'
+import Manage from './pages/Manage'
+import NotFound from './pages/NotFound'
+import Login from './pages/Login'
+import './App.scss'
+import Signup from './pages/Signup'
 
-axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'https://api.bsmboo.kro.kr:8000'
+axios.defaults.withCredentials = true
+axios.defaults.baseURL = 'https://localhost:8081/api'
 
 interface User {
-  class: number,
-  code: number,
-  enroled: string,
-  grade: number,
-  name: string,
-  nickname: string,
-  studentNo: string,
-  profile: string,
-  isLogin: boolean,
-  isManager: boolean
+	class: number
+	code: number
+	enroled: string
+	grade: number
+	name: string
+	nickname: string
+	studentNo: string
+	profile: string
+	isLogin: boolean
+	isManager: boolean
 }
 
 const userInfo: User = {
-  class: 0,
-  code: 0,
-  enroled: "",
-  grade: 0,
-  name: "",
-  nickname: "",
-  studentNo: "",
-  profile: "",
-  isLogin: false,
-  isManager: false,
-};
+	class: 0,
+	code: 0,
+	enroled: '',
+	grade: 0,
+	name: '',
+	nickname: '',
+	studentNo: '',
+	profile: '',
+	isLogin: false,
+	isManager: false,
+}
 
-export const UserContext = createContext(userInfo);
-export const SetUserContext = createContext((...props:any) => { });
+export const UserContext = createContext(userInfo)
+export const SetUserContext = createContext((...props: any) => {})
 
 const App = () => {
-  const [user, setUser] = React.useState(userInfo);
+	const [user, setUser] = React.useState(userInfo)
 
-  useEffect(() => {
+	useEffect(() => {
+		;(async () => {
+			try {
+				const res = await axios.get('/')
+				setUser({
+					...res.data,
+					isLogin: true,
+				})
+			} catch (error) {
+				console.log(`현재 비로그인 상태입니다. 로그인 후 서비스를 이용하실 수 있습니다.`)
+			}
+		})()
+	}, [])
 
-    (async () => {
-      try {
-        const user = await getUserInfo();
-        setUser({
-          ...user.data.data,
-          isLogin: true,
-        })
+	return (
+		<Router>
+			<SetUserContext.Provider value={setUser}>
+				<UserContext.Provider value={user}>
+					<Routes>
+						<Route path={'/'} element={<Home />} />
+						<Route path={'/mypage'} element={<MyPage />} />
+						<Route path={'/manage'} element={<Manage />} />
+						<Route path={'/login'} element={<Login />} />
+						<Route path={'/oauth'} element={<Signup />} />
+						<Route path={'*'} element={<NotFound />} />
+					</Routes>
+				</UserContext.Provider>
+			</SetUserContext.Provider>
+		</Router>
+	)
+}
 
-      } catch (error) {
-        if (error instanceof AxiosError && error.response?.data?.code >= 400) {
-          console.log(`현재 비로그인 상태입니다. 로그인 후 서비스를 이용하실 수 있습니다.`)
-        }
-      }
-    })();
-  }, []);
-
-  const getUserInfo = () => {
-    return axios.get('/isLogin', { withCredentials: true });
-
-  };
-
-  return (
-    <Router>
-      <SetUserContext.Provider value={setUser}>
-        <UserContext.Provider value={user}>
-          <Routes>
-            <Route path={'/'} element={<Home />} />
-            <Route path={'/mypage'} element={<MyPage />} />
-            <Route path={'/manage'} element={<Manage />} />
-            <Route path={'/login'} element={<Login />} />
-            <Route path={'/new'} element={<Freshman />} />
-            <Route path={'/newsignup'} element={<NewSignup />} />
-            <Route path={'*'} element={<NotFound />} />
-          </Routes>
-        </UserContext.Provider>
-      </SetUserContext.Provider>
-    </Router>
-  );
-};
-
-export default App;
+export default App
