@@ -8,48 +8,8 @@ import locationLogo from '../Image/location.svg'
 const Header = () => {
 	const user = useContext(UserContext)
 
-	const validateURL = (url: string) => {
-		const parsed = new URL(url)
-		return ['https:', 'http:'].includes(parsed.protocol)
-	}
-
 	return (
-		<div>
-			<div className="header_wrap">
-				<div className="team_name">
-					<Link to={'/'}>
-						<span className="team_name_text"></span>
-					</Link>{' '}
-					{/* header title text */}
-				</div>
-				<div className="login_btn">
-					{user.isLogin ? (
-						''
-					) : (
-						<>
-							<span>
-								<a
-									className="login_sub_btn"
-									href={
-										validateURL(
-											'https://auth.bssm.kro.kr/oauth?clientId=4f6a1b29&redirectURI=https://api.bsmboo.kro.kr:8000/oauth'
-										)
-											? 'https://auth.bssm.kro.kr/oauth?clientId=4f6a1b29&redirectURI=https://api.bsmboo.kro.kr:8000/oauth'
-											: ''
-									}>
-									LOGIN
-								</a>
-							</span>
-							&nbsp;&nbsp;|&nbsp;&nbsp;
-						</>
-					)}
-					<span>
-						<Link className="mypage_btn" to={'/mypage'}>
-							MYPAGE
-						</Link>
-					</span>
-				</div>
-			</div>
+		<div className="header-wrap">
 			<div className="title_box_wrap">
 				<div className="team_image_box">
 					<img src={`${BambooDark}`} alt="bamboo" />
@@ -67,15 +27,17 @@ const Header = () => {
 						</div>
 					</div>
 				</div>
-				<div className="follow_btn_box_link">
+				{user.isLogin ? (
+					<Link to="/mypage" className="login">
+						마이페이지
+					</Link>
+				) : (
 					<a
-						className="a_link_button"
-						href="https://www.instagram.com/bssm.forest/"
-						target={'_blank'}
-						rel={'noreferrer'}>
-						instagram
+						className="login"
+						href="https://auth.bssm.kro.kr/oauth?clientId=4f6a1b29&redirectURI=https://api.bsmboo.kro.kr:8000/oauth">
+						로그인
 					</a>
-				</div>
+				)}
 			</div>
 		</div>
 	)
