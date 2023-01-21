@@ -186,7 +186,7 @@ const Post = () => {
 							rows={textareaHeight.row}
 							onChange={() => dispatch(setContents())}
 							value={contents}
-							// disabled={!user.isLogin}
+							disabled={!user.isLogin}
 							placeholder={!user.isLogin ? '로그인 후 글을 작성하실 수 있습니다.' : ''}
 						/>
 						<div>
