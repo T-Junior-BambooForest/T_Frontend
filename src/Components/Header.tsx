@@ -11,9 +11,11 @@ const Header = () => {
 	return (
 		<div className="header-wrap">
 			<div className="title_box_wrap">
-				<div className="team_image_box">
-					<img src={`${BambooDark}`} alt="bamboo" />
-				</div>
+				<Link to="/">
+					<div className="team_image_box">
+						<img src={`${BambooDark}`} alt="bamboo" />
+					</div>
+				</Link>
 				<div className="align_box">
 					<div className="service_name">
 						<span className="bamboo_name">부산소마고 대나무숲</span>
