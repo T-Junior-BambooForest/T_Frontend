@@ -15,6 +15,7 @@ const Post = () => {
 
 	const user = useContext(UserContext)
 	const [Image, setImage] = useState(null)
+	const [imageType, setImageType] = useState('')
 	const [option, setOption] = useState('')
 	const [textareaHeight, setTextareaHeight] = useState({
 		row: 1,
@@ -48,6 +49,7 @@ const Post = () => {
 	}
 
 	const encodeFileToBase64 = (fileBlob: File) => {
+		setImageType(fileBlob.type.replace('image/', ''))
 		if (
 			fileBlob.type !== 'image/png' &&
 			fileBlob.type !== 'image/jpg' &&
@@ -95,6 +97,7 @@ const Post = () => {
 						Usercode: -1,
 						isAnonymous,
 						Image,
+						imageType,
 						category: option,
 					})
 					alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
