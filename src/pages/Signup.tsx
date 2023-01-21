@@ -22,6 +22,7 @@ const Signup = () => {
 
 	useEffect(() => {
 		getToken()
+		// eslint-disable-next-line
 	}, [])
 
 	return <></>

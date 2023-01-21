@@ -1,188 +1,185 @@
 .mypage_wrap {
-    color: white;
-    height: 100vh;
+	color: white;
+	height: 100vh;
 
-    .myprofile_title_box {
-        margin-top: 3%;
-        display: flex;
-        justify-content: center;
+	.myprofile_title_box {
+		margin-top: 3%;
+		display: flex;
+		justify-content: center;
 
-        .myprofile_title {
-            font-size: 46px;
+		.myprofile_title {
+			font-size: 30px;
 
-            @media ALL and (max-width:500px) {
-                font-size: 30px;
-            }
-        }
+			@media ALL and (max-width: 500px) {
+				font-size: 30px;
+			}
+		}
 
-        @media ALL and (max-width:500px) {
-            margin-top: 10%;
-        }
-    }
+		@media ALL and (max-width: 500px) {
+			margin-top: 10%;
+		}
+	}
 
-    .myprofile_image_box {
-        margin-top: 30px;
-        display: flex;
-        justify-content: center;
+	.myprofile_image_box {
+		margin-top: 20px;
+		display: flex;
+		justify-content: center;
 
-        .myprofile_image {
-            width: 150px;
-            height: 150px;
-            border-radius: 999px;
-            border: 3px solid #ccc;
+		.myprofile_image {
+			width: 130px;
+			height: 130px;
+			border-radius: 999px;
+			border: 3px solid #ccc;
 
-            @media ALL and (max-width:500px) {
-                width: 120px;
-                height: 120px;
-            }
-        }
-    }
+			@media ALL and (max-width: 500px) {
+				width: 120px;
+				height: 120px;
+			}
+		}
+	}
 
-    .user_info_wrap {
-        margin-top: 30px;
+	.user_info_wrap {
+		margin-top: 20px;
 
-        .user_nickname_box {
-            display: flex;
-            justify-content: center;
+		.user_nickname_box {
+			display: flex;
+			justify-content: center;
 
-            .user_nickname {
-                margin-top: 15px;
-                font-size: 30px;
-                font-weight: 500;
+			.user_nickname {
+				font-size: 24px;
+				font-weight: 500;
 
-                @media ALL and (max-width:500px) {
-                    font-size: 20px;
-                }
-            }
-        }
+				@media ALL and (max-width: 500px) {
+					font-size: 20px;
+				}
+			}
+		}
 
-        .user_school_info_box {
-            font-size: 16px;
-            display: flex;
-            justify-content: center;
+		.user_school_info_box {
+			font-size: 16px;
+			display: flex;
+			justify-content: center;
 
-            .user_grade,
-            .user_class,
-            .user_number,
-            .user_name {
-                margin: 5px 2px 0px 2px;
-            }
-        }
+			.user_grade,
+			.user_class,
+			.user_number,
+			.user_name {
+				margin: 5px 2px 0px 2px;
+			}
+		}
 
-        .user_change_image_wrap {
-            display: flex;
-            justify-content: center;
+		.user_change_image_wrap {
+			display: flex;
+			justify-content: center;
 
-            .user_change_profile_box {
-                margin-top: 20px;
+			.user_change_profile_box {
+				margin-top: 20px;
 
-                display: inline-block;
-                padding: .5em .75em;
-                color: #999;
-                font-size: inherit;
-                line-height: normal;
-                vertical-align: middle;
-                background-color: #fdfdfd;
-                cursor: pointer;
-                border: 1px solid #ebebeb;
-                border-bottom-color: #e2e2e2;
+				display: inline-block;
+				padding: 0.5em 0.75em;
+				color: #999;
+				font-size: inherit;
+				line-height: normal;
+				vertical-align: middle;
+				background-color: #fdfdfd;
+				cursor: pointer;
+				border: 1px solid #ebebeb;
+				border-bottom-color: #e2e2e2;
 
-                input[type=file]::file-selector-button {
+				input[type='file']::file-selector-button {
+					width: 80px;
+					height: 30px;
+					margin-right: 10px;
+					background-color: #fff;
+					border: 1px solid gray;
+					cursor: pointer;
 
-                    width: 80px;
-                    height: 30px;
-                    margin-right: 10px;
-                    background-color: #fff;
-                    border: 1px solid gray;
-                    cursor: pointer;
+					&:hover {
+						background-color: black;
+						color: #fff;
+					}
+				}
 
-                    &:hover {
-                        background-color: black;
-                        color: #fff;
-                    }
-                }
+				.user_change_file {
+					width: 50px;
+					height: 30px;
+					color: #fff;
+					background-color: black;
+					border: 1px solid rgb(49, 49, 49);
+					cursor: pointer;
 
-                .user_change_file {
-                    width: 50px;
-                    height: 30px;
-                    color: #fff;
-                    background-color: black;
-                    border: 1px solid rgb(49, 49, 49);
-                    cursor: pointer;
+					&:hover {
+						background-color: rgb(147, 147, 147);
+					}
+				}
+			}
+		}
 
-                    &:hover {
-                        background-color: rgb(147, 147, 147);
-                    }
-                }
-            }
-        }
+		.user_change_nickname_wrap {
+			display: flex;
+			justify-content: center;
 
-        .user_change_nickname_wrap {
-            display: flex;
-            justify-content: center;
+			.change_nickname_box {
+				width: 362px;
+				margin-top: 10px;
+				height: 42px;
+				display: inline-block;
+				padding: 0.5em 0.75em;
+				color: #999;
+				font-size: inherit;
+				line-height: normal;
+				vertical-align: middle;
+				background-color: #fdfdfd;
+				cursor: pointer;
+				border: 1px solid #ebebeb;
+				padding-bottom: 40px;
 
-            .change_nickname_box {
-                width: 362px;
-                margin-top: 10px;
-                height: 42px;
-                display: inline-block;
-                padding: .5em .75em;
-                color: #999;
-                font-size: inherit;
-                line-height: normal;
-                vertical-align: middle;
-                background-color: #fdfdfd;
-                cursor: pointer;
-                border: 1px solid #ebebeb;
-                padding-bottom: 40px;
+				.change_button {
+					float: right;
+					width: 50px;
+					height: 30px;
+					color: #fff;
+					background-color: black;
+					border: 1px solid rgb(49, 49, 49);
+					cursor: pointer;
 
-                .change_button {
-                    float: right;
-                    width: 50px;
-                    height: 30px;
-                    color: #fff;
-                    background-color: black;
-                    border: 1px solid rgb(49, 49, 49);
-                    cursor: pointer;
+					&:hover {
+						background-color: rgb(147, 147, 147);
+					}
+				}
+			}
 
-                    &:hover {
-                        background-color: rgb(147, 147, 147);
-                    }
-                }
-            }
+			input[type='text'] {
+				margin-left: 5px;
+				border: none;
+				width: 250px;
+				height: 33px;
+				outline: none;
+			}
+		}
 
-            input[type=text] {
-                margin-left: 5px;
-                border: none;
-                width: 250px;
-                height: 33px;
-                outline: none;
-            }
-        }
+		.management_page {
+			display: flex;
+			justify-content: center;
+			margin-top: 20px;
 
-        .management_page {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-
-            .management_button {
-                font-size: 14px;
-                cursor: pointer;
-                color: rgb(58, 58, 255);
-            }
-        }
-    }
-
+			.management_button {
+				font-size: 14px;
+				cursor: pointer;
+				color: rgb(58, 58, 255);
+			}
+		}
+	}
 }
 
 .need-login-wrap {
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
 
-    h1 {
-        margin-top: -100px;
-    }
+	h1 {
+		margin-top: -100px;
+	}
 }
