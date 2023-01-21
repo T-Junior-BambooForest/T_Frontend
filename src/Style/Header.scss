@@ -1,236 +1,196 @@
-$main-background-color : #0D1117;
-$line-color: #30363D;
-$white-color: #E5EDF5;
-$element-color: #21262D;
+$main-background-color: #0d1117;
+$line-color: #30363d;
+$white-color: #e5edf5;
+$element-color: #21262d;
 
 @font-face {
-    font-family: 'main';
-    src: url('../../src/fonts/Segoe\ UI\ Bold.ttf') format('truetype');
+	font-family: 'main';
+	src: url('../../src/fonts/Segoe\ UI\ Bold.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'sub';
-    src: url('../../src/fonts/Segoe\ UI.ttf');
+	font-family: 'sub';
+	src: url('../../src/fonts/Segoe\ UI.ttf');
 }
 
 a {
-    text-decoration: none;
-    color: $white-color;
+	text-decoration: none;
+	color: $white-color;
 }
 
-.header_wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 60px;
-    background-color: #161b22;
+.header-wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-    .logo_wrap {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        height: 60px;
-        background-color: #161b22;
-    }
+	.title_box_wrap {
+		background-color: $main-background-color;
+		width: 65vw;
+		height: 140px;
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid #30363d;
 
-    .team_name {
-        font-family: 'main';
-        color: white;
-        font-size: 16px;
-        margin-left: 22px;
+		.login {
+			cursor: pointer;
+			padding: 0 14px 0 14px;
+			height: 32px;
+			border: 2px solid #30363d;
+			border-radius: 4px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 15px;
+			color: white;
+			margin: 40px 4px auto auto;
+			font-weight: 600;
+			text-decoration: none;
+		}
 
-        .team_name_text {
-            cursor: pointer;
+		@media ALL and (max-width: 600px) {
+			display: none;
+			height: 0px;
+		}
 
-            @media ALL and (max-width:600px) {
-                font-weight: 800;
+		.team_image_box {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: $main-background-color;
+			border: 1px solid $line-color;
+			border-radius: 10px;
+			width: 95px;
+			height: 95px;
 
-                &::after {
-                    content: "부산소마고 대나무숲";
-                }
-            }
+			@media ALL and (max-width: 600px) {
+				display: none;
+			}
 
-            @media ALL and (min-width:601px) {
-                &::after {
-                    content: "T-Shape-Junior"
-                }
-            }
-        }
-    }
+			.logo_image {
+				margin-top: 5px;
+				width: 65px;
+				height: 65px;
 
-    .login_btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: auto;
-        margin-right: 30px;
-        color: white;
-        font-family: 'main';
-        font-weight: 700;
-        cursor: pointer;
+				@media ALL and (max-width: 600px) {
+					width: 50px;
+					height: 50px;
+				}
+			}
+		}
 
-        @media ALL and (max-width:600px) {
-            margin-right: 15px;
-            font-size: 14px;
-        }
-    }
-}
+		.align_box {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
 
-.title_box_wrap {
-    background-color: $main-background-color;
-    width: 100%;
-    height: 140px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #30363D;
+			@media ALL and (max-width: 600px) {
+				display: none;
+			}
 
-    @media ALL and (max-width:600px) {
-        display: none;
-        height: 0px;
-    }
+			.service_name {
+				color: $white-color;
+				margin-left: 25px;
 
-    .team_image_box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: 130px;
-        background-color: $main-background-color;
-        border: 1px solid $line-color;
-        border-radius: 10px;
-        width: 95px;
-        height: 95px;
+				.bamboo_name {
+					font-size: 28px;
+					font-family: 'main';
+					font-style: normal;
+					font-weight: 700;
 
-        @media ALL and (max-width:600px) {
-            display: none;
-        }
+					@media ALL and (max-width: 600px) {
+						font-size: 16px;
+					}
+				}
+			}
 
-        .logo_image {
-            margin-top: 5px;
-            width: 65px;
-            height: 65px;
+			.align_boxs {
+				display: flex;
+				flex-direction: row;
+				margin-top: 0px;
+				margin-left: 25px;
 
-            @media ALL and (max-width:600px) {
-                width: 50px;
-                height: 50px;
-            }
-        }
-    }
+				@media ALL and (max-width: 600px) {
+					display: none;
+				}
 
-    .align_box {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+				.image_box {
+					margin-top: 3px;
 
-        @media ALL and (max-width:600px) {
-            display: none;
-        }
+					.location_mark {
+						margin-top: 0px;
+					}
+				}
 
-        .service_name {
-            color: $white-color;
-            margin-left: 25px;
+				.name_box {
+					.school_names {
+						font-size: 16px;
+						font-family: 'sub';
+						color: $white-color;
 
+						@media ALL and (max-width: 600px) {
+							font-size: 12px;
+						}
+					}
+				}
+			}
+		}
 
+		@media ALL and (max-width: 600px) {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
-            .bamboo_name {
-                font-size: 28px;
-                font-family: 'main';
-                font-style: normal;
-                font-weight: 700;
+		.follow_btn_box_link {
+			margin-top: -20px;
+			border-radius: 6px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-right: 130px;
+			margin-left: auto;
+			color: white;
+			width: 95px;
+			height: 33px;
+			border: 1px solid $line-color;
+			background-color: $element-color;
 
-                @media ALL and (max-width:600px) {
-                    font-size: 16px;
-                }
-            }
-        }
+			@media ALL and (max-width: 600px) {
+				width: 0;
+				height: 0;
+			}
 
-        .align_boxs {
-            display: flex;
-            flex-direction: row;
-            margin-top: 0px;
-            margin-left: 25px;
+			.a_link_button {
+				font-family: 'main';
+				font-size: 13px;
+				text-decoration: none;
+				color: white;
+				margin-top: -2px;
 
-            @media ALL and (max-width:600px) {
-                display: none;
-            }
-
-            .image_box {
-                margin-top: 3px;
-
-                .location_mark {
-                    margin-top: 0px;
-                }
-            }
-
-            .name_box {
-                .school_names {
-                    font-size: 16px;
-                    font-family: 'sub';
-                    color: $white-color;
-
-                    @media ALL and (max-width:600px) {
-                        font-size: 12px;
-                    }
-                }
-            }
-        }
-    }
-
-    @media ALL and (max-width:600px) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .follow_btn_box_link {
-        margin-top: -20px;
-        border-radius: 6px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-right: 130px;
-        margin-left: auto;
-        color: white;
-        width: 95px;
-        height: 33px;
-        border: 1px solid $line-color;
-        background-color: $element-color;
-
-        @media ALL and (max-width:600px) {
-            width: 0;
-            height: 0;
-        }
-
-        .a_link_button {
-            font-family: 'main';
-            font-size: 13px;
-            text-decoration: none;
-            color: white;
-            margin-top: -2px;
-
-            @media ALL and (max-width:500px) {
-                font-size: 0;
-            }
-        }
-    }
+				@media ALL and (max-width: 500px) {
+					font-size: 0;
+				}
+			}
+		}
+	}
 }
 
 .desktop {
-    @media ALL and (max-width:600px) {
-        display: none;
-    }
+	@media ALL and (max-width: 600px) {
+		display: none;
+	}
 }
 
 .phone {
-    @media ALL and (min-width:601px) {
-        display: none;
-    }
+	@media ALL and (min-width: 601px) {
+		display: none;
+	}
 
-    margin-top:2px;
-    margin-right:-10px;
+	margin-top: 2px;
+	margin-right: -10px;
 }
 
 .mode-button {
-    margin: 0 2px 0 20px;
-    cursor: pointer;
+	margin: 0 2px 0 20px;
+	cursor: pointer;
 }

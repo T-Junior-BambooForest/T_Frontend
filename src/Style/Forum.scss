@@ -1,16 +1,17 @@
 .forum_wrap {
-    .article_title_box {
-        display: flex;
+	.article_title_box {
+		display: flex;
 
-        .article_title {
-            color: white;
-            margin-top: 30px;
-            font-size: 22px;
-            margin-bottom: -10px;
+		.article_title {
+			color: white;
+			margin-top: 20px;
+			font-size: 20px;
+			font-weight: 600;
+			margin-bottom: -10px;
 
-            @media ALL and (max-width:500px) {
-                font-size: 14px;
-            }
-        }
-    }
+			@media ALL and (max-width: 500px) {
+				font-size: 14px;
+			}
+		}
+	}
 }
