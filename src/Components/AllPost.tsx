@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import '../Style/Forum.scss'
-import PostItem from './PostItem'
+const PostItem = React.lazy(() => import('../Components/PostItem'))
 
 interface AllowPostType {
 	AllowedCode: number
@@ -22,9 +22,9 @@ interface AllowPostType {
 }
 
 const AllPost = () => {
-	const [allowPost, setAllowPost] = useState([])
+	const [allowPost, setAllowPost] = React.useState([])
 
-	useEffect(() => {
+	React.useEffect(() => {
 		;(async () => {
 			try {
 				const res = await getAllowPostInfo()
@@ -64,18 +64,20 @@ const AllPost = () => {
 						}}
 					/>
 				))}
-				{allowPost &&
-					allowPost?.map((post: AllowPostType) => (
-						<PostItem
-							key={post.post.postCode}
-							category={post.post.category}
-							isAnonymous={post.post.isAnonymous}
-							contents={post.post.contents}
-							allowCode={post.AllowedCode}
-							image={post.post.Image}
-							user={post.post.user}
-						/>
-					))}
+				<React.Suspense>
+					{allowPost &&
+						allowPost?.map((post: AllowPostType) => (
+							<PostItem
+								key={post.post.postCode}
+								category={post.post.category}
+								isAnonymous={post.post.isAnonymous}
+								contents={post.post.contents}
+								allowCode={post.AllowedCode}
+								image={post.post.Image}
+								user={post.post.user}
+							/>
+						))}
+				</React.Suspense>
 			</div>
 		</div>
 	)

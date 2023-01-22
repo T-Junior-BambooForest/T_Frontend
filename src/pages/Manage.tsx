@@ -1,10 +1,10 @@
 import axios, { AxiosError } from 'axios'
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import useDidMountEffect from '../hooks/useDidMountEffect'
 import { UserContext } from '../App'
-import Header from '../Components/Header'
 import '../Style/Management.scss'
+const Header = React.lazy(() => import('../Components/Header'))
 
 interface PostType {
 	allowBoard: boolean
@@ -19,10 +19,10 @@ interface PostType {
 }
 
 const Management = () => {
-	const user = useContext(UserContext)
+	const user = React.useContext(UserContext)
 	const navigate = useNavigate()
-	const [post, setPost] = useState([])
-	const [isLoad, setIsLoad] = useState(false)
+	const [post, setPost] = React.useState([])
+	const [isLoad, setIsLoad] = React.useState(false)
 
 	const onClickUpdatePost = (code: number) => {
 		axios
@@ -56,7 +56,7 @@ const Management = () => {
 			})
 	}
 
-	useEffect(() => {
+	React.useEffect(() => {
 		;(async () => {
 			try {
 				const data = await getPostInfo()
