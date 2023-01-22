@@ -48,22 +48,6 @@ const AllPost = () => {
 				<span className="article_title">모든 이야기들</span>
 			</div>
 			<div>
-				{[1, 2, 3].map(() => (
-					<PostItem
-						category="자유"
-						isAnonymous={false}
-						contents="안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!안녕안녕안녕친구들 나는 사밀이란다!"
-						allowCode={3}
-						image={null}
-						user={{
-							code: 1,
-							role: '3',
-							grade: 2,
-							class: 1,
-							name: '박우빈',
-						}}
-					/>
-				))}
 				<React.Suspense>
 					{allowPost &&
 						allowPost?.map((post: AllowPostType) => (
