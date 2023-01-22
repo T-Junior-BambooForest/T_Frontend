@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../App'
 import '../Style/Header.scss'
@@ -6,7 +6,7 @@ import BambooDark from '../Image/bambooDark.svg'
 import locationLogo from '../Image/location.svg'
 
 const Header = () => {
-	const user = useContext(UserContext)
+	const user = React.useContext(UserContext)
 
 	return (
 		<div className="header-wrap">

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, KeyboardEventHandler, useCallback, useContext, useState } from 'react'
+import React from 'react'
 import '../Style/Post.scss'
 import axios from 'axios'
 import AllPost from './AllPost'
@@ -13,16 +13,16 @@ const Post = () => {
 	const dispatch = useDispatch()
 	const { isAnonymous, contents, preventClick } = useSelector((state: any) => state.posting)
 
-	const user = useContext(UserContext)
-	const [Image, setImage] = useState(null)
-	const [imageType, setImageType] = useState('')
-	const [option, setOption] = useState('')
-	const [textareaHeight, setTextareaHeight] = useState({
+	const user = React.useContext(UserContext)
+	const [Image, setImage] = React.useState(null)
+	const [imageType, setImageType] = React.useState('')
+	const [option, setOption] = React.useState('')
+	const [textareaHeight, setTextareaHeight] = React.useState({
 		row: 1,
 		lineBreak: [],
 	})
 
-	const resizeTextarea = (e: ChangeEvent<HTMLTextAreaElement>) => {
+	const resizeTextarea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		const { scrollHeight, clientHeight, value } = e.target
 
 		if (scrollHeight > clientHeight) {
@@ -39,7 +39,7 @@ const Post = () => {
 		}
 	}
 
-	const onKeyEnter = (e: KeyboardEvent & ChangeEvent<HTMLTextAreaElement>) => {
+	const onKeyEnter = (e: KeyboardEvent & React.ChangeEvent<HTMLTextAreaElement>) => {
 		if (e.code === 'Enter') {
 			setTextareaHeight((prev) => ({
 				row: prev.row + 1,
@@ -72,7 +72,7 @@ const Post = () => {
 		}
 	}
 
-	const onSubmit = useCallback(
+	const onSubmit = React.useCallback(
 		async (e: React.FormEvent) => {
 			e.preventDefault()
 			dispatch(setPreventON())
@@ -180,7 +180,7 @@ const Post = () => {
 							className="editor"
 							autoComplete="off"
 							onInput={resizeTextarea}
-							onKeyDown={onKeyEnter as unknown as KeyboardEventHandler<HTMLTextAreaElement>}
+							onKeyDown={onKeyEnter as unknown as React.KeyboardEventHandler<HTMLTextAreaElement>}
 							rows={textareaHeight.row}
 							onChange={() => dispatch(setContents())}
 							value={contents}

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import setCookie from '../util/setCookie'
 
@@ -20,7 +20,7 @@ const Signup = () => {
 		}
 	}
 
-	useEffect(() => {
+	React.useEffect(() => {
 		getToken()
 		// eslint-disable-next-line
 	}, [])
