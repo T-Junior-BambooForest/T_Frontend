@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import setCookie from '../util/setCookie'
+import setCookie from '../util/cookie/setCookie'
 
 const Signup = () => {
 	const navigate = useNavigate()

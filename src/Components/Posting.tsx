@@ -2,18 +2,19 @@ import React from 'react'
 import '../Style/Post.scss'
 import axios from 'axios'
 import AllPost from './AllPost'
-import { UserContext } from '../App'
-import checkLogo from '../Image/checkImg.svg'
-import postLogo from '../Image/postImg.svg'
+import checkLogo from '../assets/checkImg.svg'
+import postLogo from '../assets/postImg.svg'
 import { Textarea } from './Textarea'
 import { useDispatch, useSelector } from 'react-redux'
 import { setAnonymous, setContents, setPreventOFF, setPreventON } from '../modules/posting'
+import { useRecoilValue } from 'recoil'
+import userState from '../util/atom/userState'
 
 const Post = () => {
 	const dispatch = useDispatch()
 	const { isAnonymous, contents, preventClick } = useSelector((state: any) => state.posting)
 
-	const user = React.useContext(UserContext)
+	const user = useRecoilValue(userState)
 	const [Image, setImage] = React.useState(null)
 	const [imageType, setImageType] = React.useState('')
 	const [option, setOption] = React.useState('')
@@ -147,10 +148,7 @@ const Post = () => {
 								{Image ? <img src={Image} alt="미리보기" className="preview-img" /> : ''}
 								<div className="anony-button-wrap" onClick={() => dispatch(setAnonymous())}>
 									<span className="anony_button_span">익명</span>
-									<button
-										type="button"
-										className="anony-button"
-										style={isAnonymous ? { backgroundColor: 'green' } : null}>
+									<button type="button" className="anony-button" style={isAnonymous ? { backgroundColor: 'green' } : null}>
 										{isAnonymous ? <img src={`${checkLogo}`} alt="check" /> : ''}
 									</button>
 								</div>

@@ -1,4 +1,4 @@
-import React, { useEffect, createContext } from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import axios from 'axios'
 import Home from './pages/Home'
@@ -7,6 +7,8 @@ import Manage from './pages/Manage'
 import NotFound from './pages/NotFound'
 import './App.scss'
 import Signup from './pages/Signup'
+import { RecoilRoot, useSetRecoilState } from 'recoil'
+import userState from './util/atom/userState'
 
 axios.defaults.withCredentials = true
 axios.defaults.baseURL = 'https://localhost:8081/api'
@@ -24,24 +26,8 @@ interface User {
 	isManager: boolean
 }
 
-const userInfo: User = {
-	class: 0,
-	code: 0,
-	enroled: '',
-	grade: 0,
-	name: '',
-	nickname: '',
-	studentNo: '',
-	profile: '',
-	isLogin: false,
-	isManager: false,
-}
-
-export const UserContext = createContext(userInfo)
-export const SetUserContext = createContext((...props: any) => {})
-
 const App = () => {
-	const [user, setUser] = React.useState(userInfo)
+	const setUser = useSetRecoilState<User>(userState)
 
 	useEffect(() => {
 		;(async () => {
@@ -58,19 +44,17 @@ const App = () => {
 	}, [])
 
 	return (
-		<Router>
-			<SetUserContext.Provider value={setUser}>
-				<UserContext.Provider value={user}>
-					<Routes>
-						<Route path={'/'} element={<Home />} />
-						<Route path={'/mypage'} element={<MyPage />} />
-						<Route path={'/manage'} element={<Manage />} />
-						<Route path={'/oauth'} element={<Signup />} />
-						<Route path={'*'} element={<NotFound />} />
-					</Routes>
-				</UserContext.Provider>
-			</SetUserContext.Provider>
-		</Router>
+		<RecoilRoot>
+			<Router>
+				<Routes>
+					<Route path={'/'} element={<Home />} />
+					<Route path={'/mypage'} element={<MyPage />} />
+					<Route path={'/manage'} element={<Manage />} />
+					<Route path={'/oauth'} element={<Signup />} />
+					<Route path={'*'} element={<NotFound />} />
+				</Routes>
+			</Router>
+		</RecoilRoot>
 	)
 }
 

@@ -1,16 +1,16 @@
 import React from 'react'
 import '../Style/MyPage.scss'
 import { Link } from 'react-router-dom'
-import { UserContext } from '../App'
+import { useRecoilValue } from 'recoil'
+import userState from '../util/atom/userState'
 const Header = React.lazy(() => import('../Components/Header'))
 
 const MyPage = () => {
-	const user = React.useContext(UserContext)
+	const user = useRecoilValue(userState)
 
 	const onDefaultProfile = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
 		if (e.target instanceof HTMLImageElement) {
-			e.target.src =
-				'https://bssm.kro.kr/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile_default.99e93808.png&w=128&q=75'
+			e.target.src = 'https://bssm.kro.kr/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile_default.99e93808.png&w=128&q=75'
 		}
 	}
 

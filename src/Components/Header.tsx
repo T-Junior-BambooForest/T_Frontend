@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { UserContext } from '../App'
 import '../Style/Header.scss'
-import BambooDark from '../Image/bambooDark.svg'
-import locationLogo from '../Image/location.svg'
+import BambooDark from '../assets/bambooDark.svg'
+import locationLogo from '../assets/location.svg'
+import { useRecoilValue } from 'recoil'
+import userState from '../util/atom/userState'
 
 const Header = () => {
-	const user = React.useContext(UserContext)
+	const user = useRecoilValue(userState)
 
 	return (
 		<div className="header-wrap">
@@ -34,9 +35,7 @@ const Header = () => {
 						마이페이지
 					</Link>
 				) : (
-					<a
-						className="login"
-						href="https://auth.bssm.kro.kr/oauth?clientId=4f6a1b29&redirectURI=https://api.bsmboo.kro.kr:8000/oauth">
+					<a className="login" href="https://auth.bssm.kro.kr/oauth?clientId=4f6a1b29&redirectURI=https://api.bsmboo.kro.kr:8000/oauth">
 						로그인
 					</a>
 				)}

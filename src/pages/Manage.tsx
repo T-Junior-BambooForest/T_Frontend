@@ -1,9 +1,10 @@
 import axios, { AxiosError } from 'axios'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useRecoilValue } from 'recoil'
 import useDidMountEffect from '../hooks/useDidMountEffect'
-import { UserContext } from '../App'
 import '../Style/Management.scss'
+import userState from '../util/atom/userState'
 const Header = React.lazy(() => import('../Components/Header'))
 
 interface PostType {
@@ -19,7 +20,7 @@ interface PostType {
 }
 
 const Management = () => {
-	const user = React.useContext(UserContext)
+	const user = useRecoilValue(userState)
 	const navigate = useNavigate()
 	const [post, setPost] = React.useState([])
 	const [isLoad, setIsLoad] = React.useState(false)
