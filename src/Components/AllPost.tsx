@@ -1,7 +1,8 @@
-import axios, { AxiosError } from 'axios'
+import { AxiosResponse } from 'axios'
 import React from 'react'
 import AllowPostType from '../../types/AllowPostType'
 import '../Style/Forum.scss'
+import getAllPost from '../util/api/getAllPost'
 const PostItem = React.lazy(() => import('../Components/PostItem'))
 
 const AllPost = () => {
@@ -10,42 +11,33 @@ const AllPost = () => {
 	React.useEffect(() => {
 		;(async () => {
 			try {
-				const res = await getAllowPostInfo()
+				const res = (await getAllPost()) as unknown as AxiosResponse
 				setAllowPost(res.data)
-			} catch (error) {
-				if (error instanceof AxiosError && error.response?.data?.code >= 400) {
-					alert('에러가 발생했습니다.')
-					console.log(error)
-				}
+			} catch (err) {
+				alert('글을 불러오는 도중 오류가 발생했습니다.')
+				console.log(err)
 			}
 		})()
 	}, [])
-
-	const getAllowPostInfo = () => {
-		return axios.get('/board', { withCredentials: true })
-	}
-
 	return (
 		<div className="forum_wrap">
 			<div className="article_title_box">
 				<span className="article_title">모든 이야기들</span>
 			</div>
-			<div>
-				<React.Suspense>
-					{allowPost &&
-						allowPost?.map((post: AllowPostType) => (
-							<PostItem
-								key={post.post.postCode}
-								category={post.post.category}
-								isAnonymous={post.post.isAnonymous}
-								contents={post.post.contents}
-								allowCode={post.AllowedCode}
-								image={post.post.Image}
-								user={post.post.user}
-							/>
-						))}
-				</React.Suspense>
-			</div>
+			<React.Suspense>
+				{allowPost &&
+					allowPost?.map((data: AllowPostType) => (
+						<PostItem
+							key={data.post.postCode}
+							category={data.post.category}
+							isAnonymous={data.post.isAnonymous}
+							contents={data.post.contents}
+							allowCode={data.AllowedCode}
+							image={data.post.Image}
+							user={data.post.user}
+						/>
+					))}
+			</React.Suspense>
 		</div>
 	)
 }

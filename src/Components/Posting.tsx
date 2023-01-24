@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import '../Style/Post.scss'
-import axios from 'axios'
 import AllPost from './AllPost'
 import checkLogo from '../assets/checkImg.svg'
 import postLogo from '../assets/postImg.svg'
 import { Textarea } from './Textarea'
 import { useRecoilValue } from 'recoil'
 import userState from '../util/atom/userState'
+import createPost from '../util/api/createPost'
 
 const Post = () => {
 	const [prevent, setPrevent] = useState(false)
@@ -81,49 +81,28 @@ const Post = () => {
 				alert('로그인 상태를 확인할 수 없습니다. 로그인 후에 글을 작성하실 수 있습니다.')
 				setPrevent(false)
 				return
-			} else if (!contents) {
+			}
+
+			if (!contents) {
 				alert('내용이 비어있습니다. 제보 내용을 다시 한 번 확인해주세요.')
 				setPrevent(false)
 				return
-			} else if (contents.length > 5000) {
+			}
+
+			if (contents.length > 5000) {
 				alert('내용이 제한을 초과했습니다. 5000자 이내로 작성해주세요.')
 				return
 			}
 
-			if (isAnonymous) {
-				try {
-					await axios.post('/post/create', {
-						category: option,
-						isAnonymous,
-						contents,
-						Image,
-						imageType,
-					})
-					alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-					setPrevent(false)
-					window.location.reload()
-				} catch (err) {
-					console.log(err)
-					alert('이미지 용량이 너무 큽니다.')
-					setPrevent(false)
-				}
-			} else {
-				try {
-					await axios.post('/board', {
-						contents,
-						Usercode: user.code,
-						isAnonymous,
-						Image,
-						category: option,
-					})
-					alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-					setPrevent(false)
-					window.location.reload()
-				} catch (err) {
-					console.log(err)
-					alert('이미지 용량이 너무 큽니다.')
-					setPrevent(false)
-				}
+			try {
+				await createPost(option, isAnonymous, contents, Image, imageType)
+				alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
+				setPrevent(false)
+				window.location.reload()
+			} catch (err) {
+				alert('오류가 발생했습니다. 관리자에게 문의바랍니다.')
+				console.log(err)
+				setPrevent(false)
 			}
 		},
 		[user, contents, isAnonymous, Image, option, imageType]
