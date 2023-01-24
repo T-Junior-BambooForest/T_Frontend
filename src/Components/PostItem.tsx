@@ -1,20 +1,6 @@
 import React from 'react'
+import PostItemType from '../../types/PostItemType'
 import '../Style/PostItem.scss'
-
-interface PostItemType {
-	category: string
-	isAnonymous: boolean
-	contents: string
-	allowCode: number
-	image: string
-	user: {
-		code: number
-		role: string
-		grade: number
-		class: number
-		name: string
-	}
-}
 
 const PostItem = ({ category, isAnonymous, contents, allowCode, image, user }: PostItemType) => {
 	return (
@@ -24,9 +10,7 @@ const PostItem = ({ category, isAnonymous, contents, allowCode, image, user }: P
 					<span className="count_text">부마숲 {allowCode}번째 이야기</span>
 					<div className="date_text_box">
 						|<span className="category_text">#{category}</span>
-						<span className="date_text">
-							{isAnonymous ? '익명' : `${user.grade}학년 ${user.class}반 ${user.name}`}님 제보
-						</span>
+						<span className="date_text">{isAnonymous ? '익명' : `${user.grade}학년 ${user.class}반 ${user.name}`}님 제보</span>
 					</div>
 					<div className="author_text_box">
 						<span className="author_text">2023년 1월 22일 일요일 4시 32분</span>

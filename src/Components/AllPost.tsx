@@ -1,25 +1,8 @@
 import axios, { AxiosError } from 'axios'
 import React from 'react'
+import AllowPostType from '../../types/AllowPostType'
 import '../Style/Forum.scss'
 const PostItem = React.lazy(() => import('../Components/PostItem'))
-
-interface AllowPostType {
-	AllowedCode: number
-	post: {
-		postCode: number
-		category: string
-		isAnonymous: boolean
-		contents: string
-		Image: string
-		user: {
-			code: number
-			role: string
-			grade: number
-			class: number
-			name: string
-		}
-	}
-}
 
 const AllPost = () => {
 	const [allowPost, setAllowPost] = React.useState([])
