@@ -1,39 +1,49 @@
 .management_title_box {
-    display: flex;
-    color: white;
-    justify-content: center;
+	display: flex;
+	color: white;
+	justify-content: center;
 
-    .management_title {
-        margin-top: 20px;
-        font-size: 22px;
-    }
+	.management_title {
+		margin-top: 20px;
+		font-size: 22px;
+	}
 }
 
 .management_content_wrap {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: white;
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	color: white;
 
-    .management_content_title {
-        display: flex;
-        align-items: center;
-        color: white;
-        margin-bottom: 12px;
-        flex-direction: column;
-    }
+	.management_content_title {
+		display: flex;
+		align-items: center;
+		color: white;
+		margin-bottom: 12px;
+		flex-direction: column;
+
+		table {
+			margin-bottom: 50px;
+
+			tr {
+				td {
+					text-align: center;
+				}
+			}
+		}
+	}
 }
 
 table {
-    border: 1.5px solid rgb(149, 149, 149);
-    border-spacing: 2px;
-    border-collapse: separate;
+	border: 1.5px solid rgb(149, 149, 149);
+	border-spacing: 2px;
+	border-collapse: separate;
 
-    tr,
-    td {
-        padding: 5px 10px 5px 10px;
-        border: 1.5px solid rgb(149, 149, 149);
-        border-collapse: collapse;
-    }
+	tr,
+	td {
+		padding: 5px 10px 5px 10px;
+		border: 1.5px solid rgb(149, 149, 149);
+		border-collapse: collapse;
+	}
 }

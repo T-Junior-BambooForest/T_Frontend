@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../Style/NotFound.scss'
-const Header = React.lazy(() => import('../Components/Header'))
+const Header = React.lazy(() => import('../components/Header'))
 
 const NotFound = () => {
 	return (

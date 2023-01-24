@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../Style/Header.scss'
+import '../style/Header.scss'
 import BambooDark from '../assets/bambooDark.svg'
 import locationLogo from '../assets/location.svg'
 import { useRecoilValue } from 'recoil'

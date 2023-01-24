@@ -8,7 +8,7 @@ import allowPost from '../util/api/allowPost'
 import deletePost from '../util/api/deletePost'
 import getAllPost from '../util/api/getAllPost'
 import userState from '../util/atom/userState'
-const Header = React.lazy(() => import('../Components/Header'))
+const Header = React.lazy(() => import('../components/Header'))
 
 interface PostType {
 	allowBoard: boolean

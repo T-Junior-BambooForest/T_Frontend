@@ -3,7 +3,7 @@ import '../Style/MyPage.scss'
 import { Link } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 import userState from '../util/atom/userState'
-const Header = React.lazy(() => import('../Components/Header'))
+const Header = React.lazy(() => import('../components/Header'))
 
 const MyPage = () => {
 	const user = useRecoilValue(userState)
