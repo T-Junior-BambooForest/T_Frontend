@@ -1,9 +1,12 @@
-import axios, { AxiosError } from 'axios'
+import { AxiosResponse } from 'axios'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 import useDidMountEffect from '../hooks/useDidMountEffect'
 import '../Style/Management.scss'
+import allowPost from '../util/api/allowPost'
+import deletePost from '../util/api/deletePost'
+import getAllPost from '../util/api/getAllPost'
 import userState from '../util/atom/userState'
 const Header = React.lazy(() => import('../Components/Header'))
 
@@ -25,48 +28,33 @@ const Management = () => {
 	const [post, setPost] = React.useState([])
 	const [isLoad, setIsLoad] = React.useState(false)
 
-	const onClickUpdatePost = (code: number) => {
-		axios
-			.post('/board/update', {
-				boardCode: code,
-			})
-			.then(() => {
-				alert('글이 수락되었습니다.')
-				window.location.reload()
-			})
-			.catch((error) => {
-				alert(`에러가 발생하였습니다. ${error}`)
-				return
-			})
+	const onClickUpdatePost = async (postCode: number) => {
+		try {
+			await allowPost(postCode)
+		} catch (err) {
+			alert('글 수락 도중 오류가 발생했습니다.')
+			console.log(err)
+		}
 	}
 
-	const onClickDeletePost = (code: number) => {
-		axios
-			.delete('/board', {
-				data: {
-					boardCode: code,
-				},
-			})
-			.then(() => {
-				alert('글이 삭제되었습니다.')
-				window.location.reload()
-			})
-			.catch((error) => {
-				alert(`에러가 발생하였습니다. ${error}`)
-				return
-			})
+	const onClickDeletePost = async (postCode: number) => {
+		try {
+			await deletePost(postCode)
+		} catch (err) {
+			alert('글 삭제 도중 오류가 발생했습니다.')
+			console.log(err)
+		}
 	}
 
 	React.useEffect(() => {
 		;(async () => {
 			try {
-				const data = await getPostInfo()
-				setPost(data.data)
+				const res = (await getAllPost()) as unknown as AxiosResponse
+				setPost(res.data)
 				setIsLoad(true)
 			} catch (error) {
-				if (error instanceof AxiosError && error.response?.status >= 400) {
-					console.log(error)
-				}
+				alert('글을 불러오던 도중 오류가 발생했습니다.')
+				console.log(error)
 			}
 		})()
 	}, [])
@@ -76,10 +64,6 @@ const Management = () => {
 			navigate('/error')
 		}
 	}, [user])
-
-	const getPostInfo = () => {
-		return axios.get('/board/manage', { withCredentials: true })
-	}
 
 	return (
 		<div>
@@ -93,85 +77,40 @@ const Management = () => {
 					</div>
 					<div className="management_content_wrap">
 						<div className="management_content_title">
-							<table style={{ marginBottom: '50px' }}>
+							<table>
 								<tr>
 									<td>글번호</td>
 									<td>글내용</td>
 									<td>요청자</td>
 									<td>사진</td>
 									<td>글 타입</td>
-									<td colSpan={2} style={{ textAlign: 'center' }}>
-										승인 여부
-									</td>
+									<td colSpan={2}>승인 여부</td>
 								</tr>
-								{post &&
-									post.map((post: PostType) => (
-										<>
-											{post.allowBoard ? (
-												''
-											) : (
-												<tbody key={post.boardCode}>
-													<tr>
-														<td>{post.boardCode}</td>
-														<td style={{ fontSize: '14px' }}>{post.contents}</td>
-														<td>{post.isAnonymous ? '익명' : post.User.name}</td>
-														<td>
-															<img src={post.Image} alt="없음" style={{ width: '50px', height: '50px' }} />
-														</td>
-														<td>{post.category}</td>
-														<td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }}>
-															수락
-														</td>
-														<td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }}>
-															거절
-														</td>
-													</tr>
-												</tbody>
-											)}
-										</>
-									))}
-							</table>
-							<br />
-							<br />
-							<br />
-							<br />
-							<div className="management_title_box" style={{ marginBottom: '10px' }}>
-								<h1 className="management_title">받았던 제보</h1>
-							</div>
-							<table style={{ marginBottom: '50px' }}>
-								<tr>
-									<td>글번호</td>
-									<td>글내용</td>
-									<td>요청자</td>
-									<td>사진</td>
-									<td>글 타입</td>
-									<td style={{ textAlign: 'center' }}>조정</td>
-								</tr>
-								{post &&
-									post.map((post: PostType) => {
-										return (
-											<>
-												{post.allowBoard ? (
-													<tbody key={post.boardCode}>
-														<tr>
-															<td>{post.boardCode}</td>
-															<td style={{ fontSize: '14px' }}>{post.contents}</td>
-															<td>{post.isAnonymous ? '익명' : post.User.name}</td>
-															<td>
-																<img src={post.Image} alt="없음" style={{ width: '50px', height: '50px' }} />
-															</td>
-															<td>{post.category}</td>
-															<td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }}>
-																삭제
-															</td>
-														</tr>
-													</tbody>
-												) : (
-													''
-												)}
-											</>
-										)
-									})}
+								{post.map((post: PostType) => (
+									<>
+										{post.allowBoard ? (
+											''
+										) : (
+											<tbody key={post.boardCode}>
+												<tr>
+													<td>{post.boardCode}</td>
+													<td style={{ fontSize: '14px' }}>{post.contents}</td>
+													<td>{post.isAnonymous ? '익명' : post.User.name}</td>
+													<td>
+														<img src={post.Image} alt="없음" style={{ width: '50px', height: '50px' }} />
+													</td>
+													<td>{post.category}</td>
+													<td onClick={() => onClickUpdatePost(post.boardCode)} style={{ cursor: 'pointer' }}>
+														수락
+													</td>
+													<td onClick={() => onClickDeletePost(post.boardCode)} style={{ cursor: 'pointer' }}>
+														거절
+													</td>
+												</tr>
+											</tbody>
+										)}
+									</>
+								))}
 							</table>
 						</div>
 					</div>
