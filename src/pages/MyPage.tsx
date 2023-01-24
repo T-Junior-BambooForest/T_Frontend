@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Style/MyPage.scss'
+import '../style/MyPage.scss'
 import { Link } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 import userState from '../util/atom/userState'

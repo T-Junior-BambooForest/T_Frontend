@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios'
 import React from 'react'
 import AllowPostType from '../../types/AllowPostType'
-import '../style/Forum.scss'
+import '../style/AllPost.scss'
 import getAllPost from '../util/api/getAllPost'
 const PostItem = React.lazy(() => import('./PostItem'))
 

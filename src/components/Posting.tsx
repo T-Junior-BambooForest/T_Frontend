@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../Style/Post.scss'
+import '../style/Posting.scss'
 import AllPost from './AllPost'
 import checkLogo from '../assets/checkImg.svg'
 import postLogo from '../assets/postImg.svg'
