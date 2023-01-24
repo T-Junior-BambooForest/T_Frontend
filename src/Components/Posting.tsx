@@ -1,18 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../Style/Post.scss'
 import axios from 'axios'
 import AllPost from './AllPost'
 import checkLogo from '../assets/checkImg.svg'
 import postLogo from '../assets/postImg.svg'
 import { Textarea } from './Textarea'
-import { useDispatch, useSelector } from 'react-redux'
-import { setAnonymous, setContents, setPreventOFF, setPreventON } from '../modules/posting'
 import { useRecoilValue } from 'recoil'
 import userState from '../util/atom/userState'
 
 const Post = () => {
-	const dispatch = useDispatch()
-	const { isAnonymous, contents, preventClick } = useSelector((state: any) => state.posting)
+	const [prevent, setPrevent] = useState(false)
+	const [contents, setContents] = useState('')
+	const [isAnonymous, setIsAnonymous] = useState(true)
 
 	const user = useRecoilValue(userState)
 	const [Image, setImage] = React.useState(null)
@@ -76,15 +75,15 @@ const Post = () => {
 	const onSubmit = React.useCallback(
 		async (e: React.FormEvent) => {
 			e.preventDefault()
-			dispatch(setPreventON())
+			setPrevent(true)
 
 			if (!user.isLogin) {
 				alert('로그인 상태를 확인할 수 없습니다. 로그인 후에 글을 작성하실 수 있습니다.')
-				dispatch(setPreventOFF())
+				setPrevent(false)
 				return
 			} else if (!contents) {
 				alert('내용이 비어있습니다. 제보 내용을 다시 한 번 확인해주세요.')
-				dispatch(setPreventOFF())
+				setPrevent(false)
 				return
 			} else if (contents.length > 5000) {
 				alert('내용이 제한을 초과했습니다. 5000자 이내로 작성해주세요.')
@@ -101,12 +100,12 @@ const Post = () => {
 						imageType,
 					})
 					alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-					dispatch(setPreventOFF())
+					setPrevent(false)
 					window.location.reload()
 				} catch (err) {
 					console.log(err)
 					alert('이미지 용량이 너무 큽니다.')
-					dispatch(setPreventOFF())
+					setPrevent(false)
 				}
 			} else {
 				try {
@@ -118,16 +117,16 @@ const Post = () => {
 						category: option,
 					})
 					alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-					dispatch(setPreventOFF())
+					setPrevent(false)
 					window.location.reload()
 				} catch (err) {
 					console.log(err)
 					alert('이미지 용량이 너무 큽니다.')
-					dispatch(setPreventOFF())
+					setPrevent(false)
 				}
 			}
 		},
-		[user, contents, isAnonymous, Image, option, dispatch, imageType]
+		[user, contents, isAnonymous, Image, option, imageType]
 	)
 
 	return (
@@ -146,7 +145,7 @@ const Post = () => {
 									disabled={!user.isLogin}
 								/>
 								{Image ? <img src={Image} alt="미리보기" className="preview-img" /> : ''}
-								<div className="anony-button-wrap" onClick={() => dispatch(setAnonymous())}>
+								<div className="anony-button-wrap" onClick={() => setIsAnonymous(!isAnonymous)}>
 									<span className="anony_button_span">익명</span>
 									<button type="button" className="anony-button" style={isAnonymous ? { backgroundColor: 'green' } : null}>
 										{isAnonymous ? <img src={`${checkLogo}`} alt="check" /> : ''}
@@ -165,7 +164,7 @@ const Post = () => {
 									</select>
 								</div>
 								<div className="post-button-wrap">
-									<button type="submit" id="post" className="post_button" disabled={preventClick}>
+									<button type="submit" id="post" className="post_button" disabled={prevent}>
 										<img src={`${postLogo}`} alt="" />
 										<span>제보</span>
 									</button>
@@ -180,7 +179,7 @@ const Post = () => {
 							onInput={resizeTextarea}
 							onKeyDown={onKeyEnter as unknown as React.KeyboardEventHandler<HTMLTextAreaElement>}
 							rows={textareaHeight.row}
-							onChange={() => dispatch(setContents())}
+							onChange={(e) => setContents(e.target.value)}
 							value={contents}
 							disabled={!user.isLogin}
 							placeholder={!user.isLogin ? '로그인 후 글을 작성하실 수 있습니다.' : ''}
