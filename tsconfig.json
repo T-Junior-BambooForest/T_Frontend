@@ -21,8 +21,8 @@
 		"**/*.ts",
 		"**/*.tsx",
 		"svg.d.ts",
-		"src/components/AllPost.js",
-		"src/components/AllPost.js",
+		"src/componentsasvsa/AllPost.js",
+		"src/componentsasvsa/AllPost.js",
 		"src/modules/posting.js",
 		"src/modules/posting.js"
 	],
