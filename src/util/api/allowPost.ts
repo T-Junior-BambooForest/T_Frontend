@@ -1,13 +1,18 @@
 import axios from 'axios'
 import getCookie from '../cookie/getCookie'
 
-const allowPost = async (postCode: number) => {
-	await axios.put('/post/manage', {
-		headers: {
-			Authorization: getCookie('Authorization'),
+const allowPost = (postCode: number) => {
+	return axios.put(
+		'post/allow',
+		{
+			postCode,
 		},
-		postCode,
-	})
+		{
+			headers: {
+				Authorization: `${getCookie('Authorization')}`,
+			},
+		}
+	)
 }
 
 export default allowPost

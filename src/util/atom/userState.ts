@@ -5,14 +5,10 @@ const userState = atom({
 	default: {
 		class: 0,
 		code: 0,
-		enroled: '',
 		grade: 0,
 		name: '',
-		nickname: '',
-		studentNo: '',
-		profile: '',
+		role: '',
 		isLogin: false,
-		isManager: false,
 	},
 })
 
