@@ -6,36 +6,29 @@ import MyPage from './pages/MyPage'
 import Manage from './pages/Manage'
 import NotFound from './pages/NotFound'
 import Signup from './pages/Signup'
-import { RecoilRoot, useSetRecoilState } from 'recoil'
+import { useSetRecoilState } from 'recoil'
 import userState from './util/atom/userState'
+import getCookie from './util/cookie/getCookie'
 
 axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'https://localhost:8081/api'
-
-interface User {
-	class: number
-	code: number
-	enroled: string
-	grade: number
-	name: string
-	nickname: string
-	studentNo: string
-	profile: string
-	isLogin: boolean
-	isManager: boolean
-}
+axios.defaults.baseURL = 'http://61.83.62.219:8081/api'
 
 const App = () => {
-	const setUser = useSetRecoilState<User>(userState)
+	const setUser = useSetRecoilState(userState)
 
 	useEffect(() => {
 		;(async () => {
 			try {
-				const res = await axios.get('/')
+				const res = await axios.get(`/oauth`, {
+					headers: {
+						Authorization: `${getCookie('Authorization')}`,
+					},
+				})
 				setUser({
-					...res.data,
+					...res.data.data,
 					isLogin: true,
 				})
+				console.log(res.data)
 			} catch (error) {
 				console.log(`현재 비로그인 상태입니다. 로그인 후 서비스를 이용하실 수 있습니다.`)
 			}
@@ -43,17 +36,15 @@ const App = () => {
 	}, [])
 
 	return (
-		<RecoilRoot>
-			<Router>
-				<Routes>
-					<Route path={'/'} element={<Home />} />
-					<Route path={'/mypage'} element={<MyPage />} />
-					<Route path={'/manage'} element={<Manage />} />
-					<Route path={'/oauth'} element={<Signup />} />
-					<Route path={'*'} element={<NotFound />} />
-				</Routes>
-			</Router>
-		</RecoilRoot>
+		<Router>
+			<Routes>
+				<Route path={'/'} element={<Home />} />
+				<Route path={'/mypage'} element={<MyPage />} />
+				<Route path={'/manage'} element={<Manage />} />
+				<Route path={'/oauth'} element={<Signup />} />
+				<Route path={'*'} element={<NotFound />} />
+			</Routes>
+		</Router>
 	)
 }
 

@@ -4,6 +4,7 @@ import './index.scss'
 import App from './App'
 import { QueryCache, QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import { RecoilRoot } from 'recoil'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -24,6 +25,8 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
 	<QueryClientProvider client={queryClient}>
 		<ReactQueryDevtools initialIsOpen={true} />
-		<App />
+		<RecoilRoot>
+			<App />
+		</RecoilRoot>
 	</QueryClientProvider>
 )
