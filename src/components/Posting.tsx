@@ -14,9 +14,9 @@ const Post = () => {
 	const [isAnonymous, setIsAnonymous] = useState(true)
 
 	const user = useRecoilValue(userState)
-	const [Image, setImage] = React.useState(null)
+	const [image, setImage] = React.useState('')
 	const [imageType, setImageType] = React.useState('')
-	const [option, setOption] = React.useState('')
+	const [option, setOption] = React.useState('free')
 	const [textareaHeight, setTextareaHeight] = React.useState({
 		row: 1,
 		lineBreak: [],
@@ -28,13 +28,13 @@ const Post = () => {
 		if (scrollHeight > clientHeight) {
 			setTextareaHeight((prev) => ({
 				row: prev.row + 1,
-				lineBreak: { ...prev.lineBreak, [value.length - 1]: true },
+				lineBreak: { ...prev.lineBreak, [value.length - 1]: true } as any,
 			}))
 		}
 		if (textareaHeight.lineBreak[value.length]) {
 			setTextareaHeight((prev) => ({
 				row: prev.row - 1,
-				lineBreak: { ...prev.lineBreak, [value.length]: false },
+				lineBreak: { ...prev.lineBreak, [value.length]: false } as any,
 			}))
 		}
 	}
@@ -43,12 +43,12 @@ const Post = () => {
 		if (e.code === 'Enter') {
 			setTextareaHeight((prev) => ({
 				row: prev.row + 1,
-				lineBreak: { ...prev.lineBreak, [e.target.value.length]: true },
+				lineBreak: { ...prev.lineBreak, [e.target.value.length]: true } as any,
 			}))
 		}
 	}
 
-	const encodeFileToBase64 = (fileBlob: File) => {
+	const encodeFileToBase64 = (fileBlob: any) => {
 		setImageType(fileBlob.type.replace('image/', ''))
 		if (
 			fileBlob.type !== 'image/png' &&
@@ -65,51 +65,46 @@ const Post = () => {
 			reader.readAsDataURL(fileBlob)
 			return new Promise((resolve) => {
 				reader.onload = () => {
-					setImage(reader.result)
+					setImage(reader.result as any)
 					resolve('')
 				}
 			})
 		}
 	}
 
-	const onSubmit = React.useCallback(
-		async (e: React.FormEvent) => {
-			e.preventDefault()
-			setPrevent(true)
+	const postingPost = async () => {
+		setPrevent(true)
 
-			if (!user.isLogin) {
-				alert('로그인 상태를 확인할 수 없습니다. 로그인 후에 글을 작성하실 수 있습니다.')
-				setPrevent(false)
-				return
-			}
+		if (!user.isLogin) {
+			alert('로그인 상태를 확인할 수 없습니다. 로그인 후에 글을 작성하실 수 있습니다.')
+			setPrevent(false)
+			return
+		}
 
-			if (!contents) {
-				alert('내용이 비어있습니다. 제보 내용을 다시 한 번 확인해주세요.')
-				setPrevent(false)
-				return
-			}
+		if (!contents) {
+			alert('내용이 비어있습니다. 제보 내용을 다시 한 번 확인해주세요.')
+			setPrevent(false)
+			return
+		}
 
-			if (contents.length > 5000) {
-				alert('내용이 제한을 초과했습니다. 5000자 이내로 작성해주세요.')
-				return
-			}
+		if (contents.length > 5000) {
+			alert('내용이 제한을 초과했습니다. 5000자 이내로 작성해주세요.')
+			return
+		}
 
-			try {
-				await createPost(option, isAnonymous, contents, Image, imageType)
-				alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-				setPrevent(false)
-				window.location.reload()
-			} catch (err) {
-				alert('오류가 발생했습니다. 관리자에게 문의바랍니다.')
-				console.log(err)
-				setPrevent(false)
-			}
-		},
-		[user, contents, isAnonymous, Image, option, imageType]
-	)
-
+		try {
+			await createPost(option, isAnonymous, contents, image, imageType)
+			alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
+			setPrevent(false)
+			window.location.reload()
+		} catch (err) {
+			alert('오류가 발생했습니다. 관리자에게 문의바랍니다.')
+			console.log(err)
+			setPrevent(false)
+		}
+	}
 	return (
-		<form onSubmit={onSubmit}>
+		<form onSubmit={(e) => e.preventDefault()}>
 			<div className="article_wrap">
 				<div className="article_box">
 					<div className="post_title_box">
@@ -118,15 +113,15 @@ const Post = () => {
 								<input
 									type="file"
 									onChange={(e) => {
-										encodeFileToBase64(e.target.files[0])
+										encodeFileToBase64(!!e.target.files ? e.target.files[0] : '')
 									}}
 									accept="image/png, image/gif, image/jpg"
 									disabled={!user.isLogin}
 								/>
-								{Image ? <img src={Image} alt="미리보기" className="preview-img" /> : ''}
+								{image ? <img src={image || ''} alt="" className="preview-img" /> : ''}
 								<div className="anony-button-wrap" onClick={() => setIsAnonymous(!isAnonymous)}>
 									<span className="anony_button_span">익명</span>
-									<button type="button" className="anony-button" style={isAnonymous ? { backgroundColor: 'green' } : null}>
+									<button type="button" className="anony-button" style={isAnonymous ? { backgroundColor: 'green' } : {}}>
 										{isAnonymous ? <img src={`${checkLogo}`} alt="check" /> : ''}
 									</button>
 								</div>
@@ -135,15 +130,15 @@ const Post = () => {
 										onChange={(e) => {
 											setOption(e.target.value)
 										}}>
-										<option>자유</option>
-										<option>고민</option>
-										<option>질문</option>
-										<option>불만</option>
-										<option>건의</option>
+										<option value={'free'}>자유</option>
+										<option value={'worries'}>고민</option>
+										<option value={'questions'}>질문</option>
+										<option value={'complaints'}>불만</option>
+										<option value={'suggestions'}>건의</option>
 									</select>
 								</div>
 								<div className="post-button-wrap">
-									<button type="submit" id="post" className="post_button" disabled={prevent}>
+									<button type="button" onClick={postingPost} id="post" className="post_button" disabled={prevent}>
 										<img src={`${postLogo}`} alt="" />
 										<span>제보</span>
 									</button>

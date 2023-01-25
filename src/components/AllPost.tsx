@@ -1,8 +1,7 @@
-import { AxiosResponse } from 'axios'
+import axios from 'axios'
 import React from 'react'
 import AllowPostType from '../../types/AllowPostType'
 import '../style/AllPost.scss'
-import getAllPost from '../util/api/getAllPost'
 const PostItem = React.lazy(() => import('./PostItem'))
 
 const AllPost = () => {
@@ -11,8 +10,8 @@ const AllPost = () => {
 	React.useEffect(() => {
 		;(async () => {
 			try {
-				const res = (await getAllPost()) as unknown as AxiosResponse
-				setAllowPost(res.data)
+				const res = await axios.get('/post')
+				if (!!res) setAllowPost(res.data.data.reverse())
 			} catch (err) {
 				alert('글을 불러오는 도중 오류가 발생했습니다.')
 				console.log(err)

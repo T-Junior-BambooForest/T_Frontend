@@ -35,7 +35,7 @@ const Header = () => {
 						마이페이지
 					</Link>
 				) : (
-					<a className="login" href="https://auth.bssm.kro.kr/oauth?clientId=4f6a1b29&redirectURI=https://api.bsmboo.kro.kr:8000/oauth">
+					<a className="login" href="https://auth.bssm.kro.kr/oauth?clientId=75711f76&redirectURI=http://localhost:3000/oauth">
 						로그인
 					</a>
 				)}
