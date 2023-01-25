@@ -23,6 +23,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 yarn.lock
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
 ### VisualStudioCode template
 .vscode/*
 !.vscode/settings.json
