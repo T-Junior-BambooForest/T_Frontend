@@ -1,4 +1,5 @@
 import React from 'react'
+import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 import useDidMountEffect from '../hooks/useDidMountEffect'
@@ -14,6 +15,16 @@ const Management = () => {
 	const navigate = useNavigate()
 	const [post, setPost]: any = React.useState([])
 	const [isLoad, setIsLoad] = React.useState(false)
+
+	useQuery('getManagePost', getManagePost, {
+		onSuccess: (res) => {
+			if (!!res.data) setPost(res.data.data.reverse())
+			setIsLoad(true)
+		},
+		onError: (err) => {
+			console.log(err)
+		},
+	})
 
 	const onClickUpdatePost = async (postCode: number) => {
 		try {
@@ -36,20 +47,6 @@ const Management = () => {
 			console.log(err)
 		}
 	}
-
-	React.useEffect(() => {
-		;(async () => {
-			try {
-				const res = await getManagePost()
-				console.log(res.data)
-				if (!!res.data) setPost(res.data.data.reverse())
-				setIsLoad(true)
-			} catch (error) {
-				alert('글을 불러오던 도중 오류가 발생했습니다.')
-				console.log(error)
-			}
-		})()
-	}, [])
 
 	useDidMountEffect(() => {
 		if (user.role !== 'ADMIN') {
