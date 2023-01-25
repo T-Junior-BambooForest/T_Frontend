@@ -1,5 +1,5 @@
 import React from 'react'
-import PostItemType from '../../types/PostItemType'
+import PostItemType from '../types/PostItemType'
 import '../style/PostItem.scss'
 
 const PostItem = ({ category, isAnonymous, contents, allowCode, image, user }: PostItemType) => {
