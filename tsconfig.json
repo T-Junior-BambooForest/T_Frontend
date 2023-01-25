@@ -1,20 +1,20 @@
 {
 	"compilerOptions": {
-		"target": "es5",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
+		"target": "ESNext",
+		"useDefineForClassFields": true,
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"allowJs": false,
 		"skipLibCheck": true,
+		"esModuleInterop": false,
+		"allowSyntheticDefaultImports": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "node",
+		"module": "ESNext",
+		"moduleResolution": "Node",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"jsx": "preserve",
-		"incremental": true,
-		"strictNullChecks": false
+		"noEmit": true,
+		"jsx": "react-jsx"
 	},
 	"include": [
 		"next-env.d.ts",
@@ -26,5 +26,6 @@
 		"src/modules/posting.js",
 		"src/modules/posting.js"
 	],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules"],
+	"references": [{ "path": "./tsconfig.node.json" }]
 }
