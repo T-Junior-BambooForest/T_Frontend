@@ -1,7 +1,6 @@
-import { AxiosResponse } from 'axios'
+import axios from 'axios'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import getToken from '../util/api/getToken'
 import setCookie from '../util/cookie/setCookie'
 
 const Signup = () => {
@@ -9,10 +8,15 @@ const Signup = () => {
 
 	React.useEffect(() => {
 		;(async () => {
-			const res = (await getToken(window.location.search)) as unknown as AxiosResponse
-			setCookie('Authorization', res.data, '7')
-			navigate('/')
-			window.location.reload()
+			try {
+				const res = await axios.post(`/oauth${window.location.search}`)
+				setCookie('Authorization', res.data.data, '7')
+				localStorage.setItem('code', window.location.search)
+				navigate('/')
+				window.location.reload()
+			} catch (err) {
+				console.log(err)
+			}
 		})()
 		// eslint-disable-next-line
 	}, [])

@@ -32,21 +32,20 @@ const MyPage = () => {
 			</div>
 			<div className="user_info_wrap">
 				<div className="user_nickname_box">
-					<span className="user_nickname">{user.nickname || '익명'}</span>
+					<span className="user_nickname">{user.name || '익명'}</span>
 				</div>
 				<div className="user_school_info_box">
 					{user.isLogin ? (
 						<>
 							<span className="user_grade">{user.grade || '?'}학년</span>
 							<span className="user_class">{user.class || '?'}반</span>
-							<span className="user_number">{user.studentNo || '?'}번</span>
 							<span className="user_name">{user.name || '익명'}</span>
 						</>
 					) : (
 						<span>로그인이 필요합니다.</span>
 					)}
 				</div>
-				{user.isManager ? (
+				{user.role === 'ADMIN' ? (
 					<div className="management_page">
 						<Link to="/manage" className="management_button">
 							관리자 페이지
