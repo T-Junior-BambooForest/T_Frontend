@@ -25,6 +25,9 @@
 <img src="https://img.shields.io/badge/React JS-73c4f3?style=for-the-badge&logo=react&logoColor=white"/>
 <img src="https://img.shields.io/badge/TypeScript-4376c1?style=for-the-badge&logo=typescript&logoColor=white"/>
 <img src="https://img.shields.io/badge/Sass-hotpink?style=for-the-badge&logo=sass&logoColor=white"/>
+<img src="https://img.shields.io/badge/Vite-7895f9?style=for-the-badge&logo=Vite&logoColor=white"/>
+<img src="https://img.shields.io/badge/Recoil-4776de?style=for-the-badge&logo=recoil&logoColor=white"/>
+<img src="https://img.shields.io/badge/yarn berry-73c4f3?style=for-the-badge&logo=yarn&logoColor=white"/>
 </div>
 
 ## Made By
