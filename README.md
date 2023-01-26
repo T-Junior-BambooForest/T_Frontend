@@ -28,6 +28,7 @@
 <img src="https://img.shields.io/badge/Vite-7895f9?style=for-the-badge&logo=Vite&logoColor=white"/>
 <img src="https://img.shields.io/badge/Recoil-4776de?style=for-the-badge&logo=recoil&logoColor=white"/>
 <img src="https://img.shields.io/badge/yarn berry-73c4f3?style=for-the-badge&logo=yarn&logoColor=white"/>
+<img src="https://img.shields.io/badge/React Query-e95258?style=for-the-badge&logo=react-query&logoColor=white"/>
 </div>
 
 ## Made By
