@@ -8,7 +8,7 @@ import ManagePostType from '../types/ManagePostType'
 import allowPost from '../util/api/allowPost'
 import deletePost from '../util/api/deletePost'
 import getManagePost from '../util/api/getManagePost'
-import userState from '../util/atom/userState'
+import userState from '../util/atom/userStore'
 import category from '../util/etc/category'
 const Header = React.lazy(() => import('../components/Header'))
 
