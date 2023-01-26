@@ -1,19 +1,21 @@
 import React from 'react'
-import { useQuery } from 'react-query'
+import { MutationFunction, useMutation, useQuery, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 import useDidMountEffect from '../hooks/useDidMountEffect'
 import '../style/Manage.scss'
+import ManagePostType from '../types/ManagePostType'
 import allowPost from '../util/api/allowPost'
 import deletePost from '../util/api/deletePost'
 import getManagePost from '../util/api/getManagePost'
 import userState from '../util/atom/userState'
+import category from '../util/etc/category'
 const Header = React.lazy(() => import('../components/Header'))
 
 const Management = () => {
 	const user = useRecoilValue(userState)
 	const navigate = useNavigate()
-	const [post, setPost]: any = React.useState([])
+	const [post, setPost] = React.useState([])
 	const [isLoad, setIsLoad] = React.useState(false)
 
 	useQuery('getManagePost', getManagePost, {
@@ -26,27 +28,29 @@ const Management = () => {
 		},
 	})
 
-	const onClickUpdatePost = async (postCode: number) => {
-		try {
-			await allowPost(postCode)
+	const queryClient = useQueryClient()
+
+	const updatePostMutation = useMutation(allowPost as MutationFunction, {
+		onSuccess: () => {
 			alert('글이 수락되었습니다.')
-			window.location.reload()
-		} catch (err) {
+			queryClient.invalidateQueries('getManagePost')
+		},
+		onError: (err) => {
 			alert('글 수락 도중 오류가 발생했습니다.')
 			console.log(err)
-		}
-	}
+		},
+	})
 
-	const onClickDeletePost = async (postCode: number) => {
-		try {
-			await deletePost(postCode)
+	const deletePostMutation = useMutation(deletePost as MutationFunction, {
+		onSuccess: () => {
 			alert('글이 삭제되었습니다.')
-			window.location.reload()
-		} catch (err) {
-			alert('글 삭제 도중 오류가 발생했습니다.')
+			queryClient.invalidateQueries('getManagePost')
+		},
+		onError: (err) => {
+			alert('글 수락 도중 오류가 발생했습니다.')
 			console.log(err)
-		}
-	}
+		},
+	})
 
 	useDidMountEffect(() => {
 		if (user.role !== 'ADMIN') {
@@ -77,35 +81,18 @@ const Management = () => {
 										<td colSpan={2}>승인 여부</td>
 									</tr>
 								</tbody>
-								{post.map((post: any) => (
+								{post.map((post: ManagePostType) => (
 									<tbody key={post.postCode}>
 										<tr>
 											<td>{post.postCode}</td>
 											<td className="post-contents">{post.contents}</td>
 											<td>{post.isAnonymous ? '익명' : post.user?.name || '익명'}</td>
 											<td>
-												<img src={post.Image} alt="없음" style={{ width: '150px' }} />
+												<img src={post.Image} alt="없음" className="post-img" />
 											</td>
-											<td>
-												{post.category
-													.replace('free', '자유')
-													.replace('worries', '고민')
-													.replace('complaints', '불만')
-													.replace('questions', '질문')
-													.replace('suggestions', '건의')}
-											</td>
-											{!post.isAllow ? (
-												<td
-													onClick={() => {
-														onClickUpdatePost(post.postCode)
-														console.log(post.postCode)
-													}}>
-													수락
-												</td>
-											) : (
-												<td>&nbsp;</td>
-											)}
-											<td onClick={() => onClickDeletePost(post.postCode)}>거절</td>
+											<td>{category(post.category)}</td>
+											<td onClick={() => updatePostMutation.mutate(post.postCode)}>수락</td>
+											{post.isAllow ? <td onClick={() => deletePostMutation.mutate(post.postCode)}>거절</td> : <td>&nbsp;&nbsp;&nbsp;</td>}
 										</tr>
 									</tbody>
 								))}
