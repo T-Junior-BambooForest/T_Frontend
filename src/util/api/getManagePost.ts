@@ -1,12 +1,14 @@
 import axios from 'axios'
 import getCookie from '../cookie/getCookie'
 
-const getManagePost = () => {
-	return axios.get('/post/manage', {
-		headers: {
-			Authorization: `${getCookie('Authorization')}`,
-		},
-	})
+const getManagePost = async () => {
+	return (
+		await axios.get('/post/manage', {
+			headers: {
+				Authorization: `${getCookie('Authorization')}`,
+			},
+		})
+	).data
 }
 
 export default getManagePost

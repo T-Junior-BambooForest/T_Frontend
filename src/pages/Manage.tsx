@@ -20,7 +20,7 @@ const Management = () => {
 
 	useQuery('getManagePost', getManagePost, {
 		onSuccess: (res) => {
-			if (!!res.data) setPost(res.data.data.reverse())
+			if (!!res.data) setPost(res.data.reverse())
 			setIsLoad(true)
 		},
 		onError: (err) => {

@@ -7,9 +7,9 @@ import setCookie from '../util/cookie/setCookie'
 const Signup = () => {
 	const navigate = useNavigate()
 
-	useQuery('getToken', () => axios.post(`/oauth${window.location.search}`), {
+	useQuery('getToken', async () => (await axios.post(`/oauth${window.location.search}`)).data, {
 		onSuccess: (res) => {
-			setCookie('Authorization', res.data.data, '7')
+			setCookie('Authorization', res.data, '7')
 			localStorage.setItem('code', window.location.search)
 			navigate('/')
 			window.location.reload()
