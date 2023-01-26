@@ -7,11 +7,27 @@ import { Textarea } from './Textarea'
 import { useRecoilValue } from 'recoil'
 import userState from '../util/atom/userState'
 import createPost from '../util/api/createPost'
+import { MutationFunction, useMutation, useQueryClient } from 'react-query'
 
 const Post = () => {
 	const [prevent, setPrevent] = useState(false)
 	const [contents, setContents] = useState('')
 	const [isAnonymous, setIsAnonymous] = useState(true)
+
+	const queryClient = useQueryClient()
+
+	const { mutate } = useMutation(createPost as MutationFunction, {
+		onSuccess: () => {
+			queryClient.invalidateQueries('getManagePost')
+			setPrevent(false)
+			window.location.reload()
+		},
+		onError: (err) => {
+			alert('오류가 발생했습니다.')
+			console.log(err)
+			setPrevent(false)
+		},
+	})
 
 	const user = useRecoilValue(userState)
 	const [image, setImage] = React.useState('')
@@ -92,16 +108,13 @@ const Post = () => {
 			return
 		}
 
-		try {
-			await createPost(option, isAnonymous, contents, image, imageType)
-			alert('제보가 접수 되었습니다. 관리자 승인 후 목록에 표시됩니다.')
-			setPrevent(false)
-			window.location.reload()
-		} catch (err) {
-			alert('오류가 발생했습니다. 관리자에게 문의바랍니다.')
-			console.log(err)
-			setPrevent(false)
-		}
+		mutate({
+			option,
+			isAnonymous,
+			contents,
+			image,
+			imageType,
+		})
 	}
 	return (
 		<form onSubmit={(e) => e.preventDefault()}>
