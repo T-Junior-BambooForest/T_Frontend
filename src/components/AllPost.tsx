@@ -10,7 +10,7 @@ const AllPost = () => {
 
 	useQuery('getPost', () => axios.get('/post'), {
 		onSuccess: (res) => {
-			setPostData(res.data.data.reverse())
+			setPostData(res.data.reverse())
 		},
 		onError: (err) => {
 			console.log(err)

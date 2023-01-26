@@ -19,13 +19,15 @@ const App = () => {
 	useEffect(() => {
 		;(async () => {
 			try {
-				const res = await axios.get(`/oauth`, {
-					headers: {
-						Authorization: `${getCookie('Authorization')}`,
-					},
-				})
+				const res = (
+					await axios.get(`/oauth`, {
+						headers: {
+							Authorization: `${getCookie('Authorization')}`,
+						},
+					})
+				).data
 				setUser({
-					...res.data.data,
+					...res.data,
 					isLogin: true,
 				})
 				console.log(res.data)
