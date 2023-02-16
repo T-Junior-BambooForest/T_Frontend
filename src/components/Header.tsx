@@ -4,7 +4,7 @@ import '../style/Header.scss'
 import BambooDark from '../assets/bambooDark.svg'
 import locationLogo from '../assets/location.svg'
 import { useRecoilValue } from 'recoil'
-import userState from '../util/atom/userStore'
+import userState from '../util/atom/userState'
 
 const Header = () => {
 	const user = useRecoilValue(userState)

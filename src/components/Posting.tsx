@@ -5,7 +5,7 @@ import checkLogo from '../assets/checkImg.svg'
 import postLogo from '../assets/postImg.svg'
 import { Textarea } from './Textarea'
 import { useRecoilValue } from 'recoil'
-import userState from '../util/atom/userStore'
+import userState from '../util/atom/userState'
 import createPost from '../util/api/createPost'
 import { MutationFunction, useMutation, useQueryClient } from 'react-query'
 
