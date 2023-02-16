@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import AllowPostType from '../types/AllowPostType'
 import '../style/AllPost.scss'
 import { useQuery } from 'react-query'
-const PostItem = React.lazy(() => import('./PostItem'))
+import PostItem from './PostItem'
 
 const AllPost = () => {
 	const [postData, setPostData] = useState([])

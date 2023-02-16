@@ -10,7 +10,7 @@ import deletePost from '../util/api/deletePost'
 import getManagePost from '../util/api/getManagePost'
 import userState from '../util/atom/userState'
 import category from '../util/etc/category'
-const Header = React.lazy(() => import('../components/Header'))
+import Header from '../components/Header'
 
 const Management = () => {
 	const user = useRecoilValue(userState)

@@ -1,6 +1,6 @@
 import React from 'react'
-const Header = React.lazy(() => import('../components/Header'))
-const Posting = React.lazy(() => import('../components/Posting'))
+import Header from '../components/Header'
+import Posting from '../components/Posting'
 
 const Home = () => {
 	return (
