@@ -11,7 +11,7 @@ import userState from './util/atom/userState'
 import getCookie from './util/cookie/getCookie'
 
 axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'http://api.bsmboo.kro.kr/api'
+axios.defaults.baseURL = 'https://api.bsmboo.kro.kr/api'
 
 const App = () => {
 	const setUser = useSetRecoilState(userState)
