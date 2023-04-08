@@ -20,7 +20,7 @@ const Post = () => {
 		onSuccess: () => {
 			queryClient.invalidateQueries('getManagePost')
 			setPrevent(false)
-			window.location.reload()
+			alert('제보되었습니다! 관리자 승인 후 인스타그램에 자동으로 업로드됩니다.')
 		},
 		onError: (err) => {
 			alert('오류가 발생했습니다.')
