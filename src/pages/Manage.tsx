@@ -92,7 +92,7 @@ const Management = () => {
 											</td>
 											<td>{category(post.category)}</td>
 											<td onClick={() => updatePostMutation.mutate(post.postCode)}>수락</td>
-											{post.isAllow ? <td onClick={() => deletePostMutation.mutate(post.postCode)}>거절</td> : <td>&nbsp;&nbsp;&nbsp;</td>}
+											<td onClick={() => deletePostMutation.mutate(post.postCode)}>거절</td>
 										</tr>
 									</tbody>
 								))}

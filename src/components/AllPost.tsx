@@ -8,7 +8,7 @@ import PostItem from './PostItem'
 const AllPost = () => {
 	const [postData, setPostData] = useState([])
 
-	useQuery('getPost', () => axios.get('/post'), {
+	useQuery('getPost', async () => (await axios.get('/post')).data, {
 		onSuccess: (res) => {
 			setPostData(res.data.reverse())
 		},
