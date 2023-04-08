@@ -1,7 +1,15 @@
 import axios from 'axios'
 import getCookie from '../cookie/getCookie'
 
-const createPost = async (category: string, isAnonymous: boolean, contents: string, image: string, imageType: string) => {
+interface CreatePostType {
+	category: string
+	isAnonymous: boolean
+	contents: string
+	image: string
+	imageType: string
+}
+
+const createPost = async ({ category, isAnonymous, contents, image, imageType }: CreatePostType) => {
 	return (
 		await axios.post(
 			'post/create',
