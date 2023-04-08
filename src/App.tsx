@@ -30,7 +30,6 @@ const App = () => {
 					...res.data,
 					isLogin: true,
 				})
-				console.log(res.data)
 			} catch (error) {
 				console.log(`현재 비로그인 상태입니다. 로그인 후 서비스를 이용하실 수 있습니다.`)
 			}
