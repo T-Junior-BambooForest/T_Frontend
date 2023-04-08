@@ -4,6 +4,7 @@ import AllowPostType from '../types/AllowPostType'
 import '../style/AllPost.scss'
 import { useQuery } from 'react-query'
 import PostItem from './PostItem'
+import dateParser from '../util/etc/dateParser'
 
 const AllPost = () => {
 	const [postData, setPostData] = useState([])
@@ -32,6 +33,7 @@ const AllPost = () => {
 						allowCode={data.AllowedCode}
 						image={data.post.Image}
 						user={data.post.user}
+						createdAt={dateParser(data.post.createdAt)}
 					/>
 				))}
 			</React.Suspense>

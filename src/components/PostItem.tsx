@@ -2,7 +2,7 @@ import React from 'react'
 import PostItemType from '../types/PostItemType'
 import '../style/PostItem.scss'
 
-const PostItem = ({ category, isAnonymous, contents, allowCode, image, user }: PostItemType) => {
+const PostItem = ({ category, isAnonymous, contents, allowCode, image, user, createdAt }: PostItemType) => {
 	return (
 		<div className="content_box_wrap">
 			<div className="content_box">
@@ -22,7 +22,7 @@ const PostItem = ({ category, isAnonymous, contents, allowCode, image, user }: P
 						<span className="date_text">{isAnonymous ? '익명' : `${user.grade}학년 ${user.class}반 ${user.name}`}님 제보</span>
 					</div>
 					<div className="author_text_box">
-						<span className="author_text">2023년 1월 22일 일요일 4시 32분</span>
+						<span className="author_text">{createdAt}</span>
 					</div>
 				</div>
 				<div className="content_lines"></div>

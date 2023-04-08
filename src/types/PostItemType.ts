@@ -4,6 +4,7 @@ export default interface PostItemType {
 	contents: string
 	allowCode: number
 	image: string
+	createdAt: string
 	user: {
 		code: number
 		role: string

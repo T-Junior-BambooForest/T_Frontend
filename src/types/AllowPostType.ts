@@ -6,6 +6,7 @@ export default interface AllowPostType {
 		isAnonymous: boolean
 		contents: string
 		Image: string
+		createdAt: string
 		user: {
 			code: number
 			role: string
