@@ -5,8 +5,6 @@ const dateParser = (UTC: string) => {
 	const weeks = ['일', '월', '화', '수', '목', '금', '토']
 	const date = moment(UTC)
 
-	console.log(date)
-
 	const PARSING_DATE = `
     ${date.year()}년 
     ${date.month() + 1}월 
