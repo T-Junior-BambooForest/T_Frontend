@@ -83,17 +83,54 @@ const Management = () => {
 								</tbody>
 								{post.map((post: ManagePostType) => (
 									<tbody key={post.postCode}>
-										<tr>
-											<td>{post.postCode}</td>
-											<td className="post-contents">{post.contents}</td>
-											<td>{post.isAnonymous ? '익명' : post.user?.name || '익명'}</td>
-											<td>
-												<img src={post.Image} alt="없음" className="post-img" />
-											</td>
-											<td>{category(post.category)}</td>
-											<td onClick={() => updatePostMutation.mutate(post.postCode)}>수락</td>
-											<td onClick={() => deletePostMutation.mutate(post.postCode)}>거절</td>
-										</tr>
+										{!post.isAllow && (
+											<tr>
+												<td>{post.postCode}</td>
+												<td className="post-contents">{post.contents}</td>
+												<td>{post.isAnonymous ? '익명' : post.user?.name || '익명'}</td>
+												<td>
+													<img src={post.Image} alt="없음" className="post-img" />
+												</td>
+												<td>{category(post.category)}</td>
+												<td onClick={() => updatePostMutation.mutate(post.postCode)}>수락</td>
+												<td onClick={() => deletePostMutation.mutate(post.postCode)}>거절</td>
+											</tr>
+										)}
+									</tbody>
+								))}
+							</table>
+						</div>
+					</div>
+					<div className="management_title_box">
+						<h1 className="management_title">승인된 게시글</h1>
+					</div>
+					<div className="management_content_wrap">
+						<div className="management_content_title">
+							<table>
+								<tbody>
+									<tr>
+										<td>글번호</td>
+										<td>글내용</td>
+										<td>요청자</td>
+										<td>사진</td>
+										<td>카테고리</td>
+										<td>삭제 여부</td>
+									</tr>
+								</tbody>
+								{post.map((post: ManagePostType) => (
+									<tbody key={post.postCode}>
+										{post.isAllow && (
+											<tr>
+												<td>{post.postCode}</td>
+												<td className="post-contents">{post.contents}</td>
+												<td>{post.isAnonymous ? '익명' : post.user?.name || '익명'}</td>
+												<td>
+													<img src={post.Image} alt="없음" className="post-img" />
+												</td>
+												<td>{category(post.category)}</td>
+												<td onClick={() => deletePostMutation.mutate(post.postCode)}>삭제</td>
+											</tr>
+										)}
 									</tbody>
 								))}
 							</table>
